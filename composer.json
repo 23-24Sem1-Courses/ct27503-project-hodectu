@@ -1,0 +1,14 @@
+{
+    "name": "ct275/project",
+    "require": {
+        "bramus/router": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "./src"
+        },
+        "files": [
+            ""
+        ]
+    }
+}
