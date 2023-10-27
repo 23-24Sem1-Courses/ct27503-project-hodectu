@@ -48,21 +48,32 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/js/zoom-master/jquery.zoom.min.js"></script>
 <script src="/js/jquery.pan-master/dist/jquery.pan.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
+    integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+    integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-    $.validator.setDefaults({
-        submitHandler: function() {
-            alert('submitted!');
-        }
-    })
     $().ready(() => {
+
+        $.ajax({
+            url: "/cart/quantity",
+            type: "GET"
+        }).done(function (data) {
+            console.log({ data });
+            $('.cart-quantity').html(data);
+        });
+
         $('#login_form').validate({
             rules: {
                 email: {
@@ -166,16 +177,16 @@
 
         $(".pan").pan();
 
-        $('.cart-btn-close').each(function() {
+        $('.cart-btn-close').each(function () {
             $(this).on('click', () => {
                 $.confirm({
                     title: 'Xác nhận xóa!',
                     content: 'Bạn muốn xóa sản phẩm này?',
                     buttons: {
-                        confirm: function() {
+                        confirm: function () {
                             $.alert('Confirmed!');
                         },
-                        cancel: function() {
+                        cancel: function () {
                             $.alert('Canceled!');
                         },
                     }
@@ -184,6 +195,14 @@
         })
     })
     $("#draggable").draggable()
+
+    $('img.sub-img').each(function () {
+        $(this).on('click', function () {
+            const img = $(this).prop("src");
+            $('.main-img').prop("src", img);
+        })
+    })
+
 </script>
 
 </body>

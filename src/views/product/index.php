@@ -6,15 +6,15 @@
             <div class="row py-3 bg-white text-lg-start text-center">
                 <div class="col-md-5 col-12 d-flex justify-content-center flex-column text-center">
                     <div class="d-flex justify-content-center">
-                        <img src="/images/product/text 1.jpg" alt="" class="img-fluid" style="height: 400px;">
+                        <img src="/images/product/text 1.jpg" alt="" class="main-img img-fluid" style="height: 400px;">
                     </div>
                     <div class="col-lg-12 col-12 justify-content-center my-2 d-none d-md-flex">
                         <div class="flex-wrap border border-black p-2 d-flex gap-4 justify-content-center">
-                            <img src="/images/section/h2.jpg" alt="" style="height: 75px;">
-                            <img src="/images/section/h3.jpg" alt="" style="height: 75px;">
-                            <img src="/images/section/h4.jpg" alt="" style="height: 75px;">
-                            <img src="/images/section/h5.jpg" alt="" style="height: 75px;">
-                            <img src="/images/section/h6.jpg" alt="" style="height: 75px;">
+                            <img class="sub-img" src="/images/section/h2.jpg" alt="" style="height: 75px;">
+                            <img class="sub-img" src="/images/section/h3.jpg" alt="" style="height: 75px;">
+                            <img class="sub-img" src="/images/section/h4.jpg" alt="" style="height: 75px;">
+                            <img class="sub-img" src="/images/section/h5.jpg" alt="" style="height: 75px;">
+                            <img class="sub-img" src="/images/section/h6.jpg" alt="" style="height: 75px;">
                         </div>
                     </div>
                 </div>
@@ -33,20 +33,24 @@
                     <div class="row justify-content-center justify-content-lg-start">
                         <div class="d-flex col-lg-3 col-6 ">
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-default btn-number" style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
+                                <button type="button" class="btn btn-default btn-number"
+                                    style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
                                     <span class="fa fa-minus"></span>
                                 </button>
                             </span>
-                            <input type="text" name="quantity" class="form-control input-number text-center col" value="1" min="1" max="100">
+                            <input type="text" name="quantity" class="form-control input-number text-center col"
+                                value="1" min="1" max="100">
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-default btn-number" style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
+                                <button type="button" class="btn btn-default btn-number"
+                                    style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
                                     <span class="fa fa-plus"></span>
                                 </button>
                             </span>
                         </div>
                     </div>
                     <hr>
-                    <div class="col-md-12 col-3 row d-flex justify-content-center pb-3 gap-3 justify-content-lg-start " style="width: auto;">
+                    <div class="col-md-12 col-3 row d-flex justify-content-center pb-3 gap-3 justify-content-lg-start "
+                        style="width: auto;">
                         <!-- Nút "Thêm vào giỏ hàng" với Bootstrap -->
                         <button class="btn col-4 col-md-4 text-white fw-bold" style="background-color: #17252a;">Thêm
                             giỏ
@@ -117,7 +121,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -141,7 +146,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -165,7 +171,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -189,7 +196,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -215,5 +223,6 @@
         <a href="#body" style="color: #3aafa9;"><i class="fa-solid fa-circle-up"></i></a>
     </button>
 </main>
+
 
 <?php include_once VIEWS_DIR . "/layouts/footer/index.php"; ?>
