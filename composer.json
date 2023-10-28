@@ -2,7 +2,8 @@
     "name": "ct275/project",
     "require": {
         "bramus/router": "^1.6",
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "pragmarx/random": "^0.2.2"
     },
     "autoload": {
         "psr-4": {
