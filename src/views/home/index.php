@@ -5,6 +5,15 @@
         scale: 1.2;
         transition: all 0.5s;
     }
+
+    #dropdown:hover #dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-item:hover {
+        background-color: #17252a;
+        color: white;
+    }
 </style>
 
 <main>
@@ -12,58 +21,59 @@
         <div class="container">
             <div class="row d-flex justify-content-between">
                 <div class="col-md-3 col-12 bg-white">
-                    <p>Menu</p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="" class="text-decoration-none text-black">Truyện
-                            ngắn
-                        </a>
-                    </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="" class="text-decoration-none text-black">Tiểu
-                            thuyết
-                        </a>
-                    </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="" class="text-decoration-none text-black">Truyện
-                            tranh
-                        </a>
-                    </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="" class="text-decoration-none text-black">Truyện
-                            khoa
-                            học viễn
-                            tưởng</a>
-                    </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="" class="text-decoration-none text-black">Truyện
-                            tình
-                            yêu
-                        </a>
-                    </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="" class="text-decoration-none text-black">Truyện
-                            Truyện phiêu lưu</a>
-                    </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="" class="text-decoration-none text-black">Truyện
-                            Truyện hài</a>
-                    </p>
+                    <div class="dropdown" id="dropdown">
+                        <button class="btn btn-white w-100 d-flex justify-content-center" type="button"
+                            style="box-shadow: none;" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex align-items-center gap-1 fs-4">
+                                <i class="fa-solid fa-bars"></i>
+                                <p class="m-0 ml-2"><a href="#" class="text-decoration-none text-black fw-bold">Menu</a>
+                                </p>
+                            </div>
+                        </button>
+                        <ul class="dropdown-menu row w-100" id="dropdown-menu" style="">
+                            <li><a class="dropdown-item fw-bold" href="#">Truyện ngắn</a></li>
+                            <li><a class="dropdown-item fw-bold" href="#">Tiểu thuyết</a></li>
+                            <li><a class="dropdown-item fw-bold" href="#">Truyện tranh</a></li>
+                            <li><a class="dropdown-item fw-bold" href="#">Truyện khoa học viễn tưởng</a></li>
+                            <li><a class="dropdown-item fw-bold" href="#">Truyện tình yêu</a></li>
+                            <li><a class="dropdown-item fw-bold" href="#">Truyện phiêu lưu</a></li>
+                            <li><a class="dropdown-item fw-bold" href="#">Truyện hài</a></li>
+                            <li><a class="dropdown-item fw-bold" href="#">Truyện Ma</a></li>
+                        </ul>
+                    </div>
+
+
                 </div>
                 <div id="carouselExampleInterval" class="carousel slide col-md-9 col-12" data-bs-ride="carousel">
                     <div class="carousel-inner rounded-3">
                         <div class="carousel-indicators rounded-3">
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-item active rounded-3" data-bs-interval="2000">
-                            <img src="/images/background/forgot-pass.jpg" class="d-block w-100 rounded-3 " style="height: 316px ;" alt="...">
+                            <img src="/images/background/forgot-pass.jpg" class="d-block w-100 rounded-3 "
+                                style="height: 316px ;" alt="...">
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="/images/background/login.jpg" class="d-block w-100 rounded-3" style="height: 316px ;" alt="...">
+                            <img src="/images/background/login.jpg" class="d-block w-100 rounded-3"
+                                style="height: 316px ;" alt="...">
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="/images/background/forgot-pass.jpg" class="d-block w-100 rounded-3" style="height: 316px ;" alt="...">
+                            <img src="/images/background/forgot-pass.jpg" class="d-block w-100 rounded-3"
+                                style="height: 316px ;" alt="...">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -88,7 +98,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <a href="/products/detail"> <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;"></a>
+                                <a href="/products/detail"> <img src="/images/section/h5.jpg" alt="Hình ảnh sách"
+                                        class="img-fluid" style=" height: 170px;"></a>
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -112,7 +123,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -136,7 +148,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -160,7 +173,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -198,7 +212,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -222,7 +237,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -246,7 +262,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
@@ -270,7 +287,8 @@
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
                                 <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;">
+                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
+                                    style=" height: 170px;">
                             </div>
                             <div class="col-md-12 col-12 text-center mt-3">
                                 <!-- Tên sách -->
