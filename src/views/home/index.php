@@ -1,7 +1,7 @@
 <?php include_once VIEWS_DIR . "/layouts/header/index.php"; ?>
 
 <style>
-    img:hover {
+    .product img:hover {
         scale: 1.2;
         transition: all 0.5s;
     }
@@ -83,7 +83,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-3 col-sm-6 col-12 p-3 bg-white">
+                <div class="product col-md-3 col-sm-6 col-12 p-3 bg-white">
                     <div class="col">
                         <div class="row p-3">
                             <div class="col-md-12 col-12 text-center">
