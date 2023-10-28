@@ -3,180 +3,178 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, 
-				initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="/images/favicon/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" type="image/png" href="/images/favicon/favicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/js/jquery.pan-master/dist/css/jquery.pan.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>GeeksForGeeks</title>
-    <link rel="stylesheet" href="./index.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/public/css/style.css">
+
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        nav a:hover {
+            color: #17252a !important;
+        }
+
+        main img:hover {
+            scale: 1.2;
+            transition: all 0.5s;
+        }
+    </style>
+    <title>Admin</title>
 </head>
 
 <body>
-
-    <!-- for header part -->
     <header>
+        <nav class="navbar navbar-expand-lg fw-semibold" style="background-color: #3aafa9;">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="/public/images/logo/store.png" alt="" style="width: 175px;">
+                </a>
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class=" text-white nav-link active fs-5" href="/src/views/admin/add">Thêm sản phẩm</a>
+                        </li>
+                    </ul>
 
-        <div class="logosec">
-            <div class="logo">GeeksForGeeks</div>
-            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-                class="icn menuicn" id="menuicn" alt="menu-icon">
-        </div>
+                    <div class="dropdown text-white">
+                        <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-regular fa-user text-white px-2"></i>
+                            admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                        </ul>
+                    </div>
 
-        <div class="searchbar">
-            <input type="text" placeholder="Search">
-            <div class="searchbtn">
-                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-                    class="icn srchicn" alt="search-icon">
+                </div>
             </div>
-        </div>
-
-        <div class="message">
-            <div class="circle"></div>
-            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" class="icn" alt="">
-            <div class="dp">
-                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-                    class="dpicn" alt="dp">
-            </div>
-        </div>
-
+        </nav>
     </header>
 
-    <div class="main-container">
-        <div class="navcontainer">
-            <nav class="nav">
-                <div class="nav-upper-options">
-                    <div class="nav-option option1">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-                            class="nav-img" alt="dashboard">
-                        <h3> Dashboard</h3>
-                    </div>
+    <main class="p-2 container" style="min-height: 100vh;">
 
-                    <div class="option2 nav-option">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
-                            class="nav-img" alt="articles">
-                        <h3> Articles</h3>
-                    </div>
-
-                    <div class="nav-option option3">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
-                            class="nav-img" alt="report">
-                        <h3> Report</h3>
-                    </div>
-
-                    <div class="nav-option option4">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
-                            class="nav-img" alt="institution">
-                        <h3> Institution</h3>
-                    </div>
-
-                    <div class="nav-option option5">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
-                            class="nav-img" alt="blog">
-                        <h3> Profile</h3>
-                    </div>
-
-                    <div class="nav-option option6">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-                            class="nav-img" alt="settings">
-                        <h3> Settings</h3>
-                    </div>
-
-                    <div class="nav-option logout">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
-                            class="nav-img" alt="logout">
-                        <h3>Logout</h3>
-                    </div>
-
-                </div>
-            </nav>
-        </div>
-        <div class="main">
-
-            <div class="searchbar2">
-                <input type="text" name="" id="" placeholder="Search">
-                <div class="searchbtn">
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-                        class="icn srchicn" alt="search-button">
-                </div>
-            </div>
-            <div class="report-container">
-                <div class="report-header">
-                    <h1 class="recent-Articles">Quản lý người dùng</h1>
-                    <button class="btn btn-primary view">Xem tất cả</button>
-                </div>
-
-                <div class="report-body">
-                    <div class="item0">
-                        <div class="row report-topic-heading d-flex text-start">
-                            <div class="col-1">
-                                <h3 class="t-op">#</h3>
-                            </div>
-                            <div class="col-2">
-                                <h3 class="t-op">Tài khoản</h3>
-                            </div>
-                            <div class="col-2">
-                                <h3 class="t-op">Họ và tên</h3>
-                            </div>
-                            <div class="col-3">
-                                <h3 class="t-op">Công cụ</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="items">
-                        <div class="item1 d-flex text-start">
-                            <div class="col-2">
-                                <h3 class="t-op-nextlvl">1</h3>
-                            </div>
-                            <div class="col-3">
-                                <h3 class="t-op-nextlvl">admin</h3>
-                            </div>
-                            <div class="col-3">
-                                <h3 class="t-op-nextlvl">Vo Van Nghèo</h3>
-                            </div>
-                            <div class="row col-4">
-                                <div class="col">
-                                    <button class="btn btn-success">
-                                        <i class="fa fa-pencil"></i> Sửa
-                                    </button>
-                                </div>
-                                <div class="col">
-                                    <button class="btn btn-danger">
-                                        <i class="fa fa-trash"></i> Xóa
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="item1">
-                        <!-- ... Nội dung tiếp theo ... -->
-                    </div>
-                </div>
-            </div>
+        <p class="fs-3 fw-semibold">Danh sách sản phẩm</p>
+        <div class=" overflow-x-scroll">
+            <table class="table table-responsive" style="min-width: 700px;">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>SẢN PHẨM</th>
+                        <th class="text-center">GIÁ</th>
+                        <th class="text-center">HÀNH ĐỘNG</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="align-middle">1</td>
+                        <td class="align-middle">
+                            <a href="/src/views/admin/edit"
+                                class="d-flex align-items-center gap-2 text-decoration-none text-dark">
+                                <img src="http://shop.localhost/images/product/text%201.jpg" alt=""
+                                    style="width: 70px;">
+                                <p class=" mb-0">
+                                    Nghệ Thuật Hiện Diện
+                                </p>
+                            </a>
+                        </td>
+                        <td class="align-middle text-center text-danger fw-semibold">80,000 VNĐ</td>
+                        <td class="align-middle text-center">
+                            <a href="/src/views/admin/edit" class="btn btn-info text-white">Edit</a>
+                            <button class="btn-delete btn btn-danger">Xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle">1</td>
+                        <td class="align-middle">
+                            <a href="/src/views/admin/edit"
+                                class="d-flex align-items-center gap-2 text-decoration-none text-dark">
+                                <img src="http://shop.localhost/images/product/text%201.jpg" alt=""
+                                    style="width: 70px;">
+                                <p class=" mb-0">
+                                    Nghệ Thuật Hiện Diện
+                                </p>
+                            </a>
+                        </td>
+                        <td class="align-middle text-center text-danger fw-semibold">80,000 VNĐ</td>
+                        <td class="align-middle text-center">
+                            <a href="/src/views/admin/edit" class="btn btn-info text-white">Edit</a>
+                            <button class="btn-delete btn btn-danger">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-    </div>
-    </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
 
-    <script src="./index.css"></script>
+    <footer class="text-center" style="background-color: #def2f1 !important;">
+        <div class="text-center p-3 fw-semibold">
+            © Copyright © 2023:
+            <a class="text-dark fw-semibold" href="#">Bookstore</a>
+        </div>
+    </footer>
+
     <script>
-        let menuicn = document.querySelector(".menuicn");
-        let nav = document.querySelector(".navcontainer");
-
-        menuicn.addEventListener("click", () => {
-            nav.classList.toggle("navclose");
+        $('.btn-delete').on('click', function () {
+            Swal.fire({
+                title: 'Xác nhận xóa?',
+                text: "Bạn chắc chắn muốn xóa sản phẩm này?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Xác nhận',
+                cancelButtonText: 'Hủy'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
         })
 
     </script>
 </body>
-
 </html>
