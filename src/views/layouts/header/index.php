@@ -39,7 +39,7 @@
 </head>
 
 <body id="body" id="body">
-    <header class="fw-bold position-sticky top-0 shadow-sm z-3" style="background-color: #17252a;">
+    <header class="fw-bold position-sticky top-0 shadow-sm" style="background-color: #17252a; z-index:  100;">
         <div class="container">
             <div class="row py-2 align-items-center" style="min-height: 60px;">
                 <!-- LEFT -->

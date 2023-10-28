@@ -178,4 +178,8 @@ $router->get('/products/detail', function () {
     require_once VIEWS_DIR . '/product/index.php';
 });
 
+$router->get('/admin', function () {
+    require_once VIEWS_DIR . '/admin/index.php';
+});
+
 $router->run();
