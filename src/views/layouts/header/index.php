@@ -4,35 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/png" href="/images/favicon/favicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/js/jquery.pan-master/dist/css/jquery.pan.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js/zoom-master/jquery.zoom.min.js"></script>
     <script src="/js/jquery.pan-master/dist/jquery.pan.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
-        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
-        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
+        .dropdown-menu {
+            z-index: 100;
+        }
+
         #dropdown:hover #dropdown-menu {
-            display: block;
+            display: block !important;
         }
 
         .dropdown-item:hover {
@@ -44,22 +38,33 @@
             color: #3aafa9 !important;
             cursor: pointer;
         }
+
+        .cart#dropdown-menu {
+            width: 500px !important;
+        }
+
+        .cart .cart-item:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        .cart div a:hover {
+            color: white !important;
+        }
     </style>
     <title>Trang chủ</title>
 </head>
 
 <body id="body" id="body">
-    <header class="fw-bold position-sticky top-0 shadow-sm" style="background-color: #17252a; z-index:  100;">
+    <header class="fw-bold position-sticky top-0 shadow-sm" style="background-color: #17252a; z-index: 1000;">
         <div class="container">
             <div class="row py-2 align-items-center" style="min-height: 60px;">
                 <!-- LEFT -->
                 <div class="col-md-6 col-6 d-none d-md-block">
                     <div class="text-start">
-                        <a class="text-white text-decoration-none fw-bold" href="#"><i
-                                class="fas fa-question-circle"></i> Trợ
+                        <a class="text-white text-decoration-none fw-bold" href="#"><i class="fas fa-question-circle"></i> Trợ
                             giúp</a>
-                        <a class="text-white text-decoration-none fw-bold mx-2" href="#"><i
-                                class="fas fa-newspaper"></i> Tin tức</a>
+                        <a class="text-white text-decoration-none fw-bold mx-2" href="#"><i class="fas fa-newspaper"></i> Tin tức</a>
                         <a class="text-white text-decoration-none fw-bold" href="#"><i class="fas fa-tags"></i> Khuyến
                             mãi</a>
                     </div>
@@ -122,49 +127,82 @@
                     </div>
 
                     <div class="col-md-6 col-6 d-flex justify-content-end position-relative d-none d-md-block">
-                        <input type="text" placeholder="Tìm Kiếm" class="w-100 py-2 px-1 border-0 px-3 rounded-5"
-                            style="width: 150px; outline: none;">
+                        <input type="text" placeholder="Tìm Kiếm" class="w-100 py-2 px-1 border-0 px-3 rounded-5" style="width: 150px; outline: none;">
                         <i class="fa-solid fa-magnifying-glass position-absolute" style="top: 12px; right: 30px;"></i>
                     </div>
 
-                    <div class="dropdown text-center col-md-3 col-3 d-flex d-md-block" id="dropdown">
-                        <a href="/cart" class="position-relative" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="dropdown col-md-3 col-3 text-center d-flex d-md-block justify-content-center" id="dropdown">
+                        <a href="/cart" class="position-relative" aria-expanded="false">
                             <span class="fs-3"><i class="fa-solid fa-cart-shopping text-white"></i></span>
-                            <span
-                                class="cart-quantity position-absolute top-0 start-80 translate-middle badge rounded-pill bg-dark">
+                            <span class="cart-quantity position-absolute top-0 start-80 translate-middle badge rounded-pill bg-dark">
                                 0
                             </span>
                         </a>
 
-                        <div class="dropdown-menu row w-100 " id="dropdown-menu" style="">
-                            <div class=" d-flex text-center" style="background-color: white;">
-                                <p class="" href="#">Sản phẩm mới thêm</p>
+                        <div class="cart dropdown-menu row d-none d-md-none" id="dropdown-menu" style="right: 3%;">
+                            <div class="d-flex text-center" style="background-color: white;">
+                                <p class="opacity-75" href="#">Sản phẩm mới thêm</p>
                             </div>
-                            <div class="d-flex justify-content-center gap-3 my-2">
-                                <a href="/products/detail"> <img src="/images/section/h5.jpg" alt="Hình ảnh sách"
-                                        class="img-fluid" style=" height: 70px; width: 70px;"></a>
-                                <p class="fw-bold text-truncate">Nghệ Thuật Hiện Diện sdsadasdsadsd</p>
-                                <p class="fw-bold text-danger">80.000 đ</p>
-                            </div>
-                            <div class="d-flex justify-content-center gap-3 my-2">
-                                <a href="/products/detail"> <img src="/images/section/h5.jpg" alt="Hình ảnh sách"
-                                        class="img-fluid" style=" height: 70px; width: 70px;"></a>
-                                <p class="fw-bold text-truncate">Nghệ Thuật Hiện Diện sdsadasdsadsd</p>
-                                <p class="fw-bold text-danger">80.000 đ</p>
-                            </div>
-                            <div class=" d-flex justify-content-end">
-                                <a href="" class="btn btn-dark">
+
+                            <ul class="cart-list overflow-x-scroll" style="height: 400px;">
+                                <li class="cart-item my-2" style="list-style-type: none;">
+                                    <a href="/products/detail" class="d-flex gap-3 text-decoration-none text-dark">
+                                        <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 100px; width: 100px;">
+                                        <div class="flex-grow-1">
+                                            <p class="fw-bold text-truncate" style="width: 80%;">Nghệ Thuật Hiện Diện</p>
+                                            <p class="fw-bold text-danger">80.000 đ</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="cart-item my-2" style="list-style-type: none;">
+                                    <a href="/products/detail" class="d-flex gap-3 text-decoration-none text-dark">
+                                        <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 100px; width: 100px;">
+                                        <div class="flex-grow-1">
+                                            <p class="fw-bold text-truncate" style="width: 80%;">Nghệ Thuật Hiện Diện</p>
+                                            <p class="fw-bold text-danger">80.000 đ</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="cart-item my-2" style="list-style-type: none;">
+                                    <a href="/products/detail" class="d-flex gap-3 text-decoration-none text-dark">
+                                        <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 100px; width: 100px;">
+                                        <div class="flex-grow-1">
+                                            <p class="fw-bold text-truncate" style="width: 80%;">Nghệ Thuật Hiện Diện</p>
+                                            <p class="fw-bold text-danger">80.000 đ</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="cart-item my-2" style="list-style-type: none;">
+                                    <a href="/products/detail" class="d-flex gap-3 text-decoration-none text-dark">
+                                        <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 100px; width: 100px;">
+                                        <div class="flex-grow-1">
+                                            <p class="fw-bold text-truncate" style="width: 80%;">Nghệ Thuật Hiện Diện</p>
+                                            <p class="fw-bold text-danger">80.000 đ</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="cart-item my-2" style="list-style-type: none;">
+                                    <a href="/products/detail" class="d-flex gap-3 text-decoration-none text-dark">
+                                        <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid" style=" height: 100px; width: 100px;">
+                                        <div class="flex-grow-1">
+                                            <p class="fw-bold text-truncate" style="width: 80%;">Nghệ Thuật Hiện Diện</p>
+                                            <p class="fw-bold text-danger">80.000 đ</p>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                            <div class="w-100 text-end pe-3 pb-2">
+                                <a href="/cart" class="btn btn-dark">
                                     Xem giỏ hàng
                                 </a>
                             </div>
-
                         </div>
                     </div>
 
-
                     <div class="col-md-12 position-relative d-block d-md-none mb-3">
-                        <input type="text" placeholder="Tìm Kiếm" class="w-100 py-2 px-1 border-0 px-3 rounded-5"
-                            style="width: 150px; outline: none;">
+                        <input type="text" placeholder="Tìm Kiếm" class="w-100 py-2 px-1 border-0 px-3 rounded-5" style="width: 150px; outline: none;">
                         <i class="fa-solid fa-magnifying-glass position-absolute" style="top: 12px; right: 30px;"></i>
                     </div>
                 </div>
