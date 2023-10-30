@@ -14,3 +14,8 @@ function JsonResponse($error, $message)
     ]);
     exit;
 }
+
+function isAdmin()
+{
+    return (int)$_SESSION['is_admin'] === 1;
+}

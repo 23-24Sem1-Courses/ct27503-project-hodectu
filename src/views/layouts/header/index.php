@@ -90,9 +90,9 @@
                                     </button>
                                         <ul id="dropdown-menu" class="dropdown-menu text-white">
                                             <li><a class="dropdown-item" href="#">Tài khoản</a></li>
-                                            <li><a class="dropdown-item" href="#">Đơn mua</a></li>
-                                            <li>
-                                            <form id="logout_form" action="/logout" method="post" class="d-flex flex-column">
+                                            <li><a class="dropdown-item" href="#">Đơn mua</a></li>';
+                                echo (isset($_SESSION['is_admin']) && ((int)$_SESSION['is_admin'] === 1)) ? '<li><a class="dropdown-item" href="/admin">Trang quản trị</a></li>' : '';
+                                echo '<form id="logout_form" action="/logout" method="post" class="d-flex flex-column">
                                                 <button class="dropdown-item" type="submit">
                                                     <i class="fas fa-sign-in-alt"></i>
                                                     Đăng Xuất

@@ -35,6 +35,7 @@ class AuthController
             }
 
             $_SESSION['email'] = $user['email'];
+            $_SESSION['is_admin'] = $user['is_admin'];
             JsonResponse(error: 0, message: "Đăng nhập thành công");
         } catch (\PDOException $e) {
             echo $e->getMessage();

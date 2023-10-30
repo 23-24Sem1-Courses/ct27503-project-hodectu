@@ -6,16 +6,28 @@ class AdminController
 {
     public function index()
     {
-        require_once VIEWS_DIR . '/admin/index.html';
+        if (!isAdmin()) {
+            require_once VIEWS_DIR . '/errors/404.php';
+            exit;
+        };
+        require_once VIEWS_DIR . '/admin/index.php';
     }
 
     public function add()
     {
-        require_once VIEWS_DIR . '/admin/add/index.html';
+        if (!isAdmin()) {
+            require_once VIEWS_DIR . '/errors/404.php';
+            exit;
+        };
+        require_once VIEWS_DIR . '/admin/add/index.php';
     }
 
     public function edit()
     {
-        require_once VIEWS_DIR . '/admin/edit/index.html';
+        if (!isAdmin()) {
+            require_once VIEWS_DIR . '/errors/404.php';
+            exit;
+        };
+        require_once VIEWS_DIR . '/admin/edit/index.php';
     }
 }
