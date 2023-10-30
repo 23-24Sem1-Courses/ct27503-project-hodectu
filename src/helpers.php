@@ -6,4 +6,11 @@ function redirect(string $location): void
     exit;
 }
 
-
+function JsonResponse($error, $message)
+{
+    echo json_encode([
+        "error" => $error,
+        "message" => $message
+    ]);
+    exit;
+}
