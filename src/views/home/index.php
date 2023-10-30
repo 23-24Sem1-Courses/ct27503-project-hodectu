@@ -93,109 +93,43 @@
             </div>
 
             <div class="row">
-                <div class="product col-md-3 col-sm-6 col-12 p-3 bg-white">
-                    <div class="col">
-                        <div class="row p-3">
-                            <div class="col-md-12 col-12 text-center">
-                                <!-- Hình ảnh sách -->
-                                <a href="/products/detail"> <img src="/images/section/h5.jpg" alt="Hình ảnh sách"
-                                        class="img-fluid" style=" height: 170px;"></a>
-                            </div>
-                            <div class="col-md-12 col-12 text-center mt-3">
-                                <!-- Tên sách -->
-                                <p class="fw-bold">Nghệ Thuật Hiện Diện</p>
-                                <!-- Giá -->
-                                <p class="text-decoration-line-through">95.000 đ</p>
-                                <p class="fw-bold text-danger">80.000 đ</p>
-                            </div>
+                <?php foreach ($ketqua as $sach): ?>
+                    <div class="product col-md-3 col-sm-6 col-12 p-3 bg-white">
+                        <div class="col">
+                            <div class="row p-3">
+                                <div class="col-md-12 col-12 text-center">
+                                    <!-- Hình ảnh sách -->
+                                    <a href="/book/detail/<?= htmlspecialchars($sach['id']) ?>"> <img
+                                            src="<?= htmlspecialchars($sach['anh_bia']) ?>" alt="Hình ảnh sách"
+                                            class="img-fluid" style=" height: 170px;"></a>
+                                </div>
+                                <div class="col-md-12 col-12 text-center mt-3">
+                                    <!-- Tên sách -->
+                                    <p class="fw-bold text-truncate">
+                                        <?= htmlspecialchars($sach['ten_sach']) ?>
+                                    </p>
+                                    <!-- Giá -->
+                                    <p class="text-decoration-line-through">
+                                        <?= htmlspecialchars($sach['gia_goc']) ?> đ
+                                    </p>
+                                    <p class="fw-bold text-danger">
+                                        <?= htmlspecialchars($sach['gia_sale']) ?> đ
+                                    </p>
+                                </div>
 
-                            <div class="text-center">
-                                <a href="" class="btn btn-dark">
-                                    Thêm giỏ hàng
-                                </a>
+                                <div class="text-center">
+                                    <a href="" class="btn btn-dark">
+                                        Thêm giỏ hàng
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-12 p-3 bg-white">
-                    <div class="col">
-                        <div class="row p-3">
-                            <div class="col-md-12 col-12 text-center">
-                                <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
-                                    style=" height: 170px;">
-                            </div>
-                            <div class="col-md-12 col-12 text-center mt-3">
-                                <!-- Tên sách -->
-                                <p class="fw-bold">Nghệ Thuật Hiện Diện</p>
-                                <!-- Giá -->
-                                <p class="text-decoration-line-through">95.000 đ</p>
-                                <p class="fw-bold text-danger">80.000 đ</p>
-                            </div>
-
-                            <div class="text-center">
-                                <a href="" class="btn btn-dark">
-                                    Thêm giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-12 p-3 bg-white">
-                    <div class="col">
-                        <div class="row p-3">
-                            <div class="col-md-12 col-12 text-center">
-                                <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
-                                    style=" height: 170px;">
-                            </div>
-                            <div class="col-md-12 col-12 text-center mt-3">
-                                <!-- Tên sách -->
-                                <p class="fw-bold">Nghệ Thuật Hiện Diện</p>
-                                <!-- Giá -->
-                                <p class="text-decoration-line-through">95.000 đ</p>
-                                <p class="fw-bold text-danger">80.000 đ</p>
-                            </div>
-
-                            <div class="text-center">
-                                <a href="" class="btn btn-dark">
-                                    Thêm giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-12 p-3 bg-white">
-                    <div class="col">
-                        <div class="row p-3">
-                            <div class="col-md-12 col-12 text-center">
-                                <!-- Hình ảnh sách -->
-                                <img src="/images/section/h5.jpg" alt="Hình ảnh sách" class="img-fluid"
-                                    style=" height: 170px;">
-                            </div>
-                            <div class="col-md-12 col-12 text-center mt-3">
-                                <!-- Tên sách -->
-                                <p class="fw-bold">Nghệ Thuật Hiện Diện</p>
-                                <!-- Giá -->
-                                <p class="text-decoration-line-through">95.000 đ</p>
-                                <p class="fw-bold text-danger">80.000 đ</p>
-                            </div>
-
-                            <div class="text-center">
-                                <a href="" class="btn btn-dark">
-                                    Thêm giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
-        </div>
     </section>
+
 
     <section class="">
         <div class="container">
