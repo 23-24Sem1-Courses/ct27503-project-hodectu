@@ -10,12 +10,11 @@
                             style="height: 400px;">
                     </div>
                     <div class="col-lg-12 col-12 justify-content-center my-2 d-none d-md-flex">
-                        <div class="flex-wrap border border-black p-2 d-flex gap-4 justify-content-center">
-                            <img class="sub-img" src="/images/section/h2.jpg" alt="" style="height: 75px;">
-                            <img class="sub-img" src="/images/section/h3.jpg" alt="" style="height: 75px;">
-                            <img class="sub-img" src="/images/section/h4.jpg" alt="" style="height: 75px;">
-                            <img class="sub-img" src="/images/section/h5.jpg" alt="" style="height: 75px;">
-                            <img class="sub-img" src="/images/section/h6.jpg" alt="" style="height: 75px;">
+                        <div class="flex-wrap border border-dark-subtle p-2 d-flex gap-1 justify-content-center">
+                            <?php foreach ($book['imgs'] as $img): ?>
+                                <img class="sub-img" src="<?= htmlspecialchars($img['hinh_anh']) ?>" alt=""
+                                    style="height: 75px;">
+                            <?php endforeach ?>
                         </div>
                     </div>
                 </div>
