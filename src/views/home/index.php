@@ -30,7 +30,7 @@
                                 </p>
                             </div>
                         </button>
-                        <ul class="dropdown-menu row w-100" id="dropdown-menu" style="">
+                        <ul class="dropdown-menu row w-100" id="dropdown-menu">
                             <li><a class="dropdown-item fw-bold" href="#">Truyện ngắn</a></li>
                             <li><a class="dropdown-item fw-bold" href="#">Tiểu thuyết</a></li>
                             <li><a class="dropdown-item fw-bold" href="#">Truyện tranh</a></li>

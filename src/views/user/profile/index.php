@@ -2,7 +2,7 @@
 
 <main class="" style="background-color: #efefef; min-height: 100vh;">
     <section class="">
-        <div class=" container p-5" style="">
+        <div class=" container p-5">
             <div class="row">
                 <div class="col-3">
                     <div class="pb-2">
