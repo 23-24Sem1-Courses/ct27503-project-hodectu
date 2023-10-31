@@ -2,8 +2,10 @@
 
 $router->get('/admin', 'App\Controllers\AdminController@index');
 
-$router->get('/admin/add', 'App\Controllers\AdminController@add');
+$router->get('/admin/add', 'App\Controllers\AdminController@getAdd');
+$router->post('/admin/add', 'App\Controllers\AdminController@postAdd');
 
-$router->get('/admin/edit', 'App\Controllers\AdminController@edit');
+$router->get('/admin/edit/(\d+)', 'App\Controllers\AdminController@getEdit');
+$router->post('/admin/edit/(\d+)', 'App\Controllers\AdminController@postEdit');
 
-$router->post('/admin/delete', 'App\Controllers\AdminController@delete');
+$router->post('/admin/delete/(\d+)', 'App\Controllers\AdminController@postDelete');

@@ -19,19 +19,24 @@
     <div class="container rounded-3 my-5 d-flex justify-content-center flex-column align-items-center">
         <p class="fs-3 fw-semibold">Chỉnh sửa sản phẩm</p>
 
-        <form id="add_book_form" action="/admin/add" method="post" enctype="multipart/form-data" class="col-12 col-lg-6 shadow-lg p-4">
+        <form id="edit_book_form" action="/admin/edit" method="post" enctype="multipart/form-data" class="col-12 col-lg-6 shadow-lg p-4">
             <div class="form-group mb-3">
                 <label for="name">Tên Sản Phẩm:</label>
-                <input value="Nghệ Thuật Hiện Diện" type="text" class="form-control" id="name" name="name" autocomplete="off">
+                <input type="text" class="form-control" id="name" name="name" autocomplete="off">
             </div>
 
             <div class="form-group mb-3">
                 <label for="price">Giá:</label>
-                <input value="80000" type="number" class="form-control" id="price" name="price">
+                <input type="number" class="form-control" id="price" name="price">
             </div>
 
             <div class="form-group mb-3">
-                <div class="form-control d-flex align-items-center gap-3">
+                <label for="price">Sale:</label>
+                <input type="number" class="form-control" id="sale" name="sale">
+            </div>
+
+            <div class="form-group mb-3">
+                <div class="form-control d-flex align-items-center gap-3 justify-content-between">
                     <div>
                         <label>Ảnh Bìa:</label>
                     </div>
@@ -40,107 +45,68 @@
                         <label for="img" class="btn btn-primary">Chọn</label>
                     </div>
                 </div>
-                <div class="preview-img mt-3">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 100px;">
+                <div class="preview-img mt-3 d-none">
+                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 85px;">
                 </div>
             </div>
 
             <div class="form-group mb-3">
-                <div class="form-control d-flex align-items-center gap-3">
+                <div class="form-control d-flex align-items-center gap-3 justify-content-between">
                     <label>Hình ảnh khác:</label>
-                    <input hidden type="file" class="form-control-file imgs" multiple id="imgs" name="imgs" accept="image/*">
+                    <input hidden type="file" class="form-control-file imgs" multiple id="imgs" name="imgs[]" accept="image/*">
                     <label for="imgs" class="btn btn-primary">Chọn</label>
                 </div>
-                <div class="preview-imgs mt-3">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 100px;">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 100px;">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 100px;">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 100px;">
+                <div class="preview-imgs mt-3 d-none">
+                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 85px;">
                 </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="description">Tác giả:</label>
+                <input type="text" class="form-control" id="author" name="author" autocomplete="off"></input>
             </div>
 
             <div class="form-group mb-3">
                 <label for="description">Mô Tả:</label>
-                <textarea class="form-control" id="description" name="description" rows="6">
-                        Làm thế nào để chúng ta nổi bật trong thị trường việc làm cạnh tranh hiện tại khi có rất nhiều
-                        người thông minh, có năng
-                        lực ngoài kia? Câu trả lời nằm trong “Nghệ thuật hiện diện” - một cuốn sách được viết bởi nhà
-                        sáng lập trường đào tạo kỹ
-                        năng Palm Beach Jacqueline Whitmore - người chuyên cung cấp các chương trình đào tạo về ứng xử
-                        dành cho các doanh nghiệp
-                        lớn trên thế giới. Qua từng trang sách, Jacqueline sẽ chỉ cho bạn cách tiến gần hơn mục tiêu mà
-                        mình mong muốn thông qua
-                        bốn bước: Thay đổi diện mạo - Tạo dấu ấn - Xây thương hiệu và Khẳng định vị thế, với các bài
-                        viết thực hành giúp tạo nên
-                        dấu ấn cá nhân như: xây dựng tủ đồ thông minh, giao tiếp ứng xử khéo léo, phát triển mạng lưới
-                        quan hệ và phong thái làm
-                        việc chuyên nghiệp. Qua đó, bạn không chỉ nâng cao giá trị bản thân mà còn có thể tận dụng chính
-                        sự độc đáo của mình để
-                        mang lại sự hữu ích cho công ty, khách hàng và môi trường xung quanh nói chung. Và đừng quên:
-                        “Nhiều hơn vẻ bề ngoài hào
-                        nhoáng có thể ngụy tạo, sự hiện diện dù trong thinh lặng vẫn có sức nặng hơn những lời nói ồn ào
-                        nhưng trống rỗng.”
-                    </textarea>
+                <textarea class="form-control" id="description" name="description" rows="6"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" id="liveToastBtn">Thêm Sản Phẩm</button>
+            <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
         </form>
     </div>
-
-    <div class="toast-container position-fixed top-0 end-0 p-3">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-body">
-                Thêm sản phẩm thành công
-                <i class="fa-solid fa-check text-success"></i>
-            </div>
-        </div>
-    </div>
-
 </main>
 
 <script>
-    $.validator.setDefaults({
-        ignore: [],
-        submitHandler: function(form) {
-            $.ajax({
-                // url: '/admin/add',
-                // type: 'POST',
-                // data: {
-                //     "email": $('#signup_form input[name="email"]').val(),
-                //     "password": $('#signup_form input[name="password"]').val(),
-                // },
-                success: function(res) {
-                    const toastTrigger = $('#liveToastBtn')
-                    const toastLiveExample = $('#liveToast')
+    const isValidFile = (file) => {
+        const allowSize = 10 * 1024 * 1024;
 
-                    if (toastTrigger) {
-                        toastTrigger.addEventListener('click', () => {
-                            const toast = new bootstrap.Toast(toastLiveExample)
-
-                            toast.show()
-                        })
-                    }
-
-                    res = JSON.parse(res);
-
-                    Swal.fire({
-                        title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
-                        text: res["message"],
-                        icon: `${res["error"] ? 'error' : 'success'}`,
-                        confirmButtonText: 'Ok',
-                        customClass: {
-                            confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
-                        },
-                    }).then(function() {
-                        if (!res["error"]) window.location.href = '/login';
-                    })
+        const swal = (msg) => {
+            return Swal.fire({
+                title: 'Lỗi',
+                text: msg,
+                icon: 'error',
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'bg-danger',
                 },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
+            })
         }
-    })
+
+        const size = file.size;
+        const type = file.type;
+
+        if (size > allowSize) {
+            swal('Kích thước ảnh tối đa 10 MB');
+            return false;
+        }
+
+        if (!type.includes('image')) {
+            swal('Hình ảnh không đúng định dạng');
+            return false;
+        }
+
+        return true;
+    }
 
     const previewImg = (input, previewTag) => {
         input.on('change', function() {
@@ -149,6 +115,13 @@
 
                 if (files.length === 1) {
                     const file = files[0];
+
+                    if (!isValidFile(file)) {
+                        $(this).val('');
+                        previewTag.addClass('d-none')
+                        return;
+                    }
+
                     const img = URL.createObjectURL(file);
 
                     previewTag.removeClass('d-none').find('img').prop('src', img);
@@ -158,6 +131,11 @@
 
                 let html = '';
                 Array.from(files).forEach(file => {
+                    if (!isValidFile(file)) {
+                        $(this).val('');
+                        previewTag.addClass('d-none')
+                        return;
+                    }
                     const img = URL.createObjectURL(file);
                     html += `<img src="${img}" alt="" style="width: 100px;">`
                 })
@@ -167,13 +145,60 @@
     }
 
     $().ready(function() {
-        $('#add_book_form').validate({
+        $.validator.setDefaults({
+            submitHandler: function() {
+                const formData = new FormData();
+                const img = $('.img')[0].files[0];
+                const imgs = $('.imgs')[0].files;
+
+                formData.append('img', img);
+                for (var i = 0; i < imgs.length; i++) {
+                    formData.append("imgs[]", imgs[i]);
+                }
+
+                const book = {
+                    "name": $('#name').val(),
+                    "price": Number($('#price').val()),
+                    "sale": Number($('#sale').val()),
+                    "author": $('#author').val(),
+                    "description": $('#description').val()
+                };
+
+                formData.append("book", JSON.stringify(book));
+
+                fetch('/admin/edit', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(res => res.json())
+                    .then(res => {
+                        Swal.fire({
+                            title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
+                            text: res["message"],
+                            icon: `${res["error"] ? 'error' : 'success'}`,
+                            confirmButtonText: 'Ok',
+                            customClass: {
+                                confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
+                            },
+                        }).then(() => window.location.href = '/admin/add')
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            }
+        })
+        $('#edit_book_form').validate({
             rules: {
                 name: {
                     required: true,
                 },
                 price: {
                     required: true,
+                    number: true
+                },
+                sale: {
+                    required: true,
+                    number: true,
                 },
                 img: {
                     required: true,
@@ -184,7 +209,14 @@
             },
             messages: {
                 name: 'Nhập tên sách',
-                price: 'Nhập giá bán',
+                price: {
+                    required: 'Nhập giá bán',
+                    number: 'Vui lòng nhập số',
+                },
+                sale: {
+                    required: 'Nhập giá sale',
+                    number: 'Vui lòng nhập số',
+                },
                 img: 'Chọn ảnh bìa',
                 description: 'Nhập mô tả',
             },
@@ -206,9 +238,8 @@
             },
         })
 
-        previewImg($('#add_book_form input.img'), $('.preview-img'));
-        previewImg($('#add_book_form input.imgs'), $('.preview-imgs'));
-
+        previewImg($('#edit_book_form input.img'), $('.preview-img'));
+        previewImg($('#edit_book_form input.imgs'), $('.preview-imgs'));
     });
 </script>
 

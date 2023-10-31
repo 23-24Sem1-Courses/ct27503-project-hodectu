@@ -18,11 +18,31 @@
                cancelButtonText: 'Hủy'
            }).then((result) => {
                if (result.isConfirmed) {
-                   Swal.fire(
-                       'Deleted!',
-                       'Your file has been deleted.',
-                       'success'
-                   )
+                   const bookId = $(this).parent().find('#book_id').val();
+
+                   $.ajax({
+                       url: '/admin/delete/' + bookId,
+                       type: 'POST',
+                       success: function(res) {
+                           res = JSON.parse(res);
+
+                           Swal.fire({
+                               title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
+                               text: res["message"],
+                               icon: `${res["error"] ? 'error' : 'success'}`,
+                               confirmButtonText: 'Ok',
+                               customClass: {
+                                   confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
+                               },
+                           })
+
+                           $(this).parent().remove();
+                       },
+                       error: function(error) {
+                           console.log(error);
+                       }
+                   })
+
                }
            })
        })
