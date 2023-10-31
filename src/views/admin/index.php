@@ -10,42 +10,31 @@
                     <th>STT</th>
                     <th>SẢN PHẨM</th>
                     <th class="text-center">GIÁ</th>
+                    <th class="text-center">SALE</th>
                     <th class="text-center">HÀNH ĐỘNG</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="align-middle">1</td>
-                    <td class="align-middle">
-                        <a href="/admin/edit" class="d-flex align-items-center gap-2 text-decoration-none text-dark">
-                            <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 70px;">
-                            <p class=" mb-0">
-                                Nghệ Thuật Hiện Diện
-                            </p>
-                        </a>
-                    </td>
-                    <td class="align-middle text-center text-danger fw-semibold">80,000 VNĐ</td>
-                    <td class="align-middle text-center">
-                        <a href="/admin/edit" class="btn btn-info text-white">Edit</a>
-                        <button class="btn-delete btn btn-danger">Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="align-middle">1</td>
-                    <td class="align-middle">
-                        <a href="/admin/edit" class="d-flex align-items-center gap-2 text-decoration-none text-dark">
-                            <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 70px;">
-                            <p class=" mb-0">
-                                Nghệ Thuật Hiện Diện
-                            </p>
-                        </a>
-                    </td>
-                    <td class="align-middle text-center text-danger fw-semibold">80,000 VNĐ</td>
-                    <td class="align-middle text-center">
-                        <a href="/admin/edit" class="btn btn-info text-white">Edit</a>
-                        <button class="btn-delete btn btn-danger">Xóa</button>
-                    </td>
-                </tr>
+                <?php foreach ($books as $index => $book) : ?>
+                    <tr>
+                        <td class="align-middle"><?php echo $index + 1 ?></td>
+                        <td class="align-middle">
+                            <a href="/admin/edit" class="d-flex align-items-center gap-2 text-decoration-none text-dark">
+                                <img src="<?= htmlspecialchars($book['anh_bia']) ?>" alt="" style="width: 70px;">
+                                <p class=" mb-0">
+                                    <?= htmlspecialchars($book['ten_sach']) ?>
+                                </p>
+                            </a>
+                        </td>
+                        <td class="align-middle text-center text-decoration-line-through fw-semibold"><?= htmlspecialchars($book['gia_goc']) ?> VNĐ</td>
+                        <td class="align-middle text-center text-danger fw-semibold"><?= htmlspecialchars($book['gia_sale']) ?> VNĐ</td>
+                        <td class="align-middle text-center">
+                            <input type="hidden" id="book_id" value="<?= htmlspecialchars($book['id']) ?>">
+                            <a href="/admin/edit/<?= htmlspecialchars($book['id']) ?>" class="btn btn-info text-white">Edit</a>
+                            <button class="btn-delete btn btn-danger">Xóa</button>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
     </div>
