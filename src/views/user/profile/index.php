@@ -3,10 +3,10 @@
 <main class="" style="background-color: #efefef; min-height: 100vh;">
     <section class="">
         <div class=" container p-5">
-            <div class="row">
-                <div class="col-3">
+            <div class="row ">
+                <div class="col-12 col-lg-3  px-5 pb-2">
                     <div class="pb-2">
-                        <div class="d-flex justify-content-center align-items-center gap-2">
+                        <div class="d-flex justify-content-start align-items-center gap-2 mb-4">
                             <div class="p-2 d-flex justify-content-center align-items-center "
                                 style="border-radius: 50%; width: 50px; height: 50px; background-color: white;">
                                 <i class="fa-regular fa-user" style="font-size: 25px;"></i>
@@ -16,6 +16,7 @@
                                 email</a>
 
                         </div>
+                        <hr>
                     </div>
                     <div class="d-flex gap-1">
                         <i class="fa-regular fa-user" style="font-size: 25px;"></i>
@@ -23,24 +24,27 @@
 
                     </div>
                     <div class="d-flex flex-column">
-                        <a href="/user/profile" class="text-decoration-none text-black fw-bold"
-                            style="font-size: 14px;">Hồ Sơ</a>
-                        <a href="/user/password" class="text-decoration-none text-black fw-bold"
-                            style="font-size: 14px;">Đổi Mật
+                        <a href="#" class="text-decoration-none text-black fw-bold"
+                            style="font-size: 14px; color:#3aafa9 !important;">Hồ
+                            Sơ</a>
+                        <a href="/profile/password" class="text-decoration-none text-black" style="font-size: 14px;">Đổi
+                            Mật
                             Khẩu</a>
                     </div>
 
 
                 </div>
-                <div class="col-9" style="background-color: white;">
+
+                <div class="col-12 col-lg-9   p-5" style="background-color: white;">
                     <div class="pb-3">
-                        <div class="p-2">
+                        <div class="p-2 mb-2 ">
                             <h3>Hồ Sơ Của Tôi</h3>
                             <p>Quản lý thông tin hồ sơ tài khoản</p>
                         </div>
 
-                        <div class="row">
-                            <div class="col-9">
+                        <div
+                            class="row justify-content-between d-column flex-column-reverse flex-lg-row gap-3 gap-md-0">
+                            <div class="col-12 col-lg-8">
                                 <form id="user_edit_form">
                                     <div class="mb-3 d-flex row">
                                         <div class="col-3 text-end">
@@ -90,7 +94,7 @@
                                 </form>
 
                             </div>
-                            <div class="col-3 d-flex justify-content-center align-items-center flex-column ">
+                            <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center flex-column">
                                 <div class="p-2 d-flex justify-content-center align-items-center"
                                     style="border-radius: 50%; width: 100px; height: 100px; background-color: #efefef;">
                                     <i class="fa-regular fa-user" style="font-size: 50px;"></i>

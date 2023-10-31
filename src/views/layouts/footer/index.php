@@ -4,30 +4,37 @@
             <div class="row">
                 <div class="col-md-3">
                     <h4 class="fw-bold">Hỗ Trợ Khách Hàng</h4>
-                    <p class="mb-0 fw-bold">Email: Bookstore@gamil.com</p>
-                    <p class="mb-0 fw-bold">Hotline: 19006060</p>
+                    <p class="mb-0 fw-bold" style="color: #3aafa9; font-size: 17px;">Email: Bookstore@gamil.com</p>
+                    <p class="mb-0 fw-bold" style="color: #3aafa9; font-size: 17px;">Hotline: 19006060</p>
                 </div>
                 <div class="col-md-3 my-3 my-md-0">
                     <h4 class="fw-bold">Giới thiệu</h4>
-                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none">Thông tin về shop</a>
+                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Thông tin về shop</a>
                     </p>
-                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none">Tuyển Dụng</a></p>
+                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Tuyển Dụng</a></p>
                 </div>
                 <div class="col-md-3 mb-3">
                     <h4 class="fw-bold">Tài Khoản</h4>
-                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none">Đăng nhập</a></p>
-                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none">Đăng ký</a></p>
+                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Đăng nhập</a></p>
+                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Đăng ký</a></p>
                 </div>
                 <div class="col-md-3">
                     <h4 class="fw-bold">Hướng Dẫn</h4>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none">Hướng dẫn
+                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Hướng dẫn
                             mua hàng</a>
                     </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none">Phương
+                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Phương
                             thức thanh
                             toán</a>
                     </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none">câu hỏi
+                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">câu hỏi
                             thường gặp</a>
                     </p>
                 </div>
@@ -58,16 +65,16 @@
 
         $(".pan").pan();
 
-        $('.cart-btn-close').each(function() {
+        $('.cart-btn-close').each(function () {
             $(this).on('click', () => {
                 $.confirm({
                     title: 'Xác nhận xóa!',
                     content: 'Bạn muốn xóa sản phẩm này?',
                     buttons: {
-                        confirm: function() {
+                        confirm: function () {
                             $.alert('Confirmed!');
                         },
-                        cancel: function() {
+                        cancel: function () {
                             $.alert('Canceled!');
                         },
                     }

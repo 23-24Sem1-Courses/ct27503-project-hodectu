@@ -17,6 +17,17 @@ class BookModel
         return $ketqua;
     }
 
+    public function getRandom()
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "select * from sach ORDER BY RAND()";
+        $ketqua = $conn->prepare($sql);
+        $ketqua->execute();
+        $ketqua = $ketqua->fetchAll(PDO::FETCH_ASSOC);
+
+        return $ketqua;
+    }
+
     public function getById($id)
     {
         include SRC_DIR . '/config.php';
