@@ -17,15 +17,32 @@ class BookModel
         return $ketqua;
     }
 
+    public function getRandom()
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "select * from sach ORDER BY RAND()";
+        $ketqua = $conn->prepare($sql);
+        $ketqua->execute();
+        $ketqua = $ketqua->fetchAll(PDO::FETCH_ASSOC);
+
+        return $ketqua;
+    }
+
     public function getById($id)
     {
         include SRC_DIR . '/config.php';
 
         $sql = "SELECT * FROM sach WHERE id=?";
         $stmt = $conn->prepare($sql);
-
         $stmt->execute([$id]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $sql = "SELECT * FROM hinh_anh_sach WHERE id_sach=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        $imgs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result['imgs'] = $imgs;
+
         return $result;
     }
     public function getAllByAuthor($tac_gia)
