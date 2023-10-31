@@ -94,12 +94,8 @@ class AdminController
         require_once VIEWS_DIR . '/admin/edit/index.php';
     }
 
-    public function postEdit($id)
+    public function postEdit()
     {
-        if (!isAdmin()) {
-            require_once VIEWS_DIR . '/errors/404.php';
-            exit;
-        };
         try {
             if (!isAdmin()) {
                 require_once VIEWS_DIR . '/errors/404.php';
@@ -113,6 +109,10 @@ class AdminController
                 JsonResponse(error: 1, message: "Vui lòng nhập thông tin sản phẩm");
             }
             $book = json_decode($_POST['book'], true);
+
+            if (!isset($book['book_id'])) {
+                JsonResponse(error: 1, message: "Có lỗi xảy ra! vui lòng thử lại sau");
+            }
 
             if (!isset($book['name'])) {
                 JsonResponse(error: 1, message: "Vui lòng nhập tên sản phẩm");
@@ -134,24 +134,34 @@ class AdminController
                 JsonResponse(error: 1, message: "Vui lòng nhập mô tả sản phẩm");
             }
 
+            $oldBook = $BookModel->getById($book['book_id']);
+
             $img = handle_img_upload('img');
-            if (!isset($img)) {
-                JsonResponse(error: 1, message: "Lỗi ảnh bìa");
+            if (empty($img)) {
+                $fileName = extractFileNameFromUrl($oldBook['anh_bia']);
+                $book['img'] = $fileName;
+            } else {
+                $book['img'] = $img;
+                $fileName = extractFileNameFromUrl($oldBook['anh_bia']);
+                remove_img_file($fileName);
             }
-            $book['img'] = $img;
 
             $imgs = handle_img_upload('imgs', isMultiple: true);
-            if (!isset($imgs)) {
-                JsonResponse(error: 1, message: "Lỗi ảnh hình ảnh khác");
+            if (!empty($imgs)) {
+                foreach ($oldBook['imgs'] as $item) {
+                    $fileName = extractFileNameFromUrl($item['hinh_anh']);
+                    remove_img_file($fileName);
+                }
+                $BookModel->deleteBookImgs($book['book_id']);
+                $book['imgs'] = $imgs;
             }
-            $book['imgs'] = $imgs;
 
-            $isSuccess = $BookModel->create($book);
+            $isSuccess = $BookModel->update($book);
             if (!isset($isSuccess)) {
                 JsonResponse(error: 1, message: "Có lỗi xảy ra! vui lòng thử lại sau");
             }
 
-            JsonResponse(error: 0, message: "Thêm thành công");
+            JsonResponse(error: 0, message: "Cập nhật thành công");
         } catch (\PDOException $e) {
             echo $e->getMessage();
         }
@@ -165,6 +175,19 @@ class AdminController
         };
 
         $BookModel = new \App\Models\BookModel();
+
+        $oldBook = $BookModel->getById($id);
+        if (empty($oldBook)) {
+            JsonResponse(error: 1, message: "Sản phẩm không tồn tại hoặc đã bị xóa");
+        }
+
+        foreach ($oldBook['imgs'] as $item) {
+            $fileName = extractFileNameFromUrl($item['hinh_anh']);
+            remove_img_file($fileName);
+        }
+
+        $fileName = extractFileNameFromUrl($oldBook['anh_bia']);
+        remove_img_file($fileName);
 
         $isSuccess = $BookModel->delete($id);
 

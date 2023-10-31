@@ -20,19 +20,21 @@
         <p class="fs-3 fw-semibold">Chỉnh sửa sản phẩm</p>
 
         <form id="edit_book_form" action="/admin/edit" method="post" enctype="multipart/form-data" class="col-12 col-lg-6 shadow-lg p-4">
-            <div class="form-group mb-3">
+            <input type="number" hidden value="<?= htmlspecialchars($book['id']) ?>" id="book_id" name="book_id">
+
+            <div class=" form-group mb-3">
                 <label for="name">Tên Sản Phẩm:</label>
-                <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+                <input value="<?= htmlspecialchars($book['ten_sach']) ?>" type="text" class="form-control" id="name" name="name" autocomplete="off">
             </div>
 
             <div class="form-group mb-3">
                 <label for="price">Giá:</label>
-                <input type="number" class="form-control" id="price" name="price">
+                <input value="<?= htmlspecialchars($book['gia_goc']) ?>" type="number" class="form-control" id="price" name="price">
             </div>
 
             <div class="form-group mb-3">
                 <label for="price">Sale:</label>
-                <input type="number" class="form-control" id="sale" name="sale">
+                <input value="<?= htmlspecialchars($book['gia_sale']) ?>" type="number" class="form-control" id="sale" name="sale">
             </div>
 
             <div class="form-group mb-3">
@@ -45,8 +47,8 @@
                         <label for="img" class="btn btn-primary">Chọn</label>
                     </div>
                 </div>
-                <div class="preview-img mt-3 d-none">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 85px;">
+                <div class="preview-img mt-3">
+                    <img src="<?= htmlspecialchars($book['anh_bia']) ?>" alt="" style="width: 85px;">
                 </div>
             </div>
 
@@ -56,22 +58,24 @@
                     <input hidden type="file" class="form-control-file imgs" multiple id="imgs" name="imgs[]" accept="image/*">
                     <label for="imgs" class="btn btn-primary">Chọn</label>
                 </div>
-                <div class="preview-imgs mt-3 d-none">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 85px;">
+                <div class="preview-imgs mt-3">
+                    <?php foreach ($book['imgs'] as $item) : ?>
+                        <img src="<?= htmlspecialchars($item['hinh_anh']) ?>" alt="" style="width: 85px;">
+                    <?php endforeach ?>
                 </div>
             </div>
 
             <div class="form-group mb-3">
                 <label for="description">Tác giả:</label>
-                <input type="text" class="form-control" id="author" name="author" autocomplete="off"></input>
+                <input value="<?= htmlspecialchars($book['tac_gia']) ?>" type="text" class="form-control" id="author" name="author" autocomplete="off"></input>
             </div>
 
             <div class="form-group mb-3">
                 <label for="description">Mô Tả:</label>
-                <textarea class="form-control" id="description" name="description" rows="6"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="6"> <?= htmlspecialchars($book['mo_ta']) ?></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
         </form>
     </div>
 </main>
@@ -152,11 +156,13 @@
                 const imgs = $('.imgs')[0].files;
 
                 formData.append('img', img);
+
                 for (var i = 0; i < imgs.length; i++) {
                     formData.append("imgs[]", imgs[i]);
                 }
 
                 const book = {
+                    "book_id": $('#book_id').val(),
                     "name": $('#name').val(),
                     "price": Number($('#price').val()),
                     "sale": Number($('#sale').val()),
@@ -180,7 +186,11 @@
                             customClass: {
                                 confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
                             },
-                        }).then(() => window.location.href = '/admin/add')
+                        }).then(() => {
+                            if (!res['error']) {
+                                window.location.href = '/admin'
+                            }
+                        })
                     })
                     .catch(error => {
                         console.error("Error:", error);

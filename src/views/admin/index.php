@@ -16,8 +16,8 @@
             </thead>
             <tbody>
                 <?php foreach ($books as $index => $book) : ?>
-                    <tr>
-                        <td class="align-middle"><?php echo $index + 1 ?></td>
+                    <tr class="book">
+                        <td class=" align-middle"><?php echo $index + 1 ?></td>
                         <td class="align-middle">
                             <a href="/admin/edit" class="d-flex align-items-center gap-2 text-decoration-none text-dark">
                                 <img src="<?= htmlspecialchars($book['anh_bia']) ?>" alt="" style="width: 70px;">

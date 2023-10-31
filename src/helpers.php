@@ -94,3 +94,10 @@ function remove_img_file($filename)
     }
     return false;
 }
+
+function extractFileNameFromUrl($url)
+{
+    $fileNameArr = explode(BASE_URL . '/uploads/', $url);
+    $fileName = end($fileNameArr);
+    return $fileName;
+}

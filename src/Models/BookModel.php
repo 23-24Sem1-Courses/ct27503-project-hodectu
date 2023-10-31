@@ -36,11 +36,13 @@ class BookModel
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (empty($result)) return false;
 
         $sql = "SELECT * FROM hinh_anh_sach WHERE id_sach=?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
         $imgs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         $result['imgs'] = $imgs;
 
         return $result;
@@ -75,20 +77,43 @@ class BookModel
         return false;
     }
 
+    public function update($book)
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "UPDATE sach SET ten_sach=?, gia_goc=?, gia_sale=?, anh_bia=?, tac_gia=?, mo_ta=? WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$book['name'], $book['price'], $book['sale'], BASE_URL . '/uploads/' . $book['img'], $book['author'], $book['description'], $book['book_id']]);
+
+        if ($stmt->rowCount() === 1 && isset($book['imgs'])) {
+            foreach ($book['imgs'] as $img) {
+                $sql = "INSERT INTO hinh_anh_sach(id_sach, hinh_anh) VALUES(?, ?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute([$book['book_id'], BASE_URL . '/uploads/' . $img]);
+            }
+            return true;
+        }
+        return false;
+    }
+
     public function delete($id)
     {
         include SRC_DIR . '/config.php';
-        $sql = "DELETE FROM sach WHERE id = ?";
+        $sql = "DELETE FROM sach WHERE id=?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
         if ($stmt->rowCount() !== 1) {
             return false;
         }
 
+        return $this->deleteBookImgs($id);
+    }
+
+    public function deleteBookImgs($id)
+    {
+        include SRC_DIR . '/config.php';
         $sql = "DELETE FROM hinh_anh_sach WHERE id_sach = ?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
-
-        return  $stmt->rowCount() === 1;
+        return  $stmt->rowCount() > 0;
     }
 }
