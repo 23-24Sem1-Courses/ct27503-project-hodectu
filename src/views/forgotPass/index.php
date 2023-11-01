@@ -65,7 +65,6 @@
                     "email": $('#forgot_pass_form input[name="email"]').val(),
                 },
                 success: function(res) {
-                    console.log(res);
                     res = JSON.parse(res);
 
                     Swal.fire({

@@ -73,7 +73,6 @@
                     "password": $('#login_form input[name="password"]').val(),
                 },
                 success: function(res) {
-                    console.log(res);
                     res = JSON.parse(res);
                     Swal.fire({
                         title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
