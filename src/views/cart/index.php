@@ -5,6 +5,11 @@
         background: #f5f5f5;
     }
 
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+
     .form-floating>label {
         transition: transform 0.2s ease-in-out;
     }
@@ -15,11 +20,6 @@
 
     #draggable:hover {
         cursor: move;
-    }
-
-    .cart-empty-img {
-        background: url('/images/cart/empty-cart.png') center no-repeat;
-        background-size: 150px;
     }
 
     .img {
@@ -44,18 +44,7 @@
     }
 </style>
 
-<!-- Empty cart -->
-<!-- <main class="container d-flex flex-column justify-content-center overflow-hidden" style="min-height: calc(100vh - 200px);">
-    <div class="cart-empty-img" style="height: 10rem;"></div>
-    <div class="row text-center justify-content-center">
-        <p>Giỏ hàng của bạn còn trống</p>
-        <button class="btn btn-hover-dark col-4 col-md-2 fw-semibold text-white" style="background: #3aafa9;">Mua
-            ngay</button>
-    </div>
-</main> -->
-<!-- /Empty cart -->
-
-<main class="container overflow-hidden py-2" style="min-height: calc(100vh - 200px);">
+<main class="container overflow-hidden py-5" style="min-height: 70vh;">
     <div class="fs-2 my-4 border-bottom pb-3 w-100">
         <i class="fa-brands fa-shopify fs-1" style="color: #3aafa9;"></i>
         Giỏ hàng
@@ -72,101 +61,100 @@
         </thead>
 
         <tbody class="border w-100 col">
+            <?php foreach ($cartList as $item) : ?>
+                <tr class="product d-none d-md-flex text-center row align-items-center bg-white py-4 flex-row" data-book_id="<?= htmlspecialchars($item['id_sach']) ?>">
+                    <div>
 
-            <tr class="d-none d-md-flex text-center row align-items-center bg-white py-4 flex-row">
-                <div>
+                        <td class="text-start py-2 col-md-6">
+                            <div class="d-flex">
+                                <a href class="pan col-3 text-center me-3 me-md-0" data-big="<?= htmlspecialchars($item['anh_bia']) ?>">
+                                    <img src="<?= htmlspecialchars($item['anh_bia']) ?>" alt="" data-action="zoom" style="width: 100px;">
+                                </a>
+                                <div class="col-8 mx-5 mx-lg-0 d-flex flex-column justify-content-around">
+                                    <p class="text-truncate mb-0 fw-semibold">
+                                        <?= htmlspecialchars($item['ten_sach']) ?>
+                                    </p>
+                                    <p>
+                                        <span class="text-decoration-line-through text-black-50 me-2"><?= htmlspecialchars($item['gia_goc']) ?></span>
+                                        <span class="text-danger fw-bold sale"><?= htmlspecialchars($item['gia_sale']) ?></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
 
-                    <td class="text-start py-2 col-md-6">
-                        <div class="d-flex">
-                            <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://nobita.vn/wp-content/uploads/2022/05/bia-sakurako-tap-10-ban-pho-thong.jpg">
-                                <img src="https://nobita.vn/wp-content/uploads/2022/05/bia-sakurako-tap-10-ban-pho-thong.jpg" alt="" data-action="zoom" style="width: 100px;">
+                        <td class="col-md-2 px-md-0">
+                            <div class="d-flex justify-content-center">
+                                <div class="d-flex col-md-12 number-input">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn-minus btn btn-default btn-number rounded-end-0" style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
+                                            <span class="fa fa-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input type="number" value="<?= htmlspecialchars($item['so_luong']) ?>" min="0" max="100" name="quantity" class="fw-bold form-control input-number text-center col rounded-0 border-end-0 border-start-0" style="box-shadow: none; border-color: #17252a;">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn-plus btn btn-default btn-number rounded-start-0" style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
+                                            <span class="fa fa-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="col-md-2 text-center text-danger">
+                            <span class="fw-bold total"><?= htmlspecialchars($item['so_luong'] * $item['gia_sale']) ?></span>
+                        </td>
+
+                        <td class="fs-4 cart-btn-close col-md-2 text-center" style="color: #3aafa9;">
+                            <i class="fa-solid fa-trash"></i>
+                        </td>
+
+                    </div>
+                </tr>
+
+                <div class="product d-flex d-md-none text-center row align-items-center py-4 flex-column" data-book_id="<?= htmlspecialchars($item['id_sach']) ?>">
+                    <div class="py-3 d-flex align-items-center border bg-white">
+                        <div class="col-3">
+                            <a href class="pan col-3 text-center me-3 me-md-0" data-big="<?= htmlspecialchars($item['anh_bia']) ?>">
+                                <img src="<?= htmlspecialchars($item['anh_bia']) ?>" alt="" data-action="zoom" style="width: 100px;">
                             </a>
-                            <div class="col-8 mx-5 mx-lg-0 d-flex flex-column justify-content-around">
-                                <p class="text-truncate mb-0 fw-semibold">
-                                    Sakurako Và Bộ Xương Dưới Gốc Anh Đào
+                        </div>
+
+                        <div class="col-9 text-center px-2">
+
+                            <div class="text-start">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <p class="text-truncate mb-0 fw-semibold me-5">
+                                        <?= htmlspecialchars($item['ten_sach']) ?>
+                                    </p>
+                                    <div class="fs-4 cart-btn-close me-2" style="color: #3aafa9;"><i class="fa-solid fa-trash"></i></div>
+                                </div>
+                                <p class="mt-2">
+                                    <span class="text-decoration-line-through text-black-50 me-2"><?= htmlspecialchars($item['gia_goc']) ?> đ</span>
+                                    <span class="text-danger fw-bold sale"><?= htmlspecialchars($item['gia_sale']) ?></span>
                                 </p>
-                                <p>
-                                    <span class="text-decoration-line-through text-black-50 me-2">109.000 đ</span>
-                                    <span class="text-danger fw-bold">98.000 đ</span>
-                                </p>
+
                             </div>
-                        </div>
-                    </td>
 
-                    <td class="col-md-2 px-md-0">
-                        <div class="d-flex justify-content-center">
-                            <div class="d-flex col-md-12">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default btn-number rounded-end-0" style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
-                                        <span class="fa fa-minus"></span>
-                                    </button>
-                                </span>
-                                <input type="text" name="quantity" class="form-control input-number text-center col rounded-0 border-end-0 border-start-0" value="1" min="1" max="100" style="box-shadow: none; border-color: #17252a;">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default btn-number rounded-start-0" style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
-                                        <span class="fa fa-plus"></span>
-                                    </button>
-                                </span>
+                            <div class="text-start">
+                                <div class="d-flex w-50 number-input">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn-minus btn btn-default btn-number  rounded-end-0" style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
+                                            <span class="fa fa-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input type="number" value="<?= htmlspecialchars($item['so_luong']) ?>" min="0" max="100" name="quantity" class="form-control input-number text-center col rounded-0 border-end-0 border-start-0" style="box-shadow: none; border-color: #17252a;">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn-plus btn btn-default btn-number rounded-start-0" style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
+                                            <span class="fa fa-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-
-                    <td class="col-md-2 text-center">
-                        <span class="text-danger fw-bold">98.000 đ</span>
-                    </td>
-
-                    <td class="fs-4 cart-btn-close col-md-2 text-center" style="color: #3aafa9;"><i class="fa-solid fa-trash"></i>
-                    </td>
-
-                </div>
-            </tr>
-
-            <div class="d-flex d-md-none text-center row align-items-center py-4 flex-column">
-
-                <div class="py-3 d-flex align-items-center border bg-white">
-                    <div class="col-3">
-                        <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://nobita.vn/wp-content/uploads/2022/05/bia-sakurako-tap-10-ban-pho-thong.jpg">
-                            <img src="https://nobita.vn/wp-content/uploads/2022/05/bia-sakurako-tap-10-ban-pho-thong.jpg" alt="" data-action="zoom" style="width: 100px;">
-                        </a>
-                    </div>
-
-                    <div class="col-9 text-center px-2">
-
-                        <div class="text-start">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <p class="text-truncate mb-0 fw-semibold me-5">
-                                    Sakurako Và Bộ Xương Dưới Gốc Anh Đào
-                                </p>
-                                <div class="fs-4 cart-btn-close me-2" style="color: #3aafa9;"><i class="fa-solid fa-trash"></i></div>
-                            </div>
-                            <p class="mt-2">
-                                <span class="text-decoration-line-through text-black-50 me-2">109.000 đ</span>
-                                <span class="text-danger fw-bold">98.000 đ</span>
-                            </p>
 
                         </div>
-
-                        <div class="text-start">
-                            <div class="d-flex w-50">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default btn-number  rounded-end-0" style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
-                                        <span class="fa fa-minus"></span>
-                                    </button>
-                                </span>
-                                <input type="text" name="quantity" class="form-control input-number text-center col rounded-0 border-end-0 border-start-0" value="1" min="1" max="100" style="box-shadow: none; border-color: #17252a;">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default btn-number rounded-start-0" style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
-                                        <span class="fa fa-plus"></span>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-
-            </div>
-
+            <?php endforeach ?>
         </tbody>
     </table>
 
@@ -175,5 +163,116 @@
     </button>
 
 </main>
+
+<script>
+    $().ready(function() {
+        const swalDelete = (book) => {
+            return Swal.fire({
+                title: 'Xác nhận xóa?',
+                text: "Bạn chắc chắn muốn xóa sản phẩm này?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Xác nhận',
+                cancelButtonText: 'Hủy'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const bookId = book[0].dataset.book_id;
+                    console.log(bookId);
+
+                    $.ajax({
+                        url: '/cart/delete/' + bookId,
+                        type: 'POST',
+                        success: function(res) {
+                            res = JSON.parse(res);
+
+                            Swal.fire({
+                                title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
+                                text: res["message"],
+                                icon: `${res["error"] ? 'error' : 'success'}`,
+                                confirmButtonText: 'Ok',
+                                customClass: {
+                                    confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
+                                },
+                            }).then(function() {
+                                $('.cart-item').each(function() {
+                                    const itemId = $(this).find('a').prop('href').split('/')[5];
+                                    if (itemId === bookId) {
+                                        $(this).remove();
+                                    }
+                                })
+                                book.remove();
+                                if (!$('.cart-item').length) {
+                                    window.location.reload();
+                                }
+                            })
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    })
+                }
+            })
+        }
+
+        $('.cart-btn-close').each(function() {
+            $(this).on('click', () => {
+                const book = $(this).closest('.product');
+                swalDelete(book);
+            })
+        })
+
+        $('.btn-minus').each(function() {
+            $(this).on('click', function() {
+                const book = $(this).closest('.product');
+                const bookId = book[0].dataset.book_id;
+                const input = $(this).closest('.number-input').find('input[name="quantity"]');
+
+                input[0].stepDown();
+
+                $('.cart-item').each(function() {
+                    const itemId = $(this).find('a').prop('href').split('/')[5];
+                    if (itemId === bookId) {
+                        $(this).find('.quantity').html(Number(input.val()));
+                    }
+                })
+
+                if (Number(input.val()) === 0) {
+                    input.val(1);
+                    swalDelete(book);
+                }
+
+                book.find('.total').html(Number(input.val()) * Number(book.find('.sale').text()));
+            })
+        })
+
+        $('.btn-plus').each(function() {
+            $(this).on('click', function() {
+                const book = $(this).closest('.product');
+                const bookId = book[0].dataset.book_id;
+                const input = $(this).closest('.number-input').find('input[name="quantity"]');
+                const formData = new FormData();
+
+                input[0].stepUp();
+                book.find('.total').html(Number(input.val()) * Number(book.find('.sale').text()));
+
+                $('.cart-item').each(function() {
+                    const itemId = $(this).find('a').prop('href').split('/')[5];
+                    if (itemId === bookId) {
+                        $(this).find('.quantity').html(Number(input.val()));
+                    }
+                })
+
+                formData.append('quantity', input.val());
+
+                fetch('/cart/update/' + bookId, {
+                    method: 'POST',
+                    body: formData
+                }).then()
+            })
+        })
+    })
+</script>
 
 <?php include_once VIEWS_DIR . "/layouts/footer/index.php"; ?>
