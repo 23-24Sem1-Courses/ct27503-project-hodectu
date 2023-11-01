@@ -1,6 +1,6 @@
 <?php include_once VIEWS_DIR . "/layouts/header/index.php"; ?>
 
-<main class="" style="background-color: #efefef; min-height: 100vh;">
+<main class="" style="background-color: #efefef; min-height: 70vh;">
     <section class="">
         <div class="container p-5">
             <div class="row">
@@ -14,7 +14,7 @@
                         </div>
                         <hr>
                     </div>
-                    <div class="d-flex gap-1">
+                    <div class="d-flex gap-2">
                         <i class="fa-regular fa-user" style="font-size: 25px;"></i>
                         <p class="fw-bold">Tài Khoản Của Tôi</p>
                     </div>
@@ -36,38 +36,38 @@
 
                         <div class="row justify-content-between d-column flex-column-reverse flex-lg-row gap-3 gap-md-0">
                             <div class="col-12 col-lg-8">
-                                <div class="mb-3 d-flex row">
+                                <div class="mb-3 align-items-center row">
                                     <div class="col-3 text-end">
-                                        <label for="email" class="form-label" style="font-size: 14px;">Email</label>
+                                        <label class="form-label fw-semibold">Email</label>
                                     </div>
-                                    <div class="col-9">
+                                    <div class=" col-9">
                                         <input readonly value="<?= htmlspecialchars($user['email'])  ?>" type="email" class="form-control" autocomplete="off" id="email" aria-describedby="email" name="email" style="box-shadow: none;">
                                     </div>
                                     <input type="hidden" name="id_user" value="<?= htmlspecialchars($user['id']) ?>">
                                 </div>
-                                <div class="mb-3 d-flex row">
+                                <div class="mb-3 align-items-center row">
                                     <div class="col-3 text-end">
-                                        <label for="name" class="form-label" style="font-size: 14px;">Tên</label>
+                                        <label class="form-label fw-semibold">Tên</label>
                                     </div>
-                                    <div class="col-9">
+                                    <div class=" col-9">
                                         <input value="<?= htmlspecialchars($user['ho_ten']) ?>" class="form-control" autocomplete="off" id="name" name="name" aria-describedby="name" style="box-shadow: none;">
                                     </div>
                                 </div>
-                                <div class="mb-3 d-flex row">
+                                <div class="mb-3 align-items-center row">
                                     <div class="col-3 text-end">
-                                        <label for="phone" class="form-label" style="font-size: 14px;">Số điện
+                                        <label class="form-label fw-semibold">Số điện
                                             thoại</label>
                                     </div>
-                                    <div class="col-9">
+                                    <div class=" col-9">
                                         <input value="<?= htmlspecialchars($user['so_dien_thoai'])  ?>" class="form-control" autocomplete="off" id="phone" aria-describedby="phone" name="phone" style="box-shadow: none;">
                                     </div>
                                 </div>
-                                <div class="mb-3 d-flex row">
+                                <div class="mb-3 align-items-center row">
                                     <div class="col-3 text-end">
-                                        <label for="address" class="form-label" style="font-size: 14px;">Địa
+                                        <label class="form-label fw-semibold">Địa
                                             Chỉ</label>
                                     </div>
-                                    <div class="col-9">
+                                    <div class=" col-9">
                                         <input value="<?= htmlspecialchars($user['dia_chi']) ?>" type="text" class="form-control" autocomplete="off" id="address" aria-describedby="address" name="address" style="box-shadow: none;">
                                     </div>
                                 </div>
@@ -200,13 +200,6 @@
             })
         }
 
-        $('#avatar').on('change', function() {
-            if ($(this).val()) {
-                $('#btn_upload_avatar').removeClass('d-none');
-                $('#label_avatar').addClass('d-none');
-            }
-        })
-
         $('#btn_edit_profile').on('click', function() {
             const formData = new FormData();
 
@@ -230,6 +223,13 @@
                 .catch(error => {
                     console.error("Error:", error);
                 });
+        })
+
+        $('#avatar').on('change', function() {
+            if ($(this).val() && isValidFile($(this)[0]?.files[0])) {
+                $('#btn_upload_avatar').removeClass('d-none');
+                $('#label_avatar').addClass('d-none');
+            }
         })
 
         $('#btn_upload_avatar').on('click', function() {

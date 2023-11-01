@@ -1,6 +1,6 @@
 <?php include_once VIEWS_DIR . "/layouts/header/index.php"; ?>
 
-<main class="" style="background-color: #efefef; min-height: 100vh;">
+<main class="" style="background-color: #efefef; min-height: 70vh;">
     <section class="">
         <div class=" container p-5">
             <div class="row">
@@ -10,17 +10,14 @@
                             <div class="preview-img p-2 d-flex justify-content-center align-items-center">
                                 <img src="<?= htmlspecialchars($user['avatar']) ?>" alt="" style="border-radius: 50%; width: 50px; height: 50px; background-color: #efefef;">
                             </div>
+                            <p class="mb-0 text-decoration-none text-black fw-bold text-truncate w-50"><?= htmlspecialchars($user['email']) ?></p>
 
-                            <p class="mb-0 text-decoration-none text-black fw-bold">
-                                <?= htmlspecialchars($user['email']) ?></p>
                         </div>
                         <hr>
                     </div>
-                    <div class="d-flex gap-1">
-
+                    <div class="d-flex gap-2">
                         <i class="fa-regular fa-user" style="font-size: 25px;"></i>
                         <p class="fw-bold">Tài Khoản Của Tôi</p>
-
                     </div>
                     <div class="d-flex flex-column">
                         <a href="/profile" class="fw-semibold text-decoration-none text-black">Hồ
@@ -43,34 +40,33 @@
                             <div class="col-12 col-lg-9">
 
                                 <form id="user_change_pass_form">
-                                    <div class="mb-3 d-flex row text-end">
-                                        <div class="col-4 ">
-                                            <label for="password" class="form-label" style="font-size: 14px;">Mật khẩu
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4 text-end">
+                                            <label class="form-label fw-semibold">Mật khẩu
                                                 cũ</label>
                                         </div>
                                         <div class="col-8">
-                                            <input type="password" class="form-control " name="old_password" aria-describedby="name" style="box-shadow: none;">
-
+                                            <input type="password" id="password" class="form-control" name="old_password" style="box-shadow: none;">
                                         </div>
                                     </div>
-                                    <div class="mb-3 d-flex row text-end">
-                                        <div class="col-4">
-                                            <label for="password" class="form-label" style="font-size: 14px;">Mật khẩu
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4 text-end">
+                                            <label class="form-label fw-semibold">Mật khẩu
                                                 mới</label>
                                         </div>
                                         <div class="col-8">
-                                            <input type="password" class="form-control " id="new_password" aria-describedby="email" name="new_password" style="box-shadow: none;">
+                                            <input type="password" class="form-control" id="new_password" name="new_password" style="box-shadow: none;">
                                         </div>
                                     </div>
-                                    <div class="mb-3 row text-end">
-                                        <div class="col-4">
-                                            <label for="password" class="form-label" style="font-size: 14px;">Nhập
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4 text-end">
+                                            <label class="form-label fw-semibold">Nhập
                                                 lại
                                                 mật khẩu
                                                 mới </label>
                                         </div>
                                         <div class="col-8">
-                                            <input type="password" class="form-control " id="phone" aria-describedby="phone" name="a_new_password" style="box-shadow: none;">
+                                            <input type="password" class="form-control" name="a_new_password" style="box-shadow: none;">
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center">
