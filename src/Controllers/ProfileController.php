@@ -6,10 +6,20 @@ class ProfileController
 {
     public function index()
     {
+        if (!isAuthentication()) {
+            redirect('/login');
+        }
+        $UserModel = new \App\Models\UserModel();
+        $user = $UserModel->getByEmail($_SESSION['email']);
         require_once VIEWS_DIR . '/user/profile/index.php';
     }
     public function getChangePassword()
     {
+        if (!isAuthentication()) {
+            redirect('/login');
+        }
+        $UserModel = new \App\Models\UserModel();
+        $user = $UserModel->getByEmail($_SESSION['email']);
         require_once VIEWS_DIR . '/user/password/index.php';
     }
 
@@ -18,7 +28,6 @@ class ProfileController
         try {
             require_once SRC_DIR . '/config.php';
             $UserModel = new \App\Models\UserModel();
-
 
             if (!isset($_POST['old_password'])) {
                 JsonResponse(error: 1, message: "Vui lòng nhập mật khẩu cũ");

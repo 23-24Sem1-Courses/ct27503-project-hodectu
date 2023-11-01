@@ -9,7 +9,7 @@ class UserModel
     public function getByEmail($email)
     {
         include SRC_DIR . '/config.php';
-        $sql = "SELECT id, email FROM khach_hang WHERE email=?";
+        $sql = "SELECT * FROM khach_hang WHERE email=?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);

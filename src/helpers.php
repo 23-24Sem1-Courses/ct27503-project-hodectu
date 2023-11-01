@@ -20,6 +20,11 @@ function isAdmin()
     return (int)$_SESSION['is_admin'] === 1;
 }
 
+function isAuthentication()
+{
+    return $_SESSION['email'];
+}
+
 function handle_img_upload($img, $isMultiple = false)
 {
     if (!isset($_FILES[$img])) {

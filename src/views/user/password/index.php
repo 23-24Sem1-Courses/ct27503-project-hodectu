@@ -7,39 +7,33 @@
                 <div class="col-12 col-lg-3  px-5 pb-2">
                     <div class="pb-2">
                         <div class="d-flex justify-content-start align-items-center gap-2 mb-4">
-                            <div class="p-2 d-flex justify-content-center align-items-center "
-                                style="border-radius: 50%; width: 50px; height: 50px; background-color: white;">
-                                <i class="fa-regular fa-user" style="font-size: 25px;"></i>
+                            <div class="preview-img p-2 d-flex justify-content-center align-items-center">
+                                <img src="<?= htmlspecialchars($user['avatar']) ?>" alt="" style="border-radius: 50%; width: 50px; height: 50px; background-color: #efefef;">
                             </div>
 
-                            <a href="login.php" class="text-decoration-none  text-black  fw-bold">
-                                email</a>
-
+                            <p class="mb-0 text-decoration-none text-black fw-bold">
+                                <?= htmlspecialchars($user['email']) ?></p>
                         </div>
                         <hr>
                     </div>
                     <div class="d-flex gap-1">
 
                         <i class="fa-regular fa-user" style="font-size: 25px;"></i>
-                        <p>Tài Khoản Của Tôi</p>
+                        <p class="fw-bold">Tài Khoản Của Tôi</p>
 
                     </div>
                     <div class="d-flex flex-column">
-                        <a href="/profile" class="text-decoration-none text-black" style="font-size: 14px;">Hồ
+                        <a href="/profile" class="fw-semibold text-decoration-none text-black">Hồ
                             Sơ</a>
-                        <a href="#" class="text-decoration-none text-black fw-bold"
-                            style="font-size: 14px; color:#3aafa9 !important;">Đổi Mật
+                        <a href="#" class="text-decoration-none text-black fw-bold" style="color:#3aafa9 !important;">Đổi Mật
                             Khẩu</a>
                     </div>
-
-
 
                 </div>
                 <div class="col-12 col-lg-9 p-5" style="background-color: white;">
                     <div class="pb-3">
                         <div class="p-2 d-flex  align-items-center mb-2">
-                            <div class="p-2 d-flex justify-content-center align-items-center "
-                                style="border-radius: 50%; width: 50px; height: 50px; background-color: white;">
+                            <div class="p-2 d-flex justify-content-center align-items-center " style="border-radius: 50%; width: 50px; height: 50px; background-color: white;">
                                 <i class="fa-solid fa-key" style="font-size: 25px;"></i>
                             </div>
                             <h3>Đổi Mật Khẩu</h3>
@@ -55,8 +49,7 @@
                                                 cũ</label>
                                         </div>
                                         <div class="col-8">
-                                            <input type="password" class="form-control " name="old_password"
-                                                aria-describedby="name" style="box-shadow: none;">
+                                            <input type="password" class="form-control " name="old_password" aria-describedby="name" style="box-shadow: none;">
 
                                         </div>
                                     </div>
@@ -66,8 +59,7 @@
                                                 mới</label>
                                         </div>
                                         <div class="col-8">
-                                            <input type="password" class="form-control " id="new_password"
-                                                aria-describedby="email" name="new_password" style="box-shadow: none;">
+                                            <input type="password" class="form-control " id="new_password" aria-describedby="email" name="new_password" style="box-shadow: none;">
                                         </div>
                                     </div>
                                     <div class="mb-3 row text-end">
@@ -78,15 +70,11 @@
                                                 mới </label>
                                         </div>
                                         <div class="col-8">
-                                            <input type="password" class="form-control " id="phone"
-                                                aria-describedby="phone" name="a_new_password"
-                                                style="box-shadow: none;">
+                                            <input type="password" class="form-control " id="phone" aria-describedby="phone" name="a_new_password" style="box-shadow: none;">
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button type="submit" class="btn text-white "
-                                            style="min-width: 100px; background-color: #3aafa9;"
-                                            aria-disabled="false">Lưu</button>
+                                        <button type="submit" class="btn text-white " style="min-width: 100px; background-color: #3aafa9;" aria-disabled="false">Lưu</button>
                                     </div>
                                 </form>
 
@@ -103,7 +91,7 @@
 <script>
     $.validator.setDefaults({
         ignore: [],
-        submitHandler: function (form) {
+        submitHandler: function(form) {
             $.ajax({
                 url: '/profile/password',
                 type: 'POST',
@@ -111,7 +99,7 @@
                     "old_password": $('#user_change_pass_form input[name="old_password"]').val(),
                     "new_password": $('#user_change_pass_form input[name="new_password"]').val(),
                 },
-                success: function (res) {
+                success: function(res) {
 
 
                     res = JSON.parse(res);
@@ -124,12 +112,12 @@
                         customClass: {
                             confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
                         },
-                    }).then(function () {
+                    }).then(function() {
                         window.location.href = '/profile/password'
 
                     })
                 },
-                error: function (error) {
+                error: function(error) {
                     console.log(error);
                 }
             });
@@ -138,7 +126,7 @@
 
 
 
-    $().ready(function () {
+    $().ready(function() {
         $('#user_change_pass_form').validate({
             rules: {
                 old_password: {
@@ -170,8 +158,7 @@
                 a_new_password: {
                     required: 'Bạn chưa nhập mật khẩu',
                     minlength: 'Mật khẩu phải có ít nhất 5 ký tự ',
-                    equalTo:
-                        'Mật khẩu không trùng khớp với mật khẩu đã nhập',
+                    equalTo: 'Mật khẩu không trùng khớp với mật khẩu đã nhập',
                 },
             },
             errorElement: 'span',
@@ -188,8 +175,6 @@
                 $(element).addClass('is-valid').removeClass('is-invalid');
             },
         })
-
-
     });
 </script>
 
