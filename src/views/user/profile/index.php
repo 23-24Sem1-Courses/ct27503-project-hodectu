@@ -178,7 +178,6 @@
 
                 if (!isValidFile(file)) {
                     $(this).val('');
-                    previewTag.addClass('d-none')
                     return;
                 }
 
