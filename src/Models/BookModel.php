@@ -66,7 +66,7 @@ class BookModel
         $stmt->execute([$book['name'], $book['price'], $book['sale'], BASE_URL . '/uploads/' . $book['img'], $book['author'], $book['description']]);
 
         $id = (int)$conn->lastInsertId();
-        if ($stmt->rowCount() === 1) {
+        if ($stmt->rowCount() === 1 && !empty($book['imgs'])) {
             foreach ($book['imgs'] as $img) {
                 $sql = "INSERT INTO hinh_anh_sach(id_sach, hinh_anh) VALUES(?, ?)";
                 $stmt = $conn->prepare($sql);
@@ -84,7 +84,7 @@ class BookModel
         $stmt = $conn->prepare($sql);
         $stmt->execute([$book['name'], $book['price'], $book['sale'], BASE_URL . '/uploads/' . $book['img'], $book['author'], $book['description'], $book['book_id']]);
 
-        if ($stmt->rowCount() === 1 && isset($book['imgs'])) {
+        if ($stmt->rowCount() === 1 && !empty($book['imgs'])) {
             foreach ($book['imgs'] as $img) {
                 $sql = "INSERT INTO hinh_anh_sach(id_sach, hinh_anh) VALUES(?, ?)";
                 $stmt = $conn->prepare($sql);
@@ -101,6 +101,7 @@ class BookModel
         $sql = "DELETE FROM sach WHERE id=?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
+
         if ($stmt->rowCount() !== 1) {
             return false;
         }

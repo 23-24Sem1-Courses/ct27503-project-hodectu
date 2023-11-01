@@ -186,10 +186,13 @@ class AdminController
             remove_img_file($fileName);
         }
 
-        $fileName = extractFileNameFromUrl($oldBook['anh_bia']);
-        remove_img_file($fileName);
-
         $isSuccess = $BookModel->delete($id);
+
+        $fileName = extractFileNameFromUrl($oldBook['anh_bia']);
+        if ($isSuccess && empty($fileName)) {
+            JsonResponse(error: 1, message: "Xóa sản phẩm thành công");
+        }
+        remove_img_file($fileName);
 
         if (!$isSuccess) {
             JsonResponse(error: 1, message: "Có lỗi xảy ra! vui lòng thử lại sau.");

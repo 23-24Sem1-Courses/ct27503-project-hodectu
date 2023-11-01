@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="preview-img mt-3 d-none">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 85px;">
+                    <img src="" alt="" style="width: 85px;">
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
                     <label for="imgs" class="btn btn-primary">Chọn</label>
                 </div>
                 <div class="preview-imgs mt-3 d-none">
-                    <img src="http://shop.localhost/images/product/text%201.jpg" alt="" style="width: 85px;">
+                    <img src="" alt="" style="width: 85px;">
                 </div>
             </div>
 
@@ -130,49 +130,51 @@
         })
     }
 
-    $().ready(function() {
-        $.validator.setDefaults({
-            submitHandler: function() {
-                const formData = new FormData();
-                const img = $('.img')[0].files[0];
-                const imgs = $('.imgs')[0].files;
+    $.validator.setDefaults({
+        ignore: [],
+        submitHandler: function() {
+            const formData = new FormData();
+            const img = $('.img')[0].files[0];
+            const imgs = $('.imgs')[0].files;
 
-                formData.append('img', img);
-                for (var i = 0; i < imgs.length; i++) {
-                    formData.append("imgs[]", imgs[i]);
-                }
-
-                const book = {
-                    "name": $('#name').val(),
-                    "price": Number($('#price').val()),
-                    "sale": Number($('#sale').val()),
-                    "author": $('#author').val(),
-                    "description": $('#description').val()
-                };
-
-                formData.append("book", JSON.stringify(book));
-
-                fetch('/admin/add', {
-                        method: 'POST',
-                        body: formData,
-                    })
-                    .then(res => res.json())
-                    .then(res => {
-                        Swal.fire({
-                            title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
-                            text: res["message"],
-                            icon: `${res["error"] ? 'error' : 'success'}`,
-                            confirmButtonText: 'Ok',
-                            customClass: {
-                                confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
-                            },
-                        }).then(() => window.location.href = '/admin/add')
-                    })
-                    .catch(error => {
-                        console.error("Error:", error);
-                    });
+            formData.append('img', img);
+            for (var i = 0; i < imgs.length; i++) {
+                formData.append("imgs[]", imgs[i]);
             }
-        })
+
+            const book = {
+                "name": $('#name').val(),
+                "price": Number($('#price').val()),
+                "sale": Number($('#sale').val()),
+                "author": $('#author').val(),
+                "description": $('#description').val()
+            };
+
+            formData.append("book", JSON.stringify(book));
+
+            fetch('/admin/add', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(res => res.json())
+                .then(res => {
+                    Swal.fire({
+                        title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
+                        text: res["message"],
+                        icon: `${res["error"] ? 'error' : 'success'}`,
+                        confirmButtonText: 'Ok',
+                        customClass: {
+                            confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
+                        },
+                    }).then(() => window.location.href = '/admin/add')
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+    })
+
+    $().ready(function() {
         $('#add_book_form').validate({
             rules: {
                 name: {
