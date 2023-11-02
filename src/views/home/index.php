@@ -39,7 +39,7 @@
                             <li><a class="dropdown-item fw-bold" href="/book/search?tu_khoa=Truyện_tranh">Truyện
                                     tranh</a></li>
                             <li><a class="dropdown-item fw-bold"
-                                    href="/book/search?tu_khoa=Truyện_khoahọc_viễntưởng">Truyện khoa học viễn
+                                    href="/book/search?tu_khoa=Truyện_khoa_học_viễn_tưởng">Truyện khoa học viễn
                                     tưởng</a></li>
                             <li><a class="dropdown-item fw-bold" href="/book/search?tu_khoa=Truyện_tình_yêu">Truyện tình
                                     yêu</a></li>
