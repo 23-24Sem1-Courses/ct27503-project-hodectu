@@ -35,7 +35,7 @@
     <header>
         <nav class="navbar navbar-expand-lg fw-semibold" style="background-color: #3aafa9;">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="/images/logo/store.png" alt="" style="width: 175px;">
                 </a>
                 <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -72,10 +72,9 @@
                            <a href="/book/detail/${item.id_sach}" class="d-flex gap-3 text-decoration-none text-dark">
                                <img src="${item.anh_bia}" alt="Hình ảnh sách" class="img-fluid" style=" height: 100px; width: 100px;">
                                <div class="flex-grow-1">
-                                   <p class="fw-bold text-truncate" style="width: 80%;">${item.ten_sach}
-                                   </p>
+                                   <p class="mb-0 fw-bold text-truncate" style="width: 70%;">${item.ten_sach}</p>
                                    <div>
-                                       <p class="fw-bold text-danger">${item.gia_sale} đ</p>
+                                       <p class="mb-0 fw-bold text-danger">${item.gia_sale} đ</p>
                                         <p class="fw-bold">Số lượng: <span class="quantity">${item.so_luong}</span></p>
                                    </div>
                                </div>

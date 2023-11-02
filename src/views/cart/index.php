@@ -75,8 +75,9 @@
                                         <?= htmlspecialchars($item['ten_sach']) ?>
                                     </p>
                                     <p>
-                                        <span class="text-decoration-line-through text-black-50 me-2"><?= htmlspecialchars($item['gia_goc']) ?></span>
+                                        <span class="text-decoration-line-through text-black-50 me-2"><?= htmlspecialchars($item['gia_goc']) ?>đ</span>
                                         <span class="text-danger fw-bold sale"><?= htmlspecialchars($item['gia_sale']) ?></span>
+                                        <span class="text-danger fw-bold">đ</span>
                                     </p>
                                 </div>
                             </div>
@@ -102,6 +103,7 @@
 
                         <td class="col-md-2 text-center text-danger">
                             <span class="fw-bold total"><?= htmlspecialchars($item['so_luong'] * $item['gia_sale']) ?></span>
+                            <span class="text-danger fw-bold">đ</span>
                         </td>
 
                         <td class="fs-4 cart-btn-close col-md-2 text-center" style="color: #3aafa9;">
@@ -130,7 +132,7 @@
                                 </div>
                                 <p class="mt-2">
                                     <span class="text-decoration-line-through text-black-50 me-2"><?= htmlspecialchars($item['gia_goc']) ?> đ</span>
-                                    <span class="text-danger fw-bold sale"><?= htmlspecialchars($item['gia_sale']) ?></span>
+                                    <span class="text-danger fw-bold sale"><?= htmlspecialchars(format_money($item['gia_sale'])) ?></span>
                                 </p>
 
                             </div>
@@ -227,6 +229,7 @@
                 const book = $(this).closest('.product');
                 const bookId = book[0].dataset.book_id;
                 const input = $(this).closest('.number-input').find('input[name="quantity"]');
+                const formData = new FormData();
 
                 input[0].stepDown();
 
@@ -243,6 +246,13 @@
                 }
 
                 book.find('.total').html(Number(input.val()) * Number(book.find('.sale').text()));
+
+                formData.append('quantity', input.val());
+
+                fetch('/cart/update/' + bookId, {
+                    method: 'POST',
+                    body: formData
+                }).then()
             })
         })
 

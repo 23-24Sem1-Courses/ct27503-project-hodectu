@@ -22,12 +22,10 @@
             <div class="row d-flex justify-content-between">
                 <div class="col-md-3 col-12 bg-white">
                     <div class="dropdown" id="dropdown">
-                        <button class="btn btn-white w-100 d-flex justify-content-start" type="button"
-                            style="box-shadow: none; color: #3aafa9;" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-white w-100 d-flex justify-content-start" type="button" style="box-shadow: none; color: #3aafa9;" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="d-flex align-items-center gap-1 fs-4">
                                 <i class="fa-solid fa-bars"></i>
-                                <p class="m-0 ml-2"><a href="#" class="text-decoration-none fw-bold"
-                                        style="color: #3aafa9;">Menu</a>
+                                <p class="m-0 ml-2"><a href="#" class="text-decoration-none fw-bold" style="color: #3aafa9;">Menu</a>
                                 </p>
                             </div>
                         </button>
@@ -38,8 +36,7 @@
                             </li>
                             <li><a class="dropdown-item fw-bold" href="/book/search?tu_khoa=Truyện_tranh">Truyện
                                     tranh</a></li>
-                            <li><a class="dropdown-item fw-bold"
-                                    href="/book/search?tu_khoa=Truyện_khoa_học_viễn_tưởng">Truyện khoa học viễn
+                            <li><a class="dropdown-item fw-bold" href="/book/search?tu_khoa=Truyện_khoa_học_viễn_tưởng">Truyện khoa học viễn
                                     tưởng</a></li>
                             <li><a class="dropdown-item fw-bold" href="/book/search?tu_khoa=Truyện_tình_yêu">Truyện tình
                                     yêu</a></li>
@@ -64,8 +61,7 @@
         <div class="container">
             <div class="row shadow-lg">
                 <div class="d-flex justify-content-between bg-white py-2">
-                    <a href="#" class="text-decoration-none fw-bold text-capitalize"
-                        style="color: #3aafa9; font-size: 17px;">
+                    <a href="#" class="text-decoration-none fw-bold text-capitalize" style="color: #3aafa9; font-size: 17px;">
                         <?= htmlspecialchars($tukhoa) ?>
                     </a>
 
@@ -73,32 +69,30 @@
             </div>
 
             <div class="row">
-                <?php foreach ($book as $sach): ?>
-                    <div class="product col-md-3 col-sm-6 col-12 p-3 bg-white">
+                <?php foreach ($book as $sach) : ?>
+                    <div class="product col-md-3 col-sm-6 col-12 p-3 bg-white" data-book_id="<?= htmlspecialchars($sach['id']) ?>">
                         <div class="col">
                             <div class="row p-3">
                                 <div class="col-md-12 col-12 text-center">
                                     <!-- Hình ảnh sách -->
-                                    <a href="/book/detail/<?= htmlspecialchars($sach['id']) ?>"> <img
-                                            src="<?= htmlspecialchars($sach['anh_bia']) ?>" alt="Hình ảnh sách"
-                                            class="img-fluid" style=" height: 170px;"></a>
+                                    <a href="/book/detail/<?= htmlspecialchars($sach['id']) ?>"> <img src="<?= htmlspecialchars($sach['anh_bia']) ?>" class="img" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;"></a>
                                 </div>
                                 <div class="col-md-12 col-12 text-center mt-3">
                                     <!-- Tên sách -->
-                                    <p class="fw-bold text-truncate">
+                                    <p class="fw-bold text-truncate name">
                                         <?= htmlspecialchars($sach['ten_sach']) ?>
                                     </p>
                                     <!-- Giá -->
-                                    <p class="text-decoration-line-through">
-                                        <?= htmlspecialchars($sach['gia_goc']) ?> đ
+                                    <p class="text-decoration-line-through price">
+                                        <?= htmlspecialchars(format_money($sach['gia_goc'])) ?>
                                     </p>
-                                    <p class="fw-bold text-danger">
-                                        <?= htmlspecialchars($sach['gia_sale']) ?> đ
+                                    <p class="fw-bold text-danger sale">
+                                        <?= htmlspecialchars(format_money($sach['gia_sale'])) ?>
                                     </p>
                                 </div>
 
                                 <div class="text-center">
-                                    <a href="" class="add_to_cart btn btn-dark">
+                                    <a href="#" class="add_to_cart btn btn-dark">
                                         Thêm giỏ hàng
                                     </a>
                                 </div>

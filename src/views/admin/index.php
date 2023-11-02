@@ -26,8 +26,8 @@
                                 </p>
                             </a>
                         </td>
-                        <td class="align-middle text-center text-decoration-line-through fw-semibold"><?= htmlspecialchars($book['gia_goc']) ?> VNĐ</td>
-                        <td class="align-middle text-center text-danger fw-semibold"><?= htmlspecialchars($book['gia_sale']) ?> VNĐ</td>
+                        <td class="align-middle text-center text-decoration-line-through fw-semibold"><?= htmlspecialchars(format_money($book['gia_goc'])) ?></td>
+                        <td class="align-middle text-center text-danger fw-semibold"><?= htmlspecialchars(format_money($book['gia_goc'])) ?></td>
                         <td class="align-middle text-center">
                             <input type="hidden" id="book_id" value="<?= htmlspecialchars($book['id']) ?>">
                             <a href="/admin/edit/<?= htmlspecialchars($book['id']) ?>" class="btn btn-info text-white">Edit</a>

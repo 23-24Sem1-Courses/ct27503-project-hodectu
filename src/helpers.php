@@ -106,3 +106,8 @@ function extractFileNameFromUrl($url)
     $fileName = end($fileNameArr);
     return $fileName;
 }
+
+function format_money($amount)
+{
+    return number_format($amount, 0, '.', '.') . '' . '₫';
+}

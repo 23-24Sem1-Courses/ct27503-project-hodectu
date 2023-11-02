@@ -50,10 +50,10 @@
                     <hr>
                     <div class="">
                         <p class="text-decoration-line-through">
-                            <?= htmlspecialchars($book['gia_goc']) ?> đ
+                            <?= htmlspecialchars(format_money($book['gia_goc'])) ?>
                         </p>
                         <p class="sale fw-bold text-danger">
-                            <?= htmlspecialchars($book['gia_sale']) ?> đ
+                            <?= htmlspecialchars(format_money($book['gia_sale'])) ?>
                         </p>
                     </div>
                     <div class="row justify-content-center justify-content-lg-start">
@@ -135,10 +135,10 @@
                                     </p>
                                     <!-- Giá -->
                                     <p class="text-decoration-line-through">
-                                        <?= htmlspecialchars($sach['gia_goc']) ?> đ
+                                        <?= htmlspecialchars(format_money($sach['gia_goc'])) ?>
                                     </p>
                                     <p class="fw-bold text-danger">
-                                        <?= htmlspecialchars($sach['gia_sale']) ?> đ
+                                        <?= htmlspecialchars(format_money($sach['gia_sale'])) ?>
                                     </p>
                                 </div>
 
