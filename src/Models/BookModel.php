@@ -9,7 +9,17 @@ class BookModel
     public function getAll()
     {
         include SRC_DIR . '/config.php';
-        $sql = "select * from sach";
+        $sql = "select * from sach ORDER BY ngay_tao desc limit 12";
+        $ketqua = $conn->prepare($sql);
+        $ketqua->execute();
+        $ketqua = $ketqua->fetchAll(PDO::FETCH_ASSOC);
+
+        return $ketqua;
+    }
+    public function getAllNoLimit()
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "select * from sach ORDER BY ngay_tao desc";
         $ketqua = $conn->prepare($sql);
         $ketqua->execute();
         $ketqua = $ketqua->fetchAll(PDO::FETCH_ASSOC);
@@ -20,7 +30,7 @@ class BookModel
     public function getRandom()
     {
         include SRC_DIR . '/config.php';
-        $sql = "select * from sach ORDER BY RAND()";
+        $sql = "select * from sach ORDER BY RAND() limit 12";
         $ketqua = $conn->prepare($sql);
         $ketqua->execute();
         $ketqua = $ketqua->fetchAll(PDO::FETCH_ASSOC);
@@ -116,14 +126,14 @@ class BookModel
         $sql = "DELETE FROM hinh_anh_sach WHERE id_sach = ?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
-        return $stmt->rowCount() > 0;
+        return $stmt->rowCount() >= 0;
     }
 
 
     public function getBookByCategory($sach)
     {
         include SRC_DIR . '/config.php';
-        $sql = "select * from sach where the_loai like ? or ten_sach like ? or tac_gia like ? limit 8 ";
+        $sql = "select * from sach where the_loai like ? or ten_sach like ? or tac_gia like ?";
         $ketqua = $conn->prepare($sql);
         $ketqua->execute(['%' . $sach . '%', '%' . $sach . '%', '%' . $sach . '%']);
         $ketqua = $ketqua->fetchAll(PDO::FETCH_ASSOC);
