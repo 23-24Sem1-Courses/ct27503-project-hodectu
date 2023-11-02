@@ -179,7 +179,6 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     const bookId = book[0].dataset.book_id;
-                    console.log(bookId);
 
                     $.ajax({
                         url: '/cart/delete/' + bookId,

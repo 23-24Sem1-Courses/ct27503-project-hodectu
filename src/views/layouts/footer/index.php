@@ -157,6 +157,10 @@
                             customClass: {
                                 confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
                             },
+                        }).then(() => {
+                            if (res['error'] === 2) {
+                                window.location.href = '/login';
+                            }
                         })
                     })
                     .catch(error => {

@@ -32,7 +32,12 @@ class CartController
             $UserModel = new \App\Models\UserModel();
             $CartModel = new \App\Models\CartModel();
 
+            if (!isset($_SESSION['email'])) {
+                echo json_encode([]);
+                exit;
+            }
             $email = $_SESSION['email'];
+
             $user = $UserModel->getByEmail($email);
             $userId = $user['id'];
 
@@ -51,11 +56,15 @@ class CartController
             $UserModel = new \App\Models\UserModel();
             $CartModel = new \App\Models\CartModel();
 
+            if (!isset($_SESSION['email'])) {
+                JsonResponse(error: 2, message: "Vui lòng đăng nhập để tiếp tục");
+            }
+            $email = $_SESSION['email'];
+
             if (!isset($_POST['bookId'])) {
                 JsonResponse(error: 1, message: "Có lỗi xảy ra! Vui lòng thử lại sau");
             }
             $bookId = htmlspecialchars($_POST['bookId']);
-            $email = $_SESSION['email'];
 
             $user = $UserModel->getByEmail($email);
             $userId = $user['id'];

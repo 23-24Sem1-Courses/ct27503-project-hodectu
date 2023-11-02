@@ -21,9 +21,6 @@ class ProfileController
 
     public function postEditProfile()
     {
-        if (!isAuthentication()) {
-            redirect('/login');
-        }
         $UserModel = new \App\Models\UserModel();
 
         $profile = json_decode($_POST['profile'], true);
@@ -45,10 +42,6 @@ class ProfileController
     public function postUpdateAvatar()
     {
         try {
-            if (!isAuthentication()) {
-                redirect('/login');
-            }
-
             $UserModel = new \App\Models\UserModel();
             $user = $UserModel->getByEmail($_SESSION['email']);
 
@@ -90,10 +83,6 @@ class ProfileController
     public function postChangePassword()
     {
         try {
-            if (!isAuthentication()) {
-                JsonResponse(error: 1, message: "Vui lòng đăng nhập để tiếp tục");
-            }
-
             require_once SRC_DIR . '/config.php';
             $UserModel = new \App\Models\UserModel();
 
