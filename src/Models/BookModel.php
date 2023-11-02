@@ -36,7 +36,8 @@ class BookModel
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (empty($result)) return false;
+        if (empty($result))
+            return false;
 
         $sql = "SELECT * FROM hinh_anh_sach WHERE id_sach=?";
         $stmt = $conn->prepare($sql);
@@ -65,7 +66,7 @@ class BookModel
         $stmt = $conn->prepare($sql);
         $stmt->execute([$book['name'], $book['price'], $book['sale'], BASE_URL . '/uploads/' . $book['img'], $book['author'], $book['description']]);
 
-        $id = (int)$conn->lastInsertId();
+        $id = (int) $conn->lastInsertId();
         if ($stmt->rowCount() === 1 && !empty($book['imgs'])) {
             foreach ($book['imgs'] as $img) {
                 $sql = "INSERT INTO hinh_anh_sach(id_sach, hinh_anh) VALUES(?, ?)";
@@ -115,6 +116,18 @@ class BookModel
         $sql = "DELETE FROM hinh_anh_sach WHERE id_sach = ?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$id]);
-        return  $stmt->rowCount() > 0;
+        return $stmt->rowCount() > 0;
+    }
+
+
+    public function getBookByCategory($sach)
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "select * from sach where the_loai like ? or ten_sach like ? or tac_gia like ? limit 8 ";
+        $ketqua = $conn->prepare($sql);
+        $ketqua->execute(['%' . $sach . '%', '%' . $sach . '%', '%' . $sach . '%']);
+        $ketqua = $ketqua->fetchAll(PDO::FETCH_ASSOC);
+
+        return $ketqua;
     }
 }
