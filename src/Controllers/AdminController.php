@@ -9,9 +9,10 @@ class AdminController
         if (!isAdmin()) {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
-        };
+        }
+        ;
         $BookModel = new \App\Models\BookModel();
-        $books = $BookModel->getAll();
+        $books = $BookModel->getAllNoLimit();
         require_once VIEWS_DIR . '/admin/index.php';
     }
 
@@ -20,7 +21,8 @@ class AdminController
         if (!isAdmin()) {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
-        };
+        }
+        ;
         require_once VIEWS_DIR . '/admin/add/index.php';
     }
 
@@ -30,7 +32,8 @@ class AdminController
             if (!isAdmin()) {
                 require_once VIEWS_DIR . '/errors/404.php';
                 exit;
-            };
+            }
+            ;
 
             require_once SRC_DIR . '/config.php';
             $BookModel = new \App\Models\BookModel();
@@ -88,7 +91,8 @@ class AdminController
         if (!isAdmin()) {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
-        };
+        }
+        ;
         $BookModel = new \App\Models\BookModel();
         $book = $BookModel->getById($id);
         require_once VIEWS_DIR . '/admin/edit/index.php';
@@ -100,7 +104,8 @@ class AdminController
             if (!isAdmin()) {
                 require_once VIEWS_DIR . '/errors/404.php';
                 exit;
-            };
+            }
+            ;
 
             require_once SRC_DIR . '/config.php';
             $BookModel = new \App\Models\BookModel();
@@ -172,7 +177,8 @@ class AdminController
         if (!isAdmin()) {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
-        };
+        }
+        ;
 
         $BookModel = new \App\Models\BookModel();
 

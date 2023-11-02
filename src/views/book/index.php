@@ -24,15 +24,18 @@
 <main>
     <section class="mx-2">
         <div class="container">
-            <div class="product row py-3 bg-white text-lg-start text-center" data-book_id="<?= htmlspecialchars($book['id']) ?>">
+            <div class="product row py-3 bg-white text-lg-start text-center"
+                data-book_id="<?= htmlspecialchars($book['id']) ?>">
                 <div class="col-md-5 col-12 d-flex justify-content-center flex-column text-center">
                     <div class="d-flex justify-content-center">
-                        <img src=" <?= htmlspecialchars($book['anh_bia']) ?>" alt="" class="img main-img img-fluid" style="height: 400px;">
+                        <img src=" <?= htmlspecialchars($book['anh_bia']) ?>" alt="" class="img main-img img-fluid"
+                            style="height: 400px;">
                     </div>
                     <div class="col-lg-12 col-12 justify-content-center my-2 d-none d-md-flex">
                         <div class="flex-wrap border border-dark-subtle p-2 d-flex gap-1 justify-content-center">
-                            <?php foreach ($book['imgs'] as $img) : ?>
-                                <img class="sub-img" src="<?= htmlspecialchars($img['hinh_anh']) ?>" alt="" style="height: 75px;">
+                            <?php foreach ($book['imgs'] as $img): ?>
+                                <img class="sub-img" src="<?= htmlspecialchars($img['hinh_anh']) ?>" alt=""
+                                    style="height: 75px;">
                             <?php endforeach ?>
                         </div>
                     </div>
@@ -42,7 +45,8 @@
                         <?= htmlspecialchars($book['ten_sach']) ?>
                     </h4>
                     <div class="row">
-                        <p>Tác giả: <a href="https://en.wikipedia.org/wiki/ <?= htmlspecialchars($book['tac_gia']) ?>" class="text-decoration-none text-dark fw-bold">
+                        <p>Tác giả: <a href="https://en.wikipedia.org/wiki/ <?= htmlspecialchars($book['tac_gia']) ?>"
+                                class="text-decoration-none text-dark fw-bold">
                                 <?= htmlspecialchars($book['tac_gia']) ?>
                             </a></p>
                         <p>Phát hành: <a href="" class="text-decoration-none text-dark fw-bold">Bookstore</a></p>
@@ -59,27 +63,33 @@
                     <div class="row justify-content-center justify-content-lg-start">
                         <div class="d-flex col-lg-3 col-6 number-input">
                             <span class="input-group-btn">
-                                <button type="button" class="btn-minus btn btn-default btn-number" style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
+                                <button type="button" class="btn-minus btn btn-default btn-number"
+                                    style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
                                     <span class="fa fa-minus"></span>
                                 </button>
                             </span>
-                            <input type="number" value="1" min="1" max="100" name="quantity" class="fw-bold form-control input-number text-center col rounded-0 border-end-0 border-start-0">
+                            <input type="number" value="1" min="1" max="100" name="quantity"
+                                class="fw-bold form-control input-number text-center col rounded-0 border-end-0 border-start-0">
                             <span class="input-group-btn">
-                                <button type="button" class="btn-plus btn btn-default btn-number" style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
+                                <button type="button" class="btn-plus btn btn-default btn-number"
+                                    style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
                                     <span class="fa fa-plus"></span>
                                 </button>
                             </span>
                         </div>
                     </div>
                     <hr>
-                    <div class="col-md-12 col-3 row d-flex justify-content-center pb-3 gap-3 justify-content-lg-start " style="width: auto;">
+                    <div class="col-md-12 col-3 row d-flex justify-content-center pb-3 gap-3 justify-content-lg-start "
+                        style="width: auto;">
                         <!-- Nút "Thêm vào giỏ hàng" với Bootstrap -->
-                        <button class="add_to_cart btn col-4 col-md-4 text-white fw-bold" style="background-color: #17252a;">Thêm
+                        <button class="add_to_cart btn col-4 col-md-4 text-white fw-bold"
+                            style="background-color: #17252a;">Thêm
                             giỏ
                             hàng</button>
 
                         <!-- Nút "Mua" với Bootstrap -->
-                        <button class="buy_now btn col-4 col-md-4 text-white fw-bold" style="background-color: #17252a;">Mua
+                        <button class="buy_now btn col-4 col-md-4 text-white fw-bold"
+                            style="background-color: #17252a;">Mua
                             ngay</button>
                     </div>
                     <div class="row">
@@ -99,7 +109,8 @@
                 </p>
 
                 <div class="d-flex justify-content-center">
-                    <button class="btn_showmore btn d-block text-white fw-bold" style="min-width: 100px; background-color: #3aafa9;">
+                    <button class="btn_showmore btn d-block text-white fw-bold"
+                        style="min-width: 100px; background-color: #3aafa9;">
                         Xem thêm
                     </button>
                     <!-- <button class=" btn d-none text-white fw-bold" style="min-width: 100px; background-color: #3aafa9;">
@@ -115,18 +126,20 @@
         <div class="container">
             <div class="row shadow-lg mt-5">
                 <div class="d-flex justify-content-between bg-white py-2">
-                    <a href="" class="text-decoration-none fw-bold">Sản Phẩm tương tự</a>
+                    <a href="" class="text-decoration-none fw-bold">Sản Phẩm cùng tác giả</a>
                     <a href="" class="text-decoration-none fw-bold">Xem tất cả</a>
                 </div>
             </div>
             <div class="row">
-                <?php foreach ($sptt as $sach) : ?>
+                <?php foreach ($sptt as $sach): ?>
                     <div class="product col-md-3 col-sm-6 col-12 p-3 bg-white">
                         <div class="col">
                             <div class="row p-3">
                                 <div class="col-md-12 col-12 text-center">
                                     <!-- Hình ảnh sách -->
-                                    <a href="/book/detail/<?= htmlspecialchars($sach['id']) ?>"> <img src="<?= htmlspecialchars($sach['anh_bia']) ?>" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;"></a>
+                                    <a href="/book/detail/<?= htmlspecialchars($sach['id']) ?>"> <img
+                                            src="<?= htmlspecialchars($sach['anh_bia']) ?>" alt="Hình ảnh sách"
+                                            class="img-fluid" style=" height: 170px;"></a>
                                 </div>
                                 <div class="col-md-12 col-12 text-center mt-3">
                                     <!-- Tên sách -->
@@ -178,7 +191,7 @@
                 $.ajax({
                     url: '/cart/delete/' + bookId,
                     type: 'POST',
-                    success: function(res) {
+                    success: function (res) {
                         res = JSON.parse(res);
 
                         Swal.fire({
@@ -189,8 +202,8 @@
                             customClass: {
                                 confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
                             },
-                        }).then(function() {
-                            $('.cart-item').each(function() {
+                        }).then(function () {
+                            $('.cart-item').each(function () {
                                 const itemId = $(this).find('a').prop('href').split('/')[5];
                                 if (itemId === bookId) {
                                     $(this).remove();
@@ -202,7 +215,7 @@
                             }
                         })
                     },
-                    error: function(error) {
+                    error: function (error) {
                         console.log(error);
                     }
                 })
@@ -211,8 +224,8 @@
     }
 
     $().ready(() => {
-        $('img.sub-img').each(function() {
-            $(this).on('click', function() {
+        $('img.sub-img').each(function () {
+            $(this).on('click', function () {
                 const img = $(this).prop("src");
                 $('.main-img').prop("src", img);
                 $('img[role="presentation"]').prop("src", img);
@@ -225,17 +238,17 @@
             .parent()
             .zoom();
 
-        $('.btn-minus').on('click', function() {
+        $('.btn-minus').on('click', function () {
             const input = $(this).closest('.number-input').find('input[name="quantity"]');
             input[0].stepDown();
         })
 
-        $('.btn-plus').on('click', function() {
+        $('.btn-plus').on('click', function () {
             const input = $(this).closest('.number-input').find('input[name="quantity"]');
             input[0].stepUp();
         })
 
-        $('.btn_showmore').on('click', function() {
+        $('.btn_showmore').on('click', function () {
             if ($('.book-description').hasClass('text-truncate')) {
                 $('.book-description').removeClass('text-truncate');
                 $(this).text('Rút gọn');
