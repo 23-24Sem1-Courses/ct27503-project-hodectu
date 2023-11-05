@@ -17,13 +17,13 @@ class BookController
         $BookModel = new \App\Models\BookModel();
 
         $book = $BookModel->getBookByCategory(htmlspecialchars($_GET['tu_khoa']));
-        $tukhoa = $book[0]['the_loai'];
-        if (empty($book)) {
+
+        if (!empty($book)) {
+            $tukhoa = $book[0]['the_loai'];
+            require_once VIEWS_DIR . '/book/search/index.php';
+        } else {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
         }
-        require_once VIEWS_DIR . '/book/search/index.php';
-
-
     }
 }
