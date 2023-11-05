@@ -138,7 +138,7 @@
         </div>
     </section>
 
-    <section class="p-3">
+    <section class="p-5">
         <div class="container">
             <div class="row shadow-lg">
                 <div class="d-flex justify-content-between bg-white py-2">
