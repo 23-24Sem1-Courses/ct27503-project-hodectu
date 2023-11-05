@@ -9,25 +9,32 @@
                 </div>
                 <div class="col-md-3 my-3 my-md-0">
                     <h4 class="fw-bold">Giới thiệu</h4>
-                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none" style="color: #3aafa9; font-size: 17px;">Thông tin về shop</a>
+                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Thông tin về shop</a>
                     </p>
-                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none" style="color: #3aafa9; font-size: 17px;">Tuyển Dụng</a></p>
+                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Tuyển Dụng</a></p>
                 </div>
                 <div class="col-md-3 mb-3">
                     <h4 class="fw-bold">Tài Khoản</h4>
-                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none" style="color: #3aafa9; font-size: 17px;">Đăng nhập</a></p>
-                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none" style="color: #3aafa9; font-size: 17px;">Đăng ký</a></p>
+                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Đăng nhập</a></p>
+                    <p class="mb-0 fw-bold"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Đăng ký</a></p>
                 </div>
                 <div class="col-md-3">
                     <h4 class="fw-bold">Hướng Dẫn</h4>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none" style="color: #3aafa9; font-size: 17px;">Hướng dẫn
+                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Hướng dẫn
                             mua hàng</a>
                     </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none" style="color: #3aafa9; font-size: 17px;">Phương
+                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">Phương
                             thức thanh
                             toán</a>
                     </p>
-                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none" style="color: #3aafa9; font-size: 17px;">câu hỏi
+                    <p class="mb-0 fw-bold mb-0 mb-md-3"><a href="#" class="text-decoration-none"
+                            style="color: #3aafa9; font-size: 17px;">câu hỏi
                             thường gặp</a>
                     </p>
                 </div>
@@ -51,8 +58,8 @@
 <script type="text/javascript">
     $().ready(() => {
         fetch('/cart/list', {
-                method: 'POST',
-            })
+            method: 'POST',
+        })
             .then(res => res.json())
             .then(data => {
                 let html = '';
@@ -90,8 +97,8 @@
                 console.error("Error:", error);
             });
 
-        $('.add_to_cart').each(function() {
-            $(this).on('click', function() {
+        $('.add_to_cart').each(function () {
+            $(this).on('click', function () {
                 const book = $(this).closest('.product');
                 const bookId = book[0].dataset.book_id;
 
@@ -99,9 +106,9 @@
                 formData.append('bookId', bookId);
 
                 fetch('/cart', {
-                        method: 'POST',
-                        body: formData
-                    })
+                    method: 'POST',
+                    body: formData
+                })
                     .then(res => res.json())
                     .then(res => {
                         if (!$('.cart-list').length) {
@@ -135,7 +142,7 @@
                             </li>`;
 
                         let isExist = false;
-                        $('.cart-item').each(function() {
+                        $('.cart-item').each(function () {
                             const itemId = $(this).find('a').prop('href').split('/')[5]
                             if (itemId === bookId) {
                                 $(this).find('.quantity').html(Number($(this).find('.quantity').text()) + 1);
