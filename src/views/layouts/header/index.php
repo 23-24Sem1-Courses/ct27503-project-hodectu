@@ -4,30 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/png" href="/images/favicon/favicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/js/jquery.pan-master/dist/css/jquery.pan.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js/zoom-master/jquery.zoom.min.js"></script>
     <script src="/js/jquery.pan-master/dist/jquery.pan.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
-        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
-        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
@@ -79,11 +69,9 @@
                 <!-- LEFT -->
                 <div class="col-md-6 col-6 d-none d-md-block">
                     <div class="text-start">
-                        <a class="text-white text-decoration-none fw-bold" href="#"><i
-                                class="fas fa-question-circle"></i> Trợ
+                        <a class="text-white text-decoration-none fw-bold" href="#"><i class="fas fa-question-circle"></i> Trợ
                             giúp</a>
-                        <a class="text-white text-decoration-none fw-bold mx-2" href="#"><i
-                                class="fas fa-newspaper"></i> Tin tức</a>
+                        <a class="text-white text-decoration-none fw-bold mx-2" href="#"><i class="fas fa-newspaper"></i> Tin tức</a>
                         <a class="text-white text-decoration-none fw-bold" href="#"><i class="fas fa-tags"></i> Khuyến
                             mãi</a>
                     </div>
@@ -109,6 +97,7 @@
                                     </button>
                                         <ul id="dropdown-menu" class="dropdown-menu text-white">
                                             <li><a class="dropdown-item" href="/profile">Tài khoản</a></li>
+                                            <li><a class="dropdown-item" href="/purchase">Đơn mua</a></li>
                                             ';
                                 echo (isset($_SESSION['is_admin']) && ((int) $_SESSION['is_admin'] === 1)) ? '<li><a class="dropdown-item" href="/admin">Trang quản trị</a></li>' : '';
                                 echo '<form id="logout_form" action="/logout" method="post" class="d-flex flex-column">
@@ -146,19 +135,15 @@
                     </div>
 
                     <div class="col-md-6 col-6 d-flex justify-content-end position-relative d-none d-md-block">
-                        <form action="/book/search"> <input type="text" placeholder="Tìm Kiếm" name="tu_khoa"
-                                class="w-100 py-2 px-1 border-0 px-3 rounded-5" style="width: 150px; outline: none;">
-                            <i class="fa-solid fa-magnifying-glass position-absolute"
-                                style="top: 12px; right: 30px;"></i>
+                        <form action="/book/search"> <input type="text" placeholder="Tìm Kiếm" name="tu_khoa" class="w-100 py-2 px-1 border-0 px-3 rounded-5" style="width: 150px; outline: none;">
+                            <i class="fa-solid fa-magnifying-glass position-absolute" style="top: 12px; right: 30px;"></i>
                         </form>
                     </div>
 
-                    <div class="dropdown col-md-3 col-3 text-center d-flex d-md-block justify-content-center"
-                        id="dropdown">
+                    <div class="dropdown col-md-3 col-3 text-center d-flex d-md-block justify-content-center" id="dropdown">
                         <a href="/cart" class="position-relative" aria-expanded="false">
                             <span class="fs-3"><i class="fa-solid fa-cart-shopping text-white"></i></span>
-                            <span
-                                class="cart-quantity position-absolute top-0 start-80 translate-middle badge rounded-pill bg-dark">
+                            <span class="cart-quantity position-absolute top-0 start-80 translate-middle badge rounded-pill bg-dark">
                                 0
                             </span>
                         </a>
@@ -179,8 +164,7 @@
                     </div>
 
                     <div class="col-md-12 position-relative d-block d-md-none mb-3">
-                        <input type="text" placeholder="Tìm Kiếm" class="w-100 py-2 px-1 border-0 px-3 rounded-5"
-                            style="width: 150px; outline: none;">
+                        <input type="text" placeholder="Tìm Kiếm" class="w-100 py-2 px-1 border-0 px-3 rounded-5" style="width: 150px; outline: none;">
                         <i class="fa-solid fa-magnifying-glass position-absolute" style="top: 12px; right: 30px;"></i>
                     </div>
                 </div>
