@@ -34,19 +34,23 @@
             <div class="fs-2 fw-semibold text-center mb-5">Đăng ký tài khoản</div>
             <form id="signup_form" method="post" action="/signup" class="d-flex flex-column">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control shadow-none" name="email" id="email" placeholder="name@example.com" autocomplete="off">
+                    <input type="email" class="form-control shadow-none" name="email" id="email"
+                        placeholder="name@example.com" autocomplete="off">
                     <label for="email" class="text-dark-emphasis">Email</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control shadow-none" name="password" id="password" placeholder="Mật khẩu">
+                    <input type="password" class="form-control shadow-none" name="password" id="password"
+                        placeholder="Mật khẩu">
                     <label for="password" class="text-dark-emphasis">Mật khẩu</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control shadow-none" name="confirm_password" id="confirm_password" placeholder="Nhập lại mật khẩu">
+                    <input type="password" class="form-control shadow-none" name="confirm_password"
+                        id="confirm_password" placeholder="Nhập lại mật khẩu">
                     <label for="confirm_password" class="text-dark-emphasis">Nhập lại mật khẩu</label>
                 </div>
 
-                <button type="submit" class="btn-hover-dark my-4 btn text-white fw-semibold" style="background: #3aafa9;">
+                <button type="submit" class="btn-hover-dark my-4 btn text-white fw-semibold"
+                    style="background: #3aafa9;">
                     Đăng ký
                 </button>
             </form>
@@ -63,7 +67,7 @@
 
 <script>
     $.validator.setDefaults({
-        submitHandler: function(form) {
+        submitHandler: function (form) {
             $.ajax({
                 url: '/signup',
                 type: 'POST',
@@ -71,7 +75,7 @@
                     "email": $('#signup_form input[name="email"]').val(),
                     "password": $('#signup_form input[name="password"]').val(),
                 },
-                success: function(res) {
+                success: function (res) {
                     res = JSON.parse(res);
 
                     Swal.fire({
@@ -82,18 +86,18 @@
                         customClass: {
                             confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
                         },
-                    }).then(function() {
+                    }).then(function () {
                         if (!res["error"]) window.location.href = '/login';
                     })
                 },
-                error: function(error) {
+                error: function (error) {
                     console.log(error);
                 }
             });
         }
     })
 
-    $().ready(function() {
+    $().ready(function () {
         $('#signup_form').validate({
             rules: {
                 email: {
