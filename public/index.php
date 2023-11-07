@@ -14,6 +14,7 @@ require_once SRC_DIR . '/routes/cart.php';
 require_once SRC_DIR . '/routes/admin.php';
 require_once SRC_DIR . '/routes/profile.php';
 require_once SRC_DIR . '/routes/book.php';
+require_once SRC_DIR . '/routes/checkout.php';
 
 $router->get('/', function () {
     $BookModel = new \App\Models\BookModel();
