@@ -42,6 +42,11 @@
         color: #fff !important;
         background: #000 !important;
     }
+
+    .btn-checkout:hover {
+        background-color: #17252a !important;
+        cursor: pointer;
+    }
 </style>
 
 <main class="container overflow-hidden py-5" style="min-height: 70vh;">
@@ -165,6 +170,11 @@
     </button>
 
 </main>
+<div class="container mb-3 p-3 position-sticky bottom-0 z-2">
+    <div class="h-100 d-flex justify-content-end">
+        <a href="/checkout" class="d-flex justify-content-center align-items-center btn-checkout btn text-white" style="min-height: 50px; min-width: 200px; background-color: #3aafa9;">Thanh toán</a>
+    </div>
+</div>
 
 <script>
     $().ready(function() {
