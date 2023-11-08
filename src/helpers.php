@@ -17,12 +17,12 @@ function JsonResponse($error, $message)
 
 function isAdmin()
 {
-    return (int)$_SESSION['is_admin'] === 1;
+    return isset($_SESSION['email']) && (int)$_SESSION['is_admin'] === 1;
 }
 
 function isAuthentication()
 {
-    return $_SESSION['email'];
+    return isset($_SESSION['email']);
 }
 
 function handle_img_upload($img, $isMultiple = false)
