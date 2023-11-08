@@ -32,7 +32,7 @@
                 <div class="d-flex flex-column">
                     <a href="/profile" class="fw-semibold text-decoration-none text-black">Hồ
                         Sơ</a>
-                    <a href="#" class="mt-2 text-decoration-none text-black fw-semibold">Đổi Mật
+                    <a href="/profile/password" class="mt-2 text-decoration-none text-black fw-semibold">Đổi Mật
                         Khẩu</a>
                     <a href="/purchase" class="mt-2 fw-bold text-decoration-none text-black" style="color:#3aafa9 !important;">
                         Đơn mua
