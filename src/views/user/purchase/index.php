@@ -7,6 +7,10 @@
     .btn:hover {
         background-color: #17252a !important;
     }
+
+    .btn-status:hover {
+        cursor: pointer;
+    }
 </style>
 
 <main style="background-color: #efefef; min-height: 70vh; min-width: 500px;">
@@ -40,383 +44,14 @@
                 </div>
 
             </div>
-
             <div class="col-12 col-lg-9 px-0">
                 <div class="p-3 d-flex align-items-center justify-content-between fw-semibold overflow-x-scroll mb-3" style="background-color: white;">
-                    <a href="#" data-status="4" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded border" style="border-color:#3aafa9 !important;">Tất cả</a>
-                    <a href="#" data-status="0" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Vận chuyển</a>
-                    <a href="#" data-status="1" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Hoàn thành</a>
-                    <a href="#" data-status="2" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Hủy</a>
+                    <p data-status="3" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded border" style="border-color:#3aafa9 !important;">Tất cả</p>
+                    <p data-status="0" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Vận chuyển</p>
+                    <p data-status="1" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Hoàn thành</p>
+                    <p data-status="2" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Hủy</p>
                 </div>
-
-                <div id="content">
-                    <div data-status="4">
-                        <div class="shadow text-center align-items-center p-4 mb-3" style="background-color: white;" data-book_id="1">
-                            <p class="text-end text-uppercase" style="font-size: 0.8rem;">
-                                <i class="fa-solid fa-truck me-1"></i>
-                                Đơn hàng đã được giao thành công
-                            </p>
-                            <div class="py-3 d-flex align-items-center border bg-white">
-                                <div class="col-3">
-                                    <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg">
-                                        <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg" alt="" data-action="zoom" style="width: 100px;">
-                                    </a>
-                                </div>
-
-                                <div class="col-9 text-center px-2">
-
-                                    <div class="text-start">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="text-truncate mb-0 fw-semibold me-5">
-                                                Bi Hài Kịch - Sắc Màu Làm Nên Cuộc Sống
-                                            </p>
-                                        </div>
-                                        <p class="mt-2">
-                                            <span class="text-decoration-line-through text-black-50 me-2">190.000 đ</span>
-                                            <span class="text-danger fw-bold sale">171.000 đ</span>
-                                        </p>
-
-                                    </div>
-                                    <div class="text-start">
-                                        <i class="fa-solid fa-xmark"></i>
-                                        1
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <p class="mb-0">Thành tiền:</p>
-                                    <span class="text-danger fw-semibold fs-4">171.000 đ</span>
-                                </div>
-                                <div class="text-end mt-3 mt-md-0">
-                                    <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Mua lại</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="shadow text-center align-items-center p-4 mb-3" style="background-color: white;" data-book_id="1">
-                            <p class="text-end text-uppercase" style="font-size: 0.8rem;">
-                                Đã hủy
-                            </p>
-                            <div class="py-3 d-flex align-items-center border bg-white">
-                                <div class="col-3">
-                                    <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg">
-                                        <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg" alt="" data-action="zoom" style="width: 100px;">
-                                    </a>
-                                </div>
-
-                                <div class="col-9 text-center px-2">
-
-                                    <div class="text-start">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="text-truncate mb-0 fw-semibold me-5">
-                                                Bi Hài Kịch - Sắc Màu Làm Nên Cuộc Sống
-                                            </p>
-                                        </div>
-                                        <p class="mt-2">
-                                            <span class="text-decoration-line-through text-black-50 me-2">190.000 đ</span>
-                                            <span class="text-danger fw-bold sale">171.000 đ</span>
-                                        </p>
-
-                                    </div>
-                                    <div class="text-start">
-                                        <i class="fa-solid fa-xmark"></i>
-                                        1
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <p class="mb-0">Thành tiền:</p>
-                                    <span class="text-danger fw-semibold fs-4">171.000 đ</span>
-                                </div>
-                                <div class="text-end mt-3 mt-md-0">
-                                    <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Mua lại</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-none" data-status="0">
-                        <div class="shadow text-center align-items-center p-4 mb-3" style="background-color: white;" data-book_id="1">
-                            <p class="text-end text-uppercase" style="font-size: 0.8rem;">
-                                <i class="fa-solid fa-truck-fast me-1"></i>
-                                Đơn hàng của bạn đang được giao
-                            </p>
-
-                            <div class="py-3 d-flex align-items-center border bg-white">
-                                <div class="col-3">
-                                    <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg">
-                                        <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg" alt="" data-action="zoom" style="width: 100px;">
-                                    </a>
-                                </div>
-
-                                <div class="col-9 text-center px-2">
-
-                                    <div class="text-start">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="text-truncate mb-0 fw-semibold me-5">
-                                                Bi Hài Kịch - Sắc Màu Làm Nên Cuộc Sống
-                                            </p>
-                                        </div>
-                                        <p class="mt-2">
-                                            <span class="text-decoration-line-through text-black-50 me-2">190.000 đ</span>
-                                            <span class="text-danger fw-bold sale">171.000 đ</span>
-                                        </p>
-
-                                    </div>
-                                    <div class="text-start">
-                                        <i class="fa-solid fa-xmark"></i>
-                                        1
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <p class="mb-0">Thành tiền:</p>
-                                    <span class="text-danger fw-semibold fs-4">171.000 đ</span>
-                                </div>
-                                <div class="text-end mt-3 mt-md-0">
-                                    <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Hủy</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="shadow text-center align-items-center p-4 mb-3" style="background-color: white;" data-book_id="1">
-                            <p class="text-end text-uppercase" style="font-size: 0.8rem;">
-                                <i class="fa-solid fa-truck-fast me-1"></i>
-                                Đơn hàng của bạn đang được giao
-                            </p>
-
-                            <div class="py-3 d-flex align-items-center border bg-white">
-                                <div class="col-3">
-                                    <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg">
-                                        <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg" alt="" data-action="zoom" style="width: 100px;">
-                                    </a>
-                                </div>
-
-                                <div class="col-9 text-center px-2">
-
-                                    <div class="text-start">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="text-truncate mb-0 fw-semibold me-5">
-                                                Bi Hài Kịch - Sắc Màu Làm Nên Cuộc Sống
-                                            </p>
-                                        </div>
-                                        <p class="mt-2">
-                                            <span class="text-decoration-line-through text-black-50 me-2">190.000 đ</span>
-                                            <span class="text-danger fw-bold sale">171.000 đ</span>
-                                        </p>
-
-                                    </div>
-                                    <div class="text-start">
-                                        <i class="fa-solid fa-xmark"></i>
-                                        1
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <p class="mb-0">Thành tiền:</p>
-                                    <span class="text-danger fw-semibold fs-4">171.000 đ</span>
-                                </div>
-                                <div class="text-end mt-3 mt-md-0">
-                                    <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Hủy</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-none" data-status="1">
-                        <div class="shadow text-center align-items-center p-4 mb-3" style="background-color: white;" data-book_id="1">
-                            <p class="text-end text-uppercase" style="font-size: 0.8rem;">
-                                <i class="fa-solid fa-truck me-1"></i>
-                                Đơn hàng đã được giao thành công
-                            </p>
-                            <div class="py-3 d-flex align-items-center border bg-white">
-                                <div class="col-3">
-                                    <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg">
-                                        <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg" alt="" data-action="zoom" style="width: 100px;">
-                                    </a>
-                                </div>
-
-                                <div class="col-9 text-center px-2">
-
-                                    <div class="text-start">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="text-truncate mb-0 fw-semibold me-5">
-                                                Bi Hài Kịch - Sắc Màu Làm Nên Cuộc Sống
-                                            </p>
-                                        </div>
-                                        <p class="mt-2">
-                                            <span class="text-decoration-line-through text-black-50 me-2">190.000 đ</span>
-                                            <span class="text-danger fw-bold sale">171.000 đ</span>
-                                        </p>
-
-                                    </div>
-                                    <div class="text-start">
-                                        <i class="fa-solid fa-xmark"></i>
-                                        1
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <p class="mb-0">Thành tiền:</p>
-                                    <span class="text-danger fw-semibold fs-4">171.000 đ</span>
-                                </div>
-                                <div class="text-end mt-3 mt-md-0">
-                                    <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Mua lại</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="shadow text-center align-items-center p-4 mb-3" style="background-color: white;" data-book_id="1">
-                            <p class="text-end text-uppercase" style="font-size: 0.8rem;">
-                                <i class="fa-solid fa-truck me-1"></i>
-                                Đơn hàng đã được giao thành công
-                            </p>
-                            <div class="py-3 d-flex align-items-center border bg-white">
-                                <div class="col-3">
-                                    <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg">
-                                        <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg" alt="" data-action="zoom" style="width: 100px;">
-                                    </a>
-                                </div>
-
-                                <div class="col-9 text-center px-2">
-
-                                    <div class="text-start">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="text-truncate mb-0 fw-semibold me-5">
-                                                Bi Hài Kịch - Sắc Màu Làm Nên Cuộc Sống
-                                            </p>
-                                        </div>
-                                        <p class="mt-2">
-                                            <span class="text-decoration-line-through text-black-50 me-2">190.000 đ</span>
-                                            <span class="text-danger fw-bold sale">171.000 đ</span>
-                                        </p>
-
-                                    </div>
-                                    <div class="text-start">
-                                        <i class="fa-solid fa-xmark"></i>
-                                        1
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <p class="mb-0">Thành tiền:</p>
-                                    <span class="text-danger fw-semibold fs-4">171.000 đ</span>
-                                </div>
-                                <div class="text-end mt-3 mt-md-0">
-                                    <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Mua lại</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-none" data-status="2">
-                        <div class="shadow text-center align-items-center p-4 mb-3" style="background-color: white;" data-book_id="1">
-                            <p class="text-end text-uppercase" style="font-size: 0.8rem;">
-                                Đã hủy
-                            </p>
-                            <div class="py-3 d-flex align-items-center border bg-white">
-                                <div class="col-3">
-                                    <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg">
-                                        <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg" alt="" data-action="zoom" style="width: 100px;">
-                                    </a>
-                                </div>
-
-                                <div class="col-9 text-center px-2">
-
-                                    <div class="text-start">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="text-truncate mb-0 fw-semibold me-5">
-                                                Bi Hài Kịch - Sắc Màu Làm Nên Cuộc Sống
-                                            </p>
-                                        </div>
-                                        <p class="mt-2">
-                                            <span class="text-decoration-line-through text-black-50 me-2">190.000 đ</span>
-                                            <span class="text-danger fw-bold sale">171.000 đ</span>
-                                        </p>
-
-                                    </div>
-                                    <div class="text-start">
-                                        <i class="fa-solid fa-xmark"></i>
-                                        1
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <p class="mb-0">Thành tiền:</p>
-                                    <span class="text-danger fw-semibold fs-4">171.000 đ</span>
-                                </div>
-                                <div class="text-end mt-3 mt-md-0">
-                                    <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Mua lại</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="shadow text-center align-items-center p-4 mb-3" style="background-color: white;" data-book_id="1">
-                            <p class="text-end text-uppercase" style="font-size: 0.8rem;">
-                                Đã hủy
-                            </p>
-                            <div class="py-3 d-flex align-items-center border bg-white">
-                                <div class="col-3">
-                                    <a href class="pan col-3 text-center me-3 me-md-0" data-big="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg">
-                                        <img src="https://cdn0.fahasa.com/media/catalog/product/8/9/8934974190806.jpg" alt="" data-action="zoom" style="width: 100px;">
-                                    </a>
-                                </div>
-
-                                <div class="col-9 text-center px-2">
-
-                                    <div class="text-start">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <p class="text-truncate mb-0 fw-semibold me-5">
-                                                Bi Hài Kịch - Sắc Màu Làm Nên Cuộc Sống
-                                            </p>
-                                        </div>
-                                        <p class="mt-2">
-                                            <span class="text-decoration-line-through text-black-50 me-2">190.000 đ</span>
-                                            <span class="text-danger fw-bold sale">171.000 đ</span>
-                                        </p>
-
-                                    </div>
-                                    <div class="text-start">
-                                        <i class="fa-solid fa-xmark"></i>
-                                        1
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <p class="mb-0">Thành tiền:</p>
-                                    <span class="text-danger fw-semibold fs-4">171.000 đ</span>
-                                </div>
-                                <div class="text-end mt-3 mt-md-0">
-                                    <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Mua lại</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="content"></div>
             </div>
         </div>
     </div>
@@ -424,17 +59,52 @@
 
 <script>
     $(() => {
+
+        $.ajax({
+                url: '/purchase',
+                type: 'POST',
+                data: {
+                    status: 3
+                },
+                beforeSend: function() {
+                    const div = `<div class="loading d-flex justify-content-center align-items-center w-100">
+                                    <img src="/images/loading/loading-gif.gif" alt="" style="width: 100px;">
+                                </div>`
+                    $("#content").html(div);
+                },
+                success: function() {
+                    $("#content").children('.loading').remove();
+                }
+            })
+            .then(data => {
+                data = JSON.parse(data)
+                renderOrder(data);
+            })
+
         $('.btn-status').each(function() {
             $(this).click(function() {
                 const status = $(this)[0].dataset.status;
 
-                $('#content').children().each(function() {
-                    if ($(this)[0].dataset.status === status) {
-                        $(this).removeClass('d-none')
-                    } else {
-                        $(this).addClass('d-none')
-                    }
-                })
+                $.ajax({
+                        url: '/purchase',
+                        type: 'POST',
+                        data: {
+                            status
+                        },
+                        beforeSend: function() {
+                            const div = `<div class="loading d-flex justify-content-center align-items-center w-100">
+                                    <img src="/images/loading/loading-gif.gif" alt="" style="width: 100px;">
+                                </div>`
+                            $("#content").html(div);
+                        },
+                        success: function() {
+                            $("#content").children('.loading').remove();
+                        }
+                    })
+                    .then(data => {
+                        data = JSON.parse(data)
+                        renderOrder(data);
+                    })
 
                 $('.btn-status').each(function() {
                     if ($(this).hasClass('border')) {
@@ -446,6 +116,82 @@
             })
         })
     })
+
+    const convertNumberToPrice = (number) => {
+        return Number(number).toLocaleString('vi', {
+            style: 'currency',
+            currency: 'VND'
+        });
+    }
+
+    const renderOrder = (orders = []) => {
+        if (!orders.length) {
+            html = `<div class="shadow text-center align-items-center p-4 mb-5" style="background-color: white;">
+                            Chưa có đơn hàng
+                        </div>`
+            $('#content').html(html);
+            return;
+        }
+
+        const ordersMsg = [
+            '<i class="fa-solid fa-truck-fast me-1"></i>Đơn hàng của bạn đang được giao',
+            '<i class="fa-solid fa-truck me-1"></i>Đơn hàng đã được giao thành công',
+            'ĐÃ HỦY',
+        ];
+
+        let finalHtml = "";
+
+        orders.forEach(order => {
+            let html = `
+             <div class="shadow text-center align-items-center p-4 mb-5" style="background-color: white;">
+                <p class="text-end text-uppercase" style="font-size: 0.8rem;">
+                    ${ordersMsg[order?.status]}
+                </p>`;
+
+            order?.books?.forEach(item => {
+                html += `
+                        <div class="py-3 d-flex align-items-center border bg-white">
+                        <div class="col-3">
+                            <a href class="pan col-3 text-center me-3 me-md-0 img-fluid" data-big="${item.anh_bia}">
+                                <img src="${item.anh_bia}" alt="" data-action="zoom" style="width: 100px;">
+                            </a>
+                        </div>
+                        <div class="col-9 text-center px-2">
+                            <div class="text-start">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <p class="text-truncate mb-0 fw-semibold me-5">
+                                        ${item.ten_sach}
+                                    </p>
+                                </div>
+                                <p class="mt-2">
+                                    <span class="text-decoration-line-through text-black-50 me-2"> ${convertNumberToPrice(item.gia_goc)}</span>
+                                    <span class="text-danger fw-bold sale">${convertNumberToPrice(item.gia)}</span>
+                                </p>
+                            </div>
+                            <div class="text-start">
+                                <i class="fa-solid fa-xmark"></i>
+                                    ${item.so_luong}
+                            </div>
+                        </div>
+                    </div>`
+            })
+
+            html += `<div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
+                    <div class="d-flex gap-3 align-items-center">
+                        <p class="mb-0">Thành tiền:</p>
+                        <span class="text-danger fw-semibold fs-4">${convertNumberToPrice(order.total)}</span>
+                    </div>
+                    <div class="text-end mt-3 mt-md-0">
+                        <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Mua lại</button>
+                    </div>
+                </div>
+            </div>`
+
+            finalHtml += html;
+        })
+
+        $('#content').html(finalHtml);
+    }
 </script>
 
 <?php include_once VIEWS_DIR . "/layouts/footer/index.php"; ?>

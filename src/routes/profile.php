@@ -11,3 +11,5 @@ $router->get('/profile/password', 'App\Controllers\ProfileController@getChangePa
 $router->post('/profile/password', 'App\Controllers\ProfileController@postChangePassword');
 
 $router->get('/purchase', 'App\Controllers\ProfileController@getPurchase');
+
+$router->post('/purchase', 'App\Controllers\ProfileController@postPurchase');

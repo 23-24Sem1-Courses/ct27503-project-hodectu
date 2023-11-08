@@ -127,5 +127,32 @@ class ProfileController
 
     public function postPurchase()
     {
+        try {
+            if (!isAuthentication()) {
+                JsonResponse(error: 1, message: "Vui lòng đăng nhập để tiếp tục");
+            }
+
+            $CheckoutModel = new \App\Models\CheckoutModel();
+            $UserModel = new \App\Models\UserModel();
+
+            $user = $UserModel->getByEmail($_SESSION["email"]);
+            $userId = $user['id'];
+
+            if (!isset($_POST['status'])) {
+                JsonResponse(error: 1, message: "Có lỗi xảy ra! Vui lòng thử lại");
+            }
+
+            $status = htmlspecialchars($_POST['status']);
+            if ((int)$status === 3) {
+                $orders = $CheckoutModel->getAllOrder($userId);
+                echo json_encode($orders);
+                exit;
+            }
+
+            $orders = $CheckoutModel->getOrderByStatus($userId, $status);
+            echo json_encode($orders);
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 }

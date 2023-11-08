@@ -65,11 +65,79 @@ class CheckoutModel
         return $stmt->rowCount() === 1;
     }
 
-    public function getAllOrder()
+    public function getAllOrder($userId)
     {
+        include SRC_DIR . '/config.php';
+
+        $sql = "SELECT id, trang_thai, tong_tien FROM don_hang WHERE id_kh = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$userId]);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (empty($results)) {
+            return [];
+        }
+
+        $data = [];
+
+        foreach ($results as $item) {
+            $sql = "SELECT s.anh_bia, s.ten_sach, s.gia_goc, ctdh.gia, ctdh.so_luong
+                    FROM don_hang dh JOIN chi_tiet_don_hang ctdh
+                    ON dh.id = ctdh.id_don_hang
+                    JOIN sach s ON s.id = ctdh.id_sach
+                    WHERE dh.id = ?";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$item['id']]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $arrTmp = [
+                'status' => $item['trang_thai'],
+                'total' => $item['tong_tien'],
+                'books' => $result
+            ];
+
+            array_push($data, $arrTmp);
+        }
+
+        return $data;
     }
 
-    public function getOrderByStatus()
+    public function getOrderByStatus($userId, $status)
     {
+        include SRC_DIR . '/config.php';
+
+        $sql = "SELECT id, trang_thai, tong_tien FROM don_hang WHERE id_kh = ? AND trang_thai = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$userId, $status]);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (empty($results)) {
+            return [];
+        }
+
+        $data = [];
+
+        foreach ($results as $item) {
+            $sql = "SELECT s.anh_bia, s.ten_sach, s.gia_goc, ctdh.gia, ctdh.so_luong
+                    FROM don_hang dh JOIN chi_tiet_don_hang ctdh
+                    ON dh.id = ctdh.id_don_hang
+                    JOIN sach s ON s.id = ctdh.id_sach
+                    WHERE dh.id = ?";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$item['id']]);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $arrTmp = [
+                'status' => $item['trang_thai'],
+                'total' => $item['tong_tien'],
+                'books' => $result
+            ];
+
+            array_push($data, $arrTmp);
+        }
+
+        return $data;
     }
 }
