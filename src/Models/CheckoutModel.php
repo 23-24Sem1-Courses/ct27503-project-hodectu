@@ -64,4 +64,12 @@ class CheckoutModel
         $stmt->execute([$orderId, $orderId]);
         return $stmt->rowCount() === 1;
     }
+
+    public function getAllOrder()
+    {
+    }
+
+    public function getOrderByStatus()
+    {
+    }
 }

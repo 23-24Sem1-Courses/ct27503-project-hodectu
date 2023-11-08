@@ -109,4 +109,23 @@ class ProfileController
             echo $e->getMessage();
         }
     }
+
+    public function getPurchase()
+    {
+        try {
+            if (!isAuthentication()) {
+                redirect('/login');
+            }
+            $UserModel = new \App\Models\UserModel();
+            $user = $UserModel->getByEmail($_SESSION['email']);
+
+            require_once VIEWS_DIR . '/user/purchase/index.php';
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function postPurchase()
+    {
+    }
 }

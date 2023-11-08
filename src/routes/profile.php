@@ -9,3 +9,5 @@ $router->post('/profile/avatar', 'App\Controllers\ProfileController@postUpdateAv
 $router->get('/profile/password', 'App\Controllers\ProfileController@getChangePassword');
 
 $router->post('/profile/password', 'App\Controllers\ProfileController@postChangePassword');
+
+$router->get('/purchase', 'App\Controllers\ProfileController@getPurchase');
