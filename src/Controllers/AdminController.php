@@ -9,8 +9,7 @@ class AdminController
         if (!isAdmin()) {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
-        }
-        ;
+        };
         $BookModel = new \App\Models\BookModel();
         $books = $BookModel->getAllNoLimit();
         require_once VIEWS_DIR . '/admin/index.php';
@@ -21,8 +20,7 @@ class AdminController
         if (!isAdmin()) {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
-        }
-        ;
+        };
         require_once VIEWS_DIR . '/admin/add/index.php';
     }
 
@@ -32,8 +30,7 @@ class AdminController
             if (!isAdmin()) {
                 require_once VIEWS_DIR . '/errors/404.php';
                 exit;
-            }
-            ;
+            };
 
             require_once SRC_DIR . '/config.php';
             $BookModel = new \App\Models\BookModel();
@@ -91,8 +88,7 @@ class AdminController
         if (!isAdmin()) {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
-        }
-        ;
+        };
         $BookModel = new \App\Models\BookModel();
         $book = $BookModel->getById($id);
         require_once VIEWS_DIR . '/admin/edit/index.php';
@@ -104,8 +100,7 @@ class AdminController
             if (!isAdmin()) {
                 require_once VIEWS_DIR . '/errors/404.php';
                 exit;
-            }
-            ;
+            };
 
             require_once SRC_DIR . '/config.php';
             $BookModel = new \App\Models\BookModel();
@@ -177,8 +172,7 @@ class AdminController
         if (!isAdmin()) {
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
-        }
-        ;
+        };
 
         $BookModel = new \App\Models\BookModel();
 
@@ -205,5 +199,40 @@ class AdminController
         }
 
         JsonResponse(error: 0, message: "Xóa sản phẩm thành công");
+    }
+
+    public function getOrder()
+    {
+        if (!isAdmin()) {
+            require_once VIEWS_DIR . '/errors/404.php';
+            exit;
+        };
+        $CheckoutModel = new \App\Models\CheckoutModel();
+
+        $orders = $CheckoutModel->getOrdersInfo();
+        require_once VIEWS_DIR . '/admin/order/index.php';
+    }
+
+
+    public function getOrderDetail($orderId)
+    {
+        if (!isAdmin()) {
+            require_once VIEWS_DIR . '/errors/404.php';
+            exit;
+        };
+        $CheckoutModel = new \App\Models\CheckoutModel();
+
+        $results = $CheckoutModel->getOrderDetail($orderId);
+
+        require_once VIEWS_DIR . '/admin/order/detail/index.php';
+    }
+
+
+    public function postOrderUpdate()
+    {
+        $CheckoutModel = new \App\Models\CheckoutModel();
+
+        $orders = $CheckoutModel->getOrdersInfo();
+        require_once VIEWS_DIR . '/admin/order/index.php';
     }
 }

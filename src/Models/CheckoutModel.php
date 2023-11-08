@@ -140,4 +140,31 @@ class CheckoutModel
 
         return $data;
     }
+
+    public function getOrdersInfo()
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "SELECT dh.*, kh.ho_ten, kh.so_dien_thoai FROM don_hang dh JOIN khach_hang kh ON dh.id_kh = kh.id";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function getOrderDetail($orderId)
+    {
+        include SRC_DIR . '/config.php';
+
+        $sql = "SELECT s.anh_bia, s.ten_sach, s.gia_goc, ctdh.gia, ctdh.so_luong, dh.trang_thai, dh.tong_tien
+                FROM don_hang dh JOIN chi_tiet_don_hang ctdh
+                ON dh.id = ctdh.id_don_hang
+                JOIN sach s ON s.id = ctdh.id_sach
+                WHERE dh.id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$orderId]);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
 }
