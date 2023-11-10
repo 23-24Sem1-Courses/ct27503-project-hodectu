@@ -158,7 +158,7 @@ class CheckoutModel
     {
         include SRC_DIR . '/config.php';
 
-        $sql = "SELECT s.anh_bia, s.ten_sach, s.gia_goc, ctdh.gia, ctdh.so_luong, dh.trang_thai, dh.tong_tien
+        $sql = "SELECT s.anh_bia, s.ten_sach, s.gia_goc, ctdh.id_sach, ctdh.gia, ctdh.so_luong, dh.trang_thai, dh.tong_tien
                 FROM don_hang dh JOIN chi_tiet_don_hang ctdh
                 ON dh.id = ctdh.id_don_hang
                 JOIN sach s ON s.id = ctdh.id_sach
@@ -189,5 +189,22 @@ class CheckoutModel
         $stmt->execute([$status, $id]);
 
         return  $stmt->rowCount() === 1;
+    }
+
+    public function insertToCart($userId, $orders)
+    {
+        include SRC_DIR . '/config.php';
+
+        foreach ($orders as $order) {
+            $sql = "INSERT INTO gio_hang (id_sach, id_kh, so_luong) VALUES (?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$order['id_sach'], $userId, $order['so_luong']]);
+
+            if ($stmt->rowCount() !== 1) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

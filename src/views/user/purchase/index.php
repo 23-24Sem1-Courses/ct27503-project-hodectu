@@ -187,7 +187,7 @@
                                 ? (`<button class="cancelBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
                                         Hủy
                                     </button>`)
-                                : (`<button class="repurchaseBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
+                                : (`<button class="buyAgainBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
                                         Mua lại
                                     </button>`)
                             }
@@ -201,36 +201,36 @@
         $('#content').html(finalHtml);
     }
 
-    const postAjax = (url, order, status) => {
-        const orderId = order[0].dataset.order_id;
-
+    const postAjax = (url, isAlert, data, order) => {
         $.ajax({
             url,
             type: 'POST',
-            data: {
-                id: orderId,
-                status
-            },
+            data,
             success: function(res) {
                 res = JSON.parse(res);
 
-                Swal.fire({
-                    title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
-                    text: res["message"],
-                    icon: `${res["error"] ? 'error' : 'success'}`,
-                    confirmButtonText: 'Ok',
-                    customClass: {
-                        confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
-                    },
-                }).then(() => {
-                    if (!res["error"]) {
-                        order.remove();
-                        if (!$('.order').length) {
-                            window.location.reload();
+                if (isAlert) {
+                    Swal.fire({
+                        title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
+                        text: res["message"],
+                        icon: `${res["error"] ? 'error' : 'success'}`,
+                        confirmButtonText: 'Ok',
+                        customClass: {
+                            confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
+                        },
+                    }).then(() => {
+                        if (!res["error"]) {
+                            order.remove();
+                            if (!$('.order').length) {
+                                window.location.reload();
+                            }
                         }
+                    })
+                } else {
+                    if (!res["error"]) {
+                        window.location.href = '/cart';
                     }
-                })
-
+                }
             },
             error: function(error) {
                 console.log(error);
@@ -251,10 +251,28 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 const order = $(this).closest('.order');
+                const orderId = order[0].dataset.order_id;
 
-                postAjax('/checkout/cancel', order, 2)
+                const data = {
+                    id: orderId,
+                    status: 2
+                }
+
+                postAjax('/checkout/cancel', true, data, order)
             }
         })
+    })
+
+    $(document).on('click', '.buyAgainBtn', function() {
+        const order = $(this).closest('.order');
+        const orderId = order[0].dataset.order_id;
+
+        const data = {
+            id: orderId
+        }
+
+        postAjax('/checkout/buy_again', false, data)
+
     })
 </script>
 
