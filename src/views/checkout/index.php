@@ -119,10 +119,6 @@
                             <img src="/images/cart/empty-cart.png" class="w-25" alt="">
                         </div>`;
                         $('header .cart').html(el);
-                        const emptyCart = `<div class="d-flex justify-content-center align-items-center h-100">
-                                                    <img src="/images/cart/empty-cart.png" alt="" class="img-fluid" style="width: 250px;">
-                                            </div>`;
-                        $('.checkout-cart').html(emptyCart);
                         if (!res['error']) {
                             window.location.href = '/purchase'
                         }
