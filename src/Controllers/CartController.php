@@ -10,6 +10,10 @@ class CartController
             $UserModel = new \App\Models\UserModel();
             $CartModel = new \App\Models\CartModel();
 
+            if (!isset($_SESSION['email'])) {
+                redirect('/login');
+            }
+
             $email = $_SESSION['email'];
             $user = $UserModel->getByEmail($email);
             $userId = $user['id'];
