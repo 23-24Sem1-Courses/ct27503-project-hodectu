@@ -69,7 +69,7 @@ class CheckoutModel
     {
         include SRC_DIR . '/config.php';
 
-        $sql = "SELECT id, trang_thai, tong_tien FROM don_hang WHERE id_kh = ?";
+        $sql = "SELECT id, trang_thai, tong_tien FROM don_hang WHERE id_kh = ? ORDER BY id DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$userId]);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -108,7 +108,7 @@ class CheckoutModel
     {
         include SRC_DIR . '/config.php';
 
-        $sql = "SELECT id, trang_thai, tong_tien FROM don_hang WHERE id_kh = ? AND trang_thai = ?";
+        $sql = "SELECT id, trang_thai, tong_tien FROM don_hang WHERE id_kh = ? AND trang_thai = ? ORDER BY id DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$userId, $status]);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
