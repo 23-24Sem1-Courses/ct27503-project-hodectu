@@ -59,6 +59,20 @@
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         }
     </style>
+    <script>
+        $(() => {
+            function checkWidth() {
+                var windowsize = $(window).width();
+                if (windowsize < 769) {
+                    $('#dropdown').attr('id', 'no-drop');
+                } else {
+                    $('#dropdown').removeAttr('id').attr('id', 'dropdown');
+                }
+            }
+            checkWidth();
+            $(window).resize(checkWidth);
+        })
+    </script>
     <title>Trang chủ</title>
 </head>
 
