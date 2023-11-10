@@ -47,8 +47,8 @@
             <div class="col-12 col-lg-9 px-0">
                 <div class="p-3 d-flex align-items-center justify-content-between fw-semibold overflow-x-scroll mb-3" style="background-color: white;">
                     <p data-status="3" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded border" style="border-color:#3aafa9 !important;">Tất cả</p>
-                    <p data-status="0" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Vận chuyển</p>
-                    <p data-status="1" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Hoàn thành</p>
+                    <p data-status="0" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Chờ xác nhận</p>
+                    <p data-status="1" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Vận chuyển</p>
                     <p data-status="2" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Hủy</p>
                 </div>
                 <div id="content"></div>
@@ -134,8 +134,8 @@
         }
 
         const ordersMsg = [
-            '<i class="fa-solid fa-truck-fast me-1"></i>Đơn hàng của bạn đang được giao',
-            '<i class="fa-solid fa-truck me-1"></i>Đơn hàng đã được giao thành công',
+            '</i>Chờ xác nhận',
+            '<i class="fa-solid fa-truck me-1"></i>Đơn hàng của bạn đang được giao',
             'ĐÃ HỦY',
         ];
 
@@ -143,7 +143,7 @@
 
         orders.forEach(order => {
             let html = `
-             <div class="shadow text-center align-items-center p-4 mb-5" style="background-color: white;">
+             <div class="order shadow text-center align-items-center p-4 mb-5" style="background-color: white;" data-order_id="${order.id}">
                 <p class="text-end text-uppercase" style="font-size: 0.8rem;">
                     ${ordersMsg[order?.status]}
                 </p>`;
@@ -181,17 +181,81 @@
                         <p class="mb-0">Thành tiền:</p>
                         <span class="text-danger fw-semibold fs-4">${convertNumberToPrice(order.total)}</span>
                     </div>
-                    <div class="text-end mt-3 mt-md-0">
-                        <button class="btn text-white" style="min-width: 200px; background-color:#3aafa9;">Mua lại</button>
+                        <div class="text-end mt-3 mt-md-0">
+                              ${                             
+                                Number(order?.status) === 0 
+                                ? (`<button class="cancelBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
+                                        Hủy
+                                    </button>`)
+                                : (`<button class="repurchaseBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
+                                        Mua lại
+                                    </button>`)
+                            }
+                        </div>
                     </div>
-                </div>
-            </div>`
+                </div>`
 
             finalHtml += html;
         })
 
         $('#content').html(finalHtml);
     }
+
+    const postAjax = (url, order, status) => {
+        const orderId = order[0].dataset.order_id;
+
+        $.ajax({
+            url,
+            type: 'POST',
+            data: {
+                id: orderId,
+                status
+            },
+            success: function(res) {
+                res = JSON.parse(res);
+
+                Swal.fire({
+                    title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
+                    text: res["message"],
+                    icon: `${res["error"] ? 'error' : 'success'}`,
+                    confirmButtonText: 'Ok',
+                    customClass: {
+                        confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
+                    },
+                }).then(() => {
+                    if (!res["error"]) {
+                        order.remove();
+                        if (!$('.order').length) {
+                            window.location.reload();
+                        }
+                    }
+                })
+
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        })
+    }
+
+    $(document).on('click', '.cancelBtn', function() {
+        Swal.fire({
+            title: 'Hủy đơn hàng?',
+            text: "Bạn chắc chắn muốn hủy đơn hàng này?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Xác nhận',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const order = $(this).closest('.order');
+
+                postAjax('/checkout/cancel', order, 2)
+            }
+        })
+    })
 </script>
 
 <?php include_once VIEWS_DIR . "/layouts/footer/index.php"; ?>

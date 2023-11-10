@@ -64,4 +64,32 @@ class CheckoutController
 
         require_once VIEWS_DIR . '/checkout/index.php';
     }
+
+    public function postOrderCancel()
+    {
+        if (!isset($_POST['id']) || !isset($_POST['status'])) {
+            JsonResponse(error: 1, message: "Thiếu thông tin");
+        }
+        $id = htmlspecialchars($_POST['id']);
+        $status = htmlspecialchars($_POST['status']);
+
+        if ((int)$status !== 2) {
+            JsonResponse(error: 1, message: "Không thể thực hiện");
+        }
+
+        $CheckoutModel = new \App\Models\CheckoutModel();
+
+        $order = $CheckoutModel->getById($id);
+        if (empty($order)) {
+            JsonResponse(error: 1, message: "Đơn hàng không tồn tại, Vui lòng kiểm tra lại");
+        }
+
+        $isSuccess = $CheckoutModel->updateStatus($id, $status);
+
+        if (!$isSuccess) {
+            JsonResponse(error: 1, message: "Có lỗi xảy ra! vui lòng thử lại sau.");
+        }
+
+        JsonResponse(error: 0, message: "Hủy thành công");
+    }
 }

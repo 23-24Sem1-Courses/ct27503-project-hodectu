@@ -92,6 +92,7 @@ class CheckoutModel
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             $arrTmp = [
+                'id' => $item['id'],
                 'status' => $item['trang_thai'],
                 'total' => $item['tong_tien'],
                 'books' => $result
@@ -130,6 +131,7 @@ class CheckoutModel
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             $arrTmp = [
+                'id' => $item['id'],
                 'status' => $item['trang_thai'],
                 'total' => $item['tong_tien'],
                 'books' => $result
@@ -166,5 +168,26 @@ class CheckoutModel
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
+    }
+
+    public function getById($id)
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "SELECT * FROM don_hang WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function updateStatus($id, $status)
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "UPDATE don_hang SET trang_thai = ? WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$status, $id]);
+
+        return  $stmt->rowCount() === 1;
     }
 }

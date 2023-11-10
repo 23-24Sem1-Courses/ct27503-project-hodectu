@@ -169,11 +169,6 @@ class AdminController
 
     public function postDelete($id)
     {
-        if (!isAdmin()) {
-            require_once VIEWS_DIR . '/errors/404.php';
-            exit;
-        };
-
         $BookModel = new \App\Models\BookModel();
 
         $oldBook = $BookModel->getById($id);
@@ -213,7 +208,6 @@ class AdminController
         require_once VIEWS_DIR . '/admin/order/index.php';
     }
 
-
     public function getOrderDetail($orderId)
     {
         if (!isAdmin()) {
@@ -230,9 +224,25 @@ class AdminController
 
     public function postOrderUpdate()
     {
+        if (!isset($_POST['id']) || !isset($_POST['status'])) {
+            JsonResponse(error: 1, message: "Thiếu thông tin");
+        }
+        $id = htmlspecialchars($_POST['id']);
+        $status = htmlspecialchars($_POST['status']);
+
         $CheckoutModel = new \App\Models\CheckoutModel();
 
-        $orders = $CheckoutModel->getOrdersInfo();
-        require_once VIEWS_DIR . '/admin/order/index.php';
+        $order = $CheckoutModel->getById($id);
+        if (empty($order)) {
+            JsonResponse(error: 1, message: "Đơn hàng không tồn tại, Vui lòng kiểm tra lại");
+        }
+
+        $isSuccess = $CheckoutModel->updateStatus($id, $status);
+
+        if (!$isSuccess) {
+            JsonResponse(error: 1, message: "Có lỗi xảy ra! vui lòng thử lại sau.");
+        }
+
+        JsonResponse(error: 0, message: "Cập nhật thành công");
     }
 }
