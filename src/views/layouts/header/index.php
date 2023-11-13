@@ -73,7 +73,7 @@
             $(window).resize(checkWidth);
         })
     </script>
-    <title>Trang chủ</title>
+    <title><?= $title ?? 'Trang chủ' ?></title>
 </head>
 
 <body id="body" id="body">
@@ -102,36 +102,42 @@
                         <div>
                             <?php
                             if (isset($_SESSION['email'])) {
-                                echo '<div id="dropdown" class="dropdown">
+                            ?>
+                                <div id="dropdown" class="dropdown">
                                     <button class="btn dropdown-toggle" type="button" style="box-shadow: none;" data-bs-toggle="dropdown" aria-expanded="false">
                                         <a href="login.php" class="text-decoration-none text-white fw-bold mx-0 mx-md-4">
-                                        <i class="fa-regular fa-user text-white px-2"></i>';
-                                echo htmlspecialchars(explode('@', $_SESSION['email'])[0]);
-                                echo '</a>
+                                            <i class="fa-regular fa-user text-white px-2"></i>
+                                            <?= htmlspecialchars(explode('@', $_SESSION['email'])[0]) ?>
+                                        </a>
                                     </button>
-                                        <ul id="dropdown-menu" class="dropdown-menu text-white">
-                                            <li><a class="dropdown-item" href="/profile">Tài khoản</a></li>
-                                            <li><a class="dropdown-item" href="/purchase">Đơn mua</a></li>
-                                            ';
-                                echo (isset($_SESSION['is_admin']) && ((int) $_SESSION['is_admin'] === 1)) ? '<li><a class="dropdown-item" href="/admin">Trang quản trị</a></li>' : '';
-                                echo '<form id="logout_form" action="/logout" method="post" class="d-flex flex-column">
-                                                <button class="dropdown-item" type="submit">
-                                                    <i class="fas fa-sign-in-alt"></i>
-                                                    Đăng Xuất
-                                                </button>
-                                            </form>
-                                            </li>
-                                        </ul>
-                                    </div>';
+                                    <ul id="dropdown-menu" class="dropdown-menu text-white">
+                                        <li><a class="dropdown-item" href="/profile">Tài khoản</a></li>
+                                        <li><a class="dropdown-item" href="/purchase">Đơn mua</a></li>
+                                        <?= (isset($_SESSION['is_admin']) && ((int) $_SESSION['is_admin'] === 1))
+                                            ? '<li><a class="dropdown-item" href="/admin">Trang quản trị</a></li>'
+                                            : '';
+                                        ?>
+                                        <form id="logout_form" action="/logout" method="post" class="d-flex flex-column">
+                                            <button class="dropdown-item" type="submit">
+                                                <i class="fas fa-sign-in-alt"></i>
+                                                Đăng Xuất
+                                            </button>
+                                        </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <?php
                             } else {
-                                echo '
-                                    <a class="text-white text-decoration-none fw-bold mx-3" href="/login"><i
-                                    class="fas fa-sign-in-alt"></i>
-                                     Đăng nhập</a>
-                                    <a class="text-white text-decoration-none fw-bold" href="/signup"><i
-                                            class="fas fa-user-plus"></i>
-                                        Đăng ký</a>
-                                    ';
+                            ?>
+                                <a class="text-white text-decoration-none fw-bold mx-3" href="/login">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    Đăng nhập
+                                </a>
+                                <a class="text-white text-decoration-none fw-bold" href="/signup">
+                                    <i class="fas fa-user-plus"></i>
+                                    Đăng ký
+                                </a>
+                            <?php
                             }
                             ?>
                         </div>

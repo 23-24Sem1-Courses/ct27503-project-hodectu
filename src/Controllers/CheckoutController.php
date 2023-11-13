@@ -17,6 +17,7 @@ class CheckoutController
             $user = $UserModel->getByEmail($_SESSION['email']);
             $cartList = $CartModel->getList($user['id']);
 
+            $title = 'Thanh Toán';
             require_once VIEWS_DIR . '/checkout/index.php';
         } catch (\PDOException $e) {
             echo $e->getMessage();

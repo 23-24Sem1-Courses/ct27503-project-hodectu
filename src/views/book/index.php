@@ -113,9 +113,9 @@
     <section class="">
         <div class="container">
             <div class="row shadow-lg mt-5">
-                <div class="d-flex justify-content-between bg-white py-2">
-                    <a href="#" class="text-decoration-none fw-bold">Sản Phẩm cùng tác giả</a>
-                    <a href="#" class="text-decoration-none fw-bold">Xem tất cả</a>
+                <div class="d-flex justify-content-between bg-dark p-3">
+                    <a href="#" class="text-decoration-none fw-bold text-white">Sản Phẩm cùng tác giả</a>
+                    <a href="#" class="text-decoration-none fw-bold text-white">Xem tất cả</a>
                 </div>
             </div>
             <div class="row">

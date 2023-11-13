@@ -29,12 +29,12 @@
 
             <div class="form-group mb-3">
                 <label for="price">Giá:</label>
-                <input value="<?= htmlspecialchars(format_money($book['gia_goc'])) ?>" type="number" class="form-control" id="price" name="price">
+                <input value="<?= htmlspecialchars($book['gia_goc']) ?>" type="number" class="form-control" id="price" name="price">
             </div>
 
             <div class="form-group mb-3">
                 <label for="price">Sale:</label>
-                <input value="<?= htmlspecialchars(format_money($book['gia_sale'])) ?>" type="number" class="form-control" id="sale" name="sale">
+                <input value="<?= htmlspecialchars($book['gia_sale']) ?>" type="number" class="form-control" id="sale" name="sale">
             </div>
 
             <div class="form-group mb-3">

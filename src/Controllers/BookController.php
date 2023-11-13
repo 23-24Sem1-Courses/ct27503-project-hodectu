@@ -9,6 +9,7 @@ class BookController
         $BookModel = new \App\Models\BookModel();
         $book = $BookModel->getById($id);
         $sptt = $BookModel->getAllByAuthor($book['tac_gia']);
+        $title = $book['ten_sach'];
         require_once VIEWS_DIR . '/book/index.php';
     }
 
@@ -20,9 +21,11 @@ class BookController
 
         if (!empty($book)) {
             $tukhoa = $book[0]['the_loai'];
+            $title = htmlspecialchars($_GET['tu_khoa']);
             require_once VIEWS_DIR . '/book/search/index.php';
         } else {
-            require_once VIEWS_DIR . '/errors/404.php';
+            $title = 'Không Tìm Thấy';
+            require_once VIEWS_DIR . '/errors/search/notFound.php';
             exit;
         }
     }

@@ -34,23 +34,20 @@
             <div class="fs-2 fw-semibold text-center mb-5 ">Đăng nhập</div>
             <form id="login_form" action="/login" method="post" class="d-flex flex-column">
                 <div class="form-floating mb-3">
-                    <input value="admin@gmail.com" type="email" class="form-control shadow-none" name="email" id="email"
-                        placeholder="name@example.com" autocomplete="off">
+                    <input type="email" class="form-control shadow-none" name="email" id="email" placeholder="name@example.com" autocomplete="off">
                     <label for="email" class="text-dark-emphasis">Email</label>
                 </div>
                 <div class="form-floating">
-                    <input value="11111" type="password" class="form-control shadow-none" name="password" id="password"
-                        placeholder="Mật khẩu">
+                    <input type="password" class="form-control shadow-none" name="password" id="password" placeholder="Mật khẩu">
                     <label for="password" class="text-dark-emphasis">Mật khẩu</label>
                 </div>
 
                 <div class="mt-4 mb-2 text-end">
-                    <a href="/forgot-pass" class="mb-0 text-decoration-none fw-bold" style="color: #3aafa9;">Quên
+                    <a href="/forget-pass" class="mb-0 text-decoration-none fw-bold" style="color: #3aafa9;">Quên
                         mật khẩu?</a>
                 </div>
 
-                <button type="submit" class="login-btn btn-hover-dark mb-4 btn text-white fw-semibold"
-                    style="background: #3aafa9;">
+                <button type="submit" class="login-btn btn-hover-dark mb-4 btn text-white fw-semibold" style="background: #3aafa9;">
                     Đăng nhập
                 </button>
             </form>
@@ -67,7 +64,7 @@
 
 <script>
     $.validator.setDefaults({
-        submitHandler: function (form) {
+        submitHandler: function(form) {
             $.ajax({
                 url: '/login',
                 type: 'POST',
@@ -75,7 +72,7 @@
                     "email": $('#login_form input[name="email"]').val(),
                     "password": $('#login_form input[name="password"]').val(),
                 },
-                success: function (res) {
+                success: function(res) {
                     res = JSON.parse(res);
                     Swal.fire({
                         title: `${res["error"] ? 'Lỗi' : 'Thành công'}`,
@@ -85,18 +82,18 @@
                         customClass: {
                             confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
                         },
-                    }).then(function () {
+                    }).then(function() {
                         if (!res["error"]) window.location.href = '/';
                     })
                 },
-                error: function (error) {
+                error: function(error) {
                     console.log(error);
                 }
             });
         }
     })
 
-    $().ready(function () {
+    $().ready(function() {
         $('#login_form').validate({
             rules: {
                 email: {

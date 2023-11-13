@@ -31,7 +31,7 @@
             transition: all 0.5s;
         }
     </style>
-    <title>Admin</title>
+    <title><?= $title ?></title>
 </head>
 
 <body>

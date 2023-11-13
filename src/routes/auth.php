@@ -10,6 +10,6 @@ $router->post('/signup', 'App\Controllers\AuthController@postSignup');
 
 $router->post('/logout', 'App\Controllers\AuthController@postLogout');
 
-$router->get('/forgot-pass', 'App\Controllers\AuthController@getForgotPass');
+$router->get('/forget-pass', 'App\Controllers\AuthController@getForgetPass');
 
-$router->post('/forgot-pass', 'App\Controllers\AuthController@postForgotPass');
+$router->post('/forget-pass', 'App\Controllers\AuthController@postForgetPass');

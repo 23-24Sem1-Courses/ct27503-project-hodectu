@@ -24,7 +24,7 @@
     }
 
     body {
-        background: url('/images/background/forgot-pass.jpg');
+        background: url('/images/background/forget-pass.jpg');
     }
 </style>
 
@@ -33,9 +33,9 @@
         <div id="draggable" class="bg-dark text-white p-4 rounded-3 shadow-lg col col-lg-5" style="width: 35%;">
             <div class="fs-2 fw-semibold text-center mb-5">Quên mật khẩu</div>
 
-            <form id="forgot_pass_form" action="/forgot-pass" method="post" class="d-flex flex-column">
+            <form id="forgot_pass_form" action="/forget-pass" method="post" class="d-flex flex-column">
                 <div class="form-floating mb-3">
-                    <input value="admin@gmail.com" type="email" class="form-control shadow-none" id="email" name="email" placeholder="name@example.com" autocomplete="off">
+                    <input type="email" class="form-control shadow-none" id="email" name="email" placeholder="name@example.com" autocomplete="off">
                     <label for="email" class="text-dark-emphasis">Email</label>
                 </div>
 
@@ -45,8 +45,9 @@
             </form>
 
             <p class="d-flex py-2 gap-2 mb-0 fw-bold">
-                <a href="../login/" class="text-decoration-none" style="color: #3aafa9;">Trở lại đăng
-                    nhập</a>
+                <a href="/login" class="text-decoration-none" style="color: #3aafa9;">
+                    Trở lại đăng nhập
+                </a>
             </p>
         </div>
     </div>
@@ -59,7 +60,7 @@
     $.validator.setDefaults({
         submitHandler: function(form) {
             $.ajax({
-                url: '/forgot-pass',
+                url: '/forget-pass',
                 type: 'POST',
                 data: {
                     "email": $('#forgot_pass_form input[name="email"]').val(),

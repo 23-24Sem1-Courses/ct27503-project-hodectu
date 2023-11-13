@@ -7,20 +7,24 @@ class AdminController
     public function index()
     {
         if (!isAdmin()) {
+            $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
         };
         $BookModel = new \App\Models\BookModel();
         $books = $BookModel->getAllNoLimit();
+        $title = 'Admin';
         require_once VIEWS_DIR . '/admin/index.php';
     }
 
     public function getAdd()
     {
         if (!isAdmin()) {
+            $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
         };
+        $title = 'Admin | Thêm';
         require_once VIEWS_DIR . '/admin/add/index.php';
     }
 
@@ -28,6 +32,7 @@ class AdminController
     {
         try {
             if (!isAdmin()) {
+                $title = 'Lỗi';
                 require_once VIEWS_DIR . '/errors/404.php';
                 exit;
             };
@@ -86,11 +91,13 @@ class AdminController
     public function getEdit($id)
     {
         if (!isAdmin()) {
+            $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
         };
         $BookModel = new \App\Models\BookModel();
         $book = $BookModel->getById($id);
+        $title = 'Admin | Chỉnh Sửa';
         require_once VIEWS_DIR . '/admin/edit/index.php';
     }
 
@@ -98,6 +105,7 @@ class AdminController
     {
         try {
             if (!isAdmin()) {
+                $title = 'Lỗi';
                 require_once VIEWS_DIR . '/errors/404.php';
                 exit;
             };
@@ -199,25 +207,28 @@ class AdminController
     public function getOrder()
     {
         if (!isAdmin()) {
+            $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
         };
         $CheckoutModel = new \App\Models\CheckoutModel();
 
         $orders = $CheckoutModel->getOrdersInfo();
+        $title = 'Admin';
         require_once VIEWS_DIR . '/admin/order/index.php';
     }
 
     public function getOrderDetail($orderId)
     {
         if (!isAdmin()) {
+            $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';
             exit;
         };
         $CheckoutModel = new \App\Models\CheckoutModel();
 
         $results = $CheckoutModel->getOrderDetail($orderId);
-
+        $title = 'Admin | Chi Tiết Đơn Hàng';
         require_once VIEWS_DIR . '/admin/order/detail/index.php';
     }
 

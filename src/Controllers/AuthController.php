@@ -6,6 +6,7 @@ class AuthController
 {
     public function getLogin()
     {
+        $title = "Đăng Nhập";
         require_once VIEWS_DIR . '/login/index.php';
     }
 
@@ -44,6 +45,7 @@ class AuthController
 
     public function getSignup()
     {
+        $title = "Đăng Ký";
         require_once VIEWS_DIR . '/signup/index.php';
     }
 
@@ -87,12 +89,13 @@ class AuthController
         redirect('/login');
     }
 
-    public function getForgotPass()
+    public function getForgetPass()
     {
-        require_once VIEWS_DIR . '/forgotPass/index.php';
+        $title = "Quên Mật Khẩu";
+        require_once VIEWS_DIR . '/forgetPass/index.php';
     }
 
-    function postForgotPass()
+    function postForgetPass()
     {
         try {
             require_once SRC_DIR . '/config.php';

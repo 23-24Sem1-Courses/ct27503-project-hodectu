@@ -18,6 +18,7 @@ class CartController
             $user = $UserModel->getByEmail($email);
             $userId = $user['id'];
 
+            $title = 'Giỏ Hàng';
             $cartList = $CartModel->getList($userId);
             if (empty($cartList)) {
                 require_once VIEWS_DIR . '/cart/empty.php';

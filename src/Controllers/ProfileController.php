@@ -13,6 +13,7 @@ class ProfileController
             $UserModel = new \App\Models\UserModel();
             $user = $UserModel->getByEmail($_SESSION['email']);
 
+            $title = 'Thông Tin Tài Khoản';
             require_once VIEWS_DIR . '/user/index.php';
         } catch (\PDOException $e) {
             echo $e->getMessage();
@@ -74,6 +75,8 @@ class ProfileController
             }
             $UserModel = new \App\Models\UserModel();
             $user = $UserModel->getByEmail($_SESSION['email']);
+
+            $title = 'Đổi Mật Khẩu';
             require_once VIEWS_DIR . '/user/password/index.php';
         } catch (\PDOException $e) {
             echo $e->getMessage();
@@ -119,6 +122,7 @@ class ProfileController
             $UserModel = new \App\Models\UserModel();
             $user = $UserModel->getByEmail($_SESSION['email']);
 
+            $title = 'Đơn mua';
             require_once VIEWS_DIR . '/user/purchase/index.php';
         } catch (\PDOException $e) {
             echo $e->getMessage();
