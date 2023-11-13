@@ -52,27 +52,12 @@
                         <p class="text-decoration-line-through">
                             <?= htmlspecialchars(format_money($book['gia_goc'])) ?>
                         </p>
-                        <p class="sale fw-bold text-danger">
+                        <p class="sale fw-bold text-danger fs-3">
                             <?= htmlspecialchars(format_money($book['gia_sale'])) ?>
                         </p>
                     </div>
-                    <div class="row justify-content-center justify-content-lg-start">
-                        <div class="d-flex col-lg-3 col-6 number-input">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn-minus btn btn-default btn-number" style="border: 1px solid #17252a;" data-type="minus" data-field="quantity">
-                                    <span class="fa fa-minus"></span>
-                                </button>
-                            </span>
-                            <input type="number" value="1" min="1" max="100" name="quantity" class="fw-bold form-control input-number text-center col rounded-0 border-end-0 border-start-0">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn-plus btn btn-default btn-number" style="border: 1px solid #17252a;" data-type="plus" data-field="quantity">
-                                    <span class="fa fa-plus"></span>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
                     <hr>
-                    <div class="col-md-12 col-3 row d-flex justify-content-center pb-3 gap-3 justify-content-lg-start " style="width: auto;">
+                    <div class="col-md-12 col-3 row d-flex justify-content-center pb-3 gap-3 justify-content-lg-start" style="width: auto;">
                         <!-- Nút "Thêm vào giỏ hàng" với Bootstrap -->
                         <button class="add_to_cart btn col-4 col-md-4 text-white fw-bold" style="background-color: #17252a;">
                             Thêm giỏ hàng
@@ -224,16 +209,6 @@
             .css('display', 'block')
             .parent()
             .zoom();
-
-        $('.btn-minus').on('click', function() {
-            const input = $(this).closest('.number-input').find('input[name="quantity"]');
-            input[0].stepDown();
-        })
-
-        $('.btn-plus').on('click', function() {
-            const input = $(this).closest('.number-input').find('input[name="quantity"]');
-            input[0].stepUp();
-        })
 
         $('.btn_showmore').on('click', function() {
             if ($('.book-description').hasClass('text-truncate')) {
