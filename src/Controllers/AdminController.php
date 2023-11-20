@@ -235,10 +235,10 @@ class AdminController
 
     public function postOrderUpdate()
     {
-        if (!isset($_POST['id']) || !isset($_POST['status'])) {
+        if (!isset($_POST['orderId']) || !isset($_POST['status'])) {
             JsonResponse(error: 1, message: "Thiếu thông tin");
         }
-        $id = htmlspecialchars($_POST['id']);
+        $id = htmlspecialchars($_POST['orderId']);
         $status = htmlspecialchars($_POST['status']);
 
         $CheckoutModel = new \App\Models\CheckoutModel();

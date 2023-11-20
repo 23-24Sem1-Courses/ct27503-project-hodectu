@@ -158,7 +158,7 @@ class CheckoutModel
     {
         include SRC_DIR . '/config.php';
 
-        $sql = "SELECT s.anh_bia, s.ten_sach, s.gia_goc, ctdh.id_sach, ctdh.gia, ctdh.so_luong, dh.trang_thai, dh.tong_tien
+        $sql = "SELECT s.anh_bia, s.ten_sach, s.gia_goc, ctdh.id_sach, ctdh.gia, ctdh.so_luong, dh.trang_thai, dh.tong_tien, dh.id orderId
                 FROM don_hang dh JOIN chi_tiet_don_hang ctdh
                 ON dh.id = ctdh.id_don_hang
                 JOIN sach s ON s.id = ctdh.id_sach

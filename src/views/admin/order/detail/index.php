@@ -10,8 +10,13 @@
     <div class=" p-5">
         <p class="fs-3 fw-semibold text-center">Chi tiết đơn hàng</p>
         <a href="/admin/order" class="text-decoration-none fw-semibold"><i class="fa-solid fa-arrow-left me-1"></i>Quay lại</a>
-
-        <div class="row shadow text-center p-4 mb-5 mt-2" style="background-color: white;">
+        <p class="text-end text-uppercase mb-0 fs-6">
+            Trạng thái:
+            <span class="ms-2">
+                <?= htmlspecialchars($results[0]['trang_thai'] == 0 ? 'Chờ xác nhận' : ($results[0]['trang_thai'] == 1 ? 'Đang giao' : 'Hủy')) ?>
+            </span>
+        </p>`
+        <div class="row shadow text-center p-4 mb-5 mt-2 order" style="background-color: white;" data-order_id="<?= htmlspecialchars($results[0]['orderId']) ?>">
             <?php foreach ($results as $item) : ?>
                 <div class="col-12 col-md-6">
                     <div class="py-3 d-flex align-items-center border bg-white">
@@ -46,9 +51,12 @@
                     <p class="mb-0">Thành tiền:</p>
                     <span class="text-danger fw-semibold fs-4"><?= htmlspecialchars(format_money($item['tong_tien'])) ?></span>
                 </div>
-                <div class="text-end mt-3 mt-md-0">
-                    <button class="update-btn btn text-white" style="min-width: 200px; min-height: 45px; background-color:#3aafa9;">Cập nhật trạng thái giao hàng</button>
-                </div>
+
+                <?php if ($results[0]['trang_thai'] != 2) : ?>
+                    <div class="text-end mt-3 mt-md-0">
+                        <button class="btnUpdate btn text-white" style="min-width: 200px; min-height: 45px; background-color:#3aafa9;">Cập nhật trạng thái giao hàng</button>
+                    </div>
+                <?php endif ?>
             </div>
         </div>
 

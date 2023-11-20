@@ -22,12 +22,10 @@
             <div class="row d-flex justify-content-between">
                 <div class="col-md-3 col-12 bg-white">
                     <div class="dropdown" id="dropdown">
-                        <button class="btn btn-white w-100 d-flex justify-content-start" type="button"
-                            style="box-shadow: none; color: #3aafa9;" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-white w-100 d-flex justify-content-start" type="button" style="box-shadow: none; color: #3aafa9;" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="d-flex align-items-center gap-1 fs-4">
                                 <i class="fa-solid fa-bars"></i>
-                                <p class="m-0 ml-2"><a href="#" class="text-decoration-none fw-bold"
-                                        style="color: #3aafa9;">Menu</a>
+                                <p class="m-0 ml-2"><a href="#" class="text-decoration-none fw-bold" style="color: #3aafa9;">Menu</a>
                                 </p>
                             </div>
                         </button>
@@ -62,26 +60,21 @@
     <section class="p-3">
         <div class="container">
             <div class="row shadow-lg">
-                <div class="d-flex justify-content-between bg-white py-2">
-                    <a href="#" class="text-decoration-none fw-bold text-capitalize"
-                        style="color: #3aafa9; font-size: 17px;">
+                <div class="d-flex justify-content-between p-3 bg-dark">
+                    <a href="#" class="text-decoration-none fw-bold text-white text-capitalize" style="font-size: 17px;">
                         <?= htmlspecialchars($tukhoa) ?>
                     </a>
-
                 </div>
             </div>
 
             <div class="row">
-                <?php foreach ($book as $sach): ?>
-                    <div class="product col-md-3 col-sm-6 col-12 p-3 bg-white"
-                        data-book_id="<?= htmlspecialchars($sach['id']) ?>">
+                <?php foreach ($book as $sach) : ?>
+                    <div class="product col-md-3 col-sm-6 col-12 p-3 bg-white" data-book_id="<?= htmlspecialchars($sach['id']) ?>">
                         <div class="col">
                             <div class="row p-3">
                                 <div class="col-md-12 col-12 text-center">
                                     <!-- Hình ảnh sách -->
-                                    <a href="/book/detail/<?= htmlspecialchars($sach['id']) ?>"> <img
-                                            src="<?= htmlspecialchars($sach['anh_bia']) ?>" class="img" alt="Hình ảnh sách"
-                                            class="img-fluid" style=" height: 170px;"></a>
+                                    <a href="/book/detail/<?= htmlspecialchars($sach['id']) ?>"> <img src="<?= htmlspecialchars($sach['anh_bia']) ?>" class="img" alt="Hình ảnh sách" class="img-fluid" style=" height: 170px;"></a>
                                 </div>
                                 <div class="col-md-12 col-12 text-center mt-3">
                                     <!-- Tên sách -->
