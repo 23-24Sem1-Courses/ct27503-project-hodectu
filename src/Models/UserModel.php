@@ -6,6 +6,17 @@ use PDO;
 
 class UserModel
 {
+    public function getAllUsers()
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "SELECT email, ho_Ten, dia_chi, so_dien_thoai, avatar FROM khach_hang WHERE is_admin <> ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([1]);
+        $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $user;
+    }
+
     public function getByEmail($email)
     {
         include SRC_DIR . '/config.php';

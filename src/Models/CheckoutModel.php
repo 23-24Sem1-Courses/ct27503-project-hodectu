@@ -6,6 +6,16 @@ use PDO;
 
 class CheckoutModel
 {
+    public function getQuantityAndTotal()
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "SELECT COUNT(*) quantity, SUM(tong_tien) total FROM don_hang";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function createOrder()
     {
         include SRC_DIR . '/config.php';

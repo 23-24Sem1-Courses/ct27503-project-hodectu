@@ -12,7 +12,13 @@ class AdminController
             exit;
         };
         $BookModel = new \App\Models\BookModel();
+        $UserModel = new \App\Models\UserModel();
+        $CheckoutModel = new \App\Models\CheckoutModel();
+
+        $users = $UserModel->getAllUsers();
         $books = $BookModel->getAllNoLimit();
+        $result = $CheckoutModel->getQuantityAndTotal();
+
         $title = 'Admin';
         require_once VIEWS_DIR . '/admin/index.php';
     }
