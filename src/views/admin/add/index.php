@@ -166,7 +166,7 @@
                         customClass: {
                             confirmButton: `${res["error"] ? 'bg-danger' : 'bg-success'}`,
                         },
-                    }).then(() => window.location.href = '/admin/add')
+                    }).then(() => window.location.href = '/admin')
                 })
                 .catch(error => {
                     console.error("Error:", error);
