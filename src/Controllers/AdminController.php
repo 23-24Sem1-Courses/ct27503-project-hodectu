@@ -17,7 +17,8 @@ class AdminController
 
         $users = $UserModel->getAllUsers();
         $books = $BookModel->getAllNoLimit();
-        $result = $CheckoutModel->getQuantityAndTotal();
+        $total = $CheckoutModel->getTotalPriceByStatus(status: 3);
+        $quantity = $CheckoutModel->getQuantity();
 
         $title = 'Admin';
         require_once VIEWS_DIR . '/admin/index.php';

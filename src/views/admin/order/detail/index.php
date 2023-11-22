@@ -12,17 +12,17 @@
         <a href="/admin/order" class="text-decoration-none fw-semibold"><i class="fa-solid fa-arrow-left me-1"></i>Quay lại</a>
         <p class="text-end text-uppercase mb-0 fs-6">
             Trạng thái:
-            <span class="ms-2">
-                <?= htmlspecialchars($results[0]['trang_thai'] == 0 ? 'Chờ xác nhận' : ($results[0]['trang_thai'] == 1 ? 'Đang giao' : 'Hủy')) ?>
+            <span class="ms-2 fw-bold">
+                <?= htmlspecialchars($results[0]['trang_thai'] == 0 ? 'Chờ xác nhận' : ($results[0]['trang_thai'] == 1 ? 'Đang giao' : ($results[0]['trang_thai'] == 2 ? 'Hủy' : 'Đã nhận'))) ?>
             </span>
         </p>`
-        <div class="row shadow text-center p-4 mb-5 mt-2 order" style="background-color: white;" data-order_id="<?= htmlspecialchars($results[0]['orderId']) ?>">
+        <div class="row shadow text-center p-4 mb-5 mt-2 order" style="background-color: white;" data-order_id="<?= htmlspecialchars($results[0]['orderId']) ?>" data-order_status="<?= htmlspecialchars($results[0]['trang_thai']) ?>">
             <?php foreach ($results as $item) : ?>
                 <div class="col-12 col-md-6">
                     <div class="py-3 d-flex align-items-center border bg-white">
                         <div class="col-3">
-                            <a href="#" class="pan col-3 text-center me-3 me-md-0" data-big="<?= htmlspecialchars($item['anh_bia']) ?>" style="cursor: zoom-in;">
-                                <img src="<?= htmlspecialchars($item['anh_bia']) ?>" alt="" data-action="zoom" style="width: 100px;">
+                            <a href="#" class="col-3 text-center me-3 me-md-0">
+                                <img src="<?= htmlspecialchars($item['anh_bia']) ?>" alt="" style="width: 100px;">
                             </a>
                         </div>
                         <div class="col-9 text-center px-2">
@@ -52,7 +52,7 @@
                     <span class="text-danger fw-semibold fs-4"><?= htmlspecialchars(format_money($item['tong_tien'])) ?></span>
                 </div>
 
-                <?php if ($results[0]['trang_thai'] != 2) : ?>
+                <?php if ($results[0]['trang_thai'] == 0 || $results[0]['trang_thai'] == 1) : ?>
                     <div class="text-end mt-3 mt-md-0">
                         <button class="btnUpdate btn text-white" style="min-width: 200px; min-height: 45px; background-color:#3aafa9;">Cập nhật trạng thái giao hàng</button>
                     </div>

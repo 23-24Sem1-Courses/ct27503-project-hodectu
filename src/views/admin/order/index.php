@@ -23,7 +23,7 @@
         </thead>
         <tbody>
             <?php foreach ($orders as $order) : ?>
-                <tr class="order" data-order_id="<?= htmlspecialchars($order['id']) ?>">
+                <tr class="order" data-order_id="<?= htmlspecialchars($order['id']) ?>" data-order_status="<?= htmlspecialchars($order['trang_thai']) ?>">
                     <td class="align-middle">
                         <?= htmlspecialchars($order['id']) ?>
                     </td>
@@ -43,10 +43,10 @@
                         <?= htmlspecialchars($order['ngay_dat']) ?>
                     </td>
                     <td class="align-middle text-center fw-semibold">
-                        <?= (int)htmlspecialchars($order['trang_thai']) === 0 ? 'Chờ xác nhận' : ((int)htmlspecialchars($order['trang_thai']) === 1 ? 'Đang giao' : 'Hủy') ?>
+                        <?= (int)htmlspecialchars($order['trang_thai']) === 0 ? 'Chờ xác nhận' : ((int)htmlspecialchars($order['trang_thai']) === 1 ? 'Đang giao' : ((int)htmlspecialchars($order['trang_thai']) === 2 ? 'Đã hủy' : 'Đã nhận')) ?>
                     </td>
                     <td class="align-middle text-center">
-                        <?php if ($order['trang_thai'] != 2) : ?>
+                        <?php if (htmlspecialchars($order['trang_thai']) == 0 || htmlspecialchars($order['trang_thai']) == 1) : ?>
                             <button class="btnUpdate btn text-white" style="background-color:#3aafa9;" data-orderId="<?= htmlspecialchars($order['id']) ?>">Cập nhật</button>
                         <?php endif ?>
                         <a href="/admin/order/<?= htmlspecialchars($order['id']) ?>" class="btn text-white" style="background-color:#3aafa9;">Xem</a>

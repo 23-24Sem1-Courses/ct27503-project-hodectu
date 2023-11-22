@@ -63,6 +63,7 @@
                    title: 'Cập nhật trạng thái?',
                    // text: "Bạn chắc chắn muốn hủy đơn hàng này?",
                    icon: 'warning',
+                   showConfirmButton: $(this).closest('.order')[0].dataset.order_status == 1 ? false : true,
                    showCancelButton: true,
                    showDenyButton: true,
                    confirmButtonText: "Giao hàng",

@@ -6,14 +6,24 @@ use PDO;
 
 class CheckoutModel
 {
-    public function getQuantityAndTotal()
+    public function getTotalPriceByStatus($status)
     {
         include SRC_DIR . '/config.php';
-        $sql = "SELECT COUNT(*) quantity, SUM(tong_tien) total FROM don_hang";
+        $sql = "SELECT SUM(tong_tien) total FROM don_hang WHERE trang_thai = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$status]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
+    }
+
+    public function getQuantity()
+    {
+        include SRC_DIR . '/config.php';
+        $sql = "SELECT COUNT(*) quantity FROM don_hang";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        return $result['quantity'];
     }
 
     public function createOrder()

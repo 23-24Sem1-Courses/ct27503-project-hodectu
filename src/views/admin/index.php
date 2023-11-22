@@ -13,9 +13,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-center"><?= htmlspecialchars(format_money($result['total'])) ?></td>
+                    <td class="text-center"><?= htmlspecialchars(format_money($total)) ?></td>
                     <td class="text-center"><?= htmlspecialchars(count($books)) ?></td>
-                    <td class="text-center"><?= htmlspecialchars($result['quantity']) ?></td>
+                    <td class="text-center"><?= htmlspecialchars($quantity) ?></td>
                     <td class="text-center"><?= htmlspecialchars(count($users)) ?></td>
                 </tr>
             </tbody>

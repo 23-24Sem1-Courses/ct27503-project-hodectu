@@ -140,4 +140,34 @@ class CheckoutController
             echo $e->getMessage();
         }
     }
+
+    public function postOrderConfirm()
+    {
+        try {
+            if (!isset($_SESSION['email'])) {
+                JsonResponse(error: 1, message: "Vui lòng đăng nhập để tiếp tục");
+            }
+            $CheckoutModel = new \App\Models\CheckoutModel();
+
+            if (!isset($_POST['id'])) {
+                JsonResponse(error: 1, message: "Thiếu thông tin");
+            }
+            $orderId = htmlspecialchars($_POST['id']);
+
+            $orders = $CheckoutModel->getOrderDetail($orderId);
+            if (empty($orders)) {
+                JsonResponse(error: 1, message: "Đơn hàng không tồn tại, Vui lòng kiểm tra lại");
+            }
+
+            $isSuccess = $CheckoutModel->updateStatus($orderId, 3);
+
+            if (!$isSuccess) {
+                JsonResponse(error: 1, message: "Có lỗi xảy ra! vui lòng thử lại sau.");
+            }
+
+            JsonResponse(error: 0, message: "Cảm ơn bạn đã mua hàng");
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }

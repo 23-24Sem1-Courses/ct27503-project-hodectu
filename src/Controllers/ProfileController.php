@@ -147,7 +147,7 @@ class ProfileController
             }
 
             $status = htmlspecialchars($_POST['status']);
-            if ((int)$status === 3) {
+            if ((int)$status === 4) {
                 $orders = $CheckoutModel->getAllOrder($userId);
                 echo json_encode($orders);
                 exit;

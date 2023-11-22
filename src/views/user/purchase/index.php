@@ -46,9 +46,10 @@
             </div>
             <div class="col-12 col-lg-9 px-0">
                 <div class="p-3 d-flex align-items-center justify-content-between fw-semibold overflow-x-scroll mb-3" style="background-color: white;">
-                    <p data-status="3" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded border" style="border-color:#3aafa9 !important;">Tất cả</p>
+                    <p data-status="4" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded border" style="border-color:#3aafa9 !important;">Tất cả</p>
                     <p data-status="0" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Chờ xác nhận</p>
                     <p data-status="1" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Vận chuyển</p>
+                    <p data-status="3" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Hoàn thành</p>
                     <p data-status="2" class="btn-status px-5 text-center text-nowrap text-decoration-none text-dark p-2 rounded">Hủy</p>
                 </div>
                 <div id="content"></div>
@@ -64,7 +65,7 @@
                 url: '/purchase',
                 type: 'POST',
                 data: {
-                    status: 3
+                    status: 4
                 },
                 beforeSend: function() {
                     const div = `<div class="loading d-flex justify-content-center align-items-center w-100">
@@ -137,6 +138,7 @@
             '</i>Chờ xác nhận',
             '<i class="fa-solid fa-truck me-1"></i>Đơn hàng của bạn đang được giao',
             'ĐÃ HỦY',
+            '<i class="fa-solid fa-truck me-1"></i> Đơn hàng đã được giao thành công',
         ];
 
         let finalHtml = "";
@@ -187,9 +189,15 @@
                                 ? (`<button class="cancelBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
                                         Hủy
                                     </button>`)
-                                : (`<button class="buyAgainBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
-                                        Mua lại
-                                    </button>`)
+                                :  (
+                                    Number(order?.status) === 1
+                                    ? (`<button class="confirmBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
+                                            Đã nhận được hàng
+                                        </button>`)
+                                    : (`<button class="buyAgainBtn btn text-white" style="min-width: 200px; background-color:#3aafa9;">
+                                            Mua lại
+                                        </button>`)
+                                )
                             }
                         </div>
                     </div>
@@ -272,7 +280,17 @@
         }
 
         postAjax('/checkout/buy_again', false, data)
+    })
 
+    $(document).on('click', '.confirmBtn', function() {
+        const order = $(this).closest('.order');
+        const orderId = order[0].dataset.order_id;
+
+        const data = {
+            id: orderId
+        }
+
+        postAjax('/checkout/confirm', true, data, order)
     })
 </script>
 
