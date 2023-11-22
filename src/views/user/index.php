@@ -79,9 +79,9 @@
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center flex-column">
-                                <div class="preview-img mt-3 p-2 d-flex justify-content-center align-items-center">
+                                <label for="avatar" class="preview-img mt-3 p-2 d-flex justify-content-center align-items-center" style="cursor: pointer;">
                                     <img src="<?= htmlspecialchars($user['avatar']) ?>" alt="" style="border-radius: 50%; width: 100px; height: 100px; background-color: #efefef;">
-                                </div>
+                                </label>
                                 <div class="py-2">
                                     <div class="d-flex align-items-center gap-3">
                                         <div>
@@ -93,8 +93,8 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <div class="" style="font-size: 14px;">Dụng lượng file tối đa 10 MB</div>
-                                    <div class="" style="font-size: 14px;">Định dạng:.JPEG, .JPG, .PNG, .GIF</div>
+                                    <div style="font-size: 14px;">Dụng lượng file tối đa 10 MB</div>
+                                    <div style="font-size: 14px;">Định dạng:.JPEG, .JPG, .PNG, .GIF</div>
                                 </div>
 
                             </div>
