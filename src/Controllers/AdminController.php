@@ -26,6 +26,15 @@ class AdminController
 
     public function getAdd()
     {
+        if (empty($_SESSION['email'])) {
+            redirect('/login');
+        }
+
+        $UserModel = new \App\Models\UserModel();
+
+        $email = htmlspecialchars($_SESSION['email']);
+        $user = $UserModel->getByEmail($email);
+
         if (!isAdmin()) {
             $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';
@@ -97,6 +106,15 @@ class AdminController
 
     public function getEdit($id)
     {
+        if (empty($_SESSION['email'])) {
+            redirect('/login');
+        }
+
+        $UserModel = new \App\Models\UserModel();
+
+        $email = htmlspecialchars($_SESSION['email']);
+        $user = $UserModel->getByEmail($email);
+
         if (!isAdmin()) {
             $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';
@@ -213,6 +231,14 @@ class AdminController
 
     public function getOrder()
     {
+        if (empty($_SESSION['email'])) {
+            redirect('/login');
+        }
+
+        $UserModel = new \App\Models\UserModel();
+
+        $email = htmlspecialchars($_SESSION['email']);
+        $user = $UserModel->getByEmail($email);
         if (!isAdmin()) {
             $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';
@@ -227,6 +253,14 @@ class AdminController
 
     public function getOrderDetail($orderId)
     {
+        if (empty($_SESSION['email'])) {
+            redirect('/login');
+        }
+
+        $UserModel = new \App\Models\UserModel();
+
+        $email = htmlspecialchars($_SESSION['email']);
+        $user = $UserModel->getByEmail($email);
         if (!isAdmin()) {
             $title = 'Lỗi';
             require_once VIEWS_DIR . '/errors/404.php';

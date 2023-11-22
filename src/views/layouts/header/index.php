@@ -76,6 +76,8 @@
     <title><?= $title ?? 'Trang chủ' ?></title>
 </head>
 
+<? var_dump($user) ?>
+
 <body id="body" id="body">
     <header class="fw-bold position-sticky top-0 shadow-sm" style="background-color: #17252a; z-index: 1000;">
         <div class="container">
@@ -95,21 +97,21 @@
                 <!-- RIGHT -->
                 <div class="col-md-6 col-12 ">
                     <div class="text-center text-md-end d-flex justify-content-md-end justify-content-center">
-                        <a class="text-white text-decoration-none fw-bold d-flex align-items-center" href="#">
+                        <a class="text-white text-decoration-none fw-bold d-flex align-items-center me-5" href="#">
                             <i class="fas fa-gift"></i>
                             <span class="ms-1"> Ưu đãi</span>
                         </a>
                         <div>
-                            <?php
-                            if (isset($_SESSION['email'])) {
-                            ?>
+                            <?php if (isset($_SESSION['email'])) : ?>
                                 <div id="dropdown" class="dropdown">
-                                    <button class="btn dropdown-toggle" type="button" style="box-shadow: none;" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <a href="login.php" class="text-decoration-none text-white fw-bold mx-0 mx-md-4">
-                                            <i class="fa-regular fa-user text-white px-2"></i>
+                                    <div class="btn dropdown-toggle d-flex align-items-center" type="button" style="box-shadow: none;" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="preview-img">
+                                            <img src="<?= htmlspecialchars($user['avatar']) ?>" alt="" style="border-radius: 50%; width: 30px; height: 30px; background-color: #efefef;">
+                                        </div>
+                                        <a href="#" class="text-decoration-none text-white fw-bold mx-0 ms-md-2">
                                             <?= htmlspecialchars(explode('@', $_SESSION['email'])[0]) ?>
                                         </a>
-                                    </button>
+                                    </div>
                                     <ul id="dropdown-menu" class="dropdown-menu text-white">
                                         <li><a class="dropdown-item" href="/profile">Tài khoản</a></li>
                                         <li><a class="dropdown-item" href="/purchase">Đơn mua</a></li>
@@ -123,12 +125,9 @@
                                                 Đăng Xuất
                                             </button>
                                         </form>
-                                        </li>
                                     </ul>
                                 </div>
-                            <?php
-                            } else {
-                            ?>
+                            <?php else : ?>
                                 <a class="text-white text-decoration-none fw-bold mx-3" href="/login">
                                     <i class="fas fa-sign-in-alt"></i>
                                     Đăng nhập
@@ -137,9 +136,7 @@
                                     <i class="fas fa-user-plus"></i>
                                     Đăng ký
                                 </a>
-                            <?php
-                            }
-                            ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

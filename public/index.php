@@ -18,8 +18,16 @@ require_once SRC_DIR . '/routes/checkout.php';
 
 $router->get('/', function () {
     $BookModel = new \App\Models\BookModel();
+    $UserModel = new \App\Models\UserModel();
+
     $ketqua = $BookModel->getAll();
     $random = $BookModel->getRandom();
+
+    if (isset($_SESSION['email'])) {
+        $email = htmlspecialchars($_SESSION['email']);
+        $user = $UserModel->getByEmail($email);
+    }
+
     require_once VIEWS_DIR . '/home/index.php';
 });
 
