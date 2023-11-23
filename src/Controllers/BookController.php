@@ -6,15 +6,15 @@ class BookController
 {
     public function getDetail(int $id)
     {
-        if (empty($_SESSION['email'])) {
-            redirect('/login');
-        }
+
 
         $UserModel = new \App\Models\UserModel();
         $BookModel = new \App\Models\BookModel();
 
-        $email = htmlspecialchars($_SESSION['email']);
-        $user = $UserModel->getByEmail($email);
+        if (!empty($_SESSION['email'])) {
+            $email = htmlspecialchars($_SESSION['email']);
+            $user = $UserModel->getByEmail($email);
+        }
 
         $book = $BookModel->getById($id);
         $sptt = $BookModel->getAllByAuthor($book['tac_gia']);
