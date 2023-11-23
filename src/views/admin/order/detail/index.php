@@ -9,15 +9,18 @@
 <main class="container" style="min-height: 100vh; min-width: 500px;">
     <div class=" p-5">
         <p class="fs-3 fw-semibold text-center">Chi tiết đơn hàng</p>
-        <a href="/admin/order" class="text-decoration-none fw-semibold"><i class="fa-solid fa-arrow-left me-1"></i>Quay lại</a>
+        <a href="/admin/order" class="text-decoration-none fw-semibold"><i class="fa-solid fa-arrow-left me-1"></i>Quay
+            lại</a>
         <p class="text-end text-uppercase mb-0 fs-6">
             Trạng thái:
             <span class="ms-2 fw-bold">
                 <?= htmlspecialchars($results[0]['trang_thai'] == 0 ? 'Chờ xác nhận' : ($results[0]['trang_thai'] == 1 ? 'Đang giao' : ($results[0]['trang_thai'] == 2 ? 'Hủy' : 'Đã nhận'))) ?>
             </span>
-        </p>`
-        <div class="row shadow text-center p-4 mb-5 mt-2 order" style="background-color: white;" data-order_id="<?= htmlspecialchars($results[0]['orderId']) ?>" data-order_status="<?= htmlspecialchars($results[0]['trang_thai']) ?>">
-            <?php foreach ($results as $item) : ?>
+        </p>
+        <div class="row shadow text-center p-4 mb-5 mt-2 order" style="background-color: white;"
+            data-order_id="<?= htmlspecialchars($results[0]['orderId']) ?>"
+            data-order_status="<?= htmlspecialchars($results[0]['trang_thai']) ?>">
+            <?php foreach ($results as $item): ?>
                 <div class="col-12 col-md-6">
                     <div class="py-3 d-flex align-items-center border bg-white">
                         <div class="col-3">
@@ -33,8 +36,12 @@
                                     </p>
                                 </div>
                                 <p class="mt-2">
-                                    <span class="text-decoration-line-through text-black-50 me-2"><?= htmlspecialchars(format_money($item['gia_goc'])) ?></span>
-                                    <span class="text-danger fw-bold sale"><?= htmlspecialchars(format_money($item['gia'])) ?></span>
+                                    <span class="text-decoration-line-through text-black-50 me-2">
+                                        <?= htmlspecialchars(format_money($item['gia_goc'])) ?>
+                                    </span>
+                                    <span class="text-danger fw-bold sale">
+                                        <?= htmlspecialchars(format_money($item['gia'])) ?>
+                                    </span>
                                 </p>
                             </div>
                             <div class="text-start">
@@ -49,12 +56,16 @@
             <div class="mt-3 d-block d-md-flex justify-content-between align-items-center flex-wrap">
                 <div class="d-flex gap-3 align-items-center">
                     <p class="mb-0">Thành tiền:</p>
-                    <span class="text-danger fw-semibold fs-4"><?= htmlspecialchars(format_money($item['tong_tien'])) ?></span>
+                    <span class="text-danger fw-semibold fs-4">
+                        <?= htmlspecialchars(format_money($item['tong_tien'])) ?>
+                    </span>
                 </div>
 
-                <?php if ($results[0]['trang_thai'] == 0 || $results[0]['trang_thai'] == 1) : ?>
+                <?php if ($results[0]['trang_thai'] == 0 || $results[0]['trang_thai'] == 1): ?>
                     <div class="text-end mt-3 mt-md-0">
-                        <button class="btnUpdate btn text-white" style="min-width: 200px; min-height: 45px; background-color:#3aafa9;">Cập nhật trạng thái giao hàng</button>
+                        <button class="btnUpdate btn text-white"
+                            style="min-width: 200px; min-height: 45px; background-color:#3aafa9;">Cập nhật trạng thái giao
+                            hàng</button>
                     </div>
                 <?php endif ?>
             </div>
@@ -150,7 +161,7 @@
     }
 
     const previewImg = (input, previewTag) => {
-        input.on('change', function() {
+        input.on('change', function () {
             if ($(this).val()) {
                 const files = $(this)[0].files;
 
@@ -185,9 +196,9 @@
         })
     }
 
-    $().ready(function() {
+    $().ready(function () {
         $.validator.setDefaults({
-            submitHandler: function() {
+            submitHandler: function () {
                 const formData = new FormData();
                 const img = $('.img')[0].files[0];
                 const imgs = $('.imgs')[0].files;
@@ -210,9 +221,9 @@
                 formData.append("book", JSON.stringify(book));
 
                 fetch('/admin/edit', {
-                        method: 'POST',
-                        body: formData,
-                    })
+                    method: 'POST',
+                    body: formData,
+                })
                     .then(res => res.json())
                     .then(res => {
                         Swal.fire({
